@@ -1,0 +1,10 @@
+# Original large media files
+Maria Fascetti anyagok/
+*.mov
+video_1_WJMqoHUQ.mp4
+720-as.mp4
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
