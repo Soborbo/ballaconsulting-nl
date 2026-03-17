@@ -1,8 +1,13 @@
-# Original large media files
+# Source/reference files - not part of the website
 Maria Fascetti anyagok/
 *.mov
 video_1_WJMqoHUQ.mp4
 720-as.mp4
+balla-consulting-FINAL.html
+balla-consulting-wireframe*.html
+ballaconsulting1*.jpg
+New website.docx*
+ChatGPT Image*
 
 # OS files
 .DS_Store
