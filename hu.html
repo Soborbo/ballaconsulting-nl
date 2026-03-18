@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balla Consulting – Útja a Növekedéshez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #343549;
+            background: #F4F6F8;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* ===== COLORS ===== */
+        :root {
+            --navy: #0A192F;
+            --mist: #F4F6F8;
+            --gold: #C5A059;
+            --slate: #6B818C;
+            --white: #FFFFFF;
+            --text: #343549;
+        }
+
+        /* ===== TOP NAVBAR ===== */
+        .top-nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 18px 40px;
+        }
+        .top-nav .nav-links {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 25, 47, 0.97);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s;
+        }
+        .top-nav .nav-links.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .top-nav .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .top-nav .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hamburger toggle */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 101;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile call button in hero */
+        .hero-mobile-call {
+            display: none;
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            z-index: 10;
+            width: 56px;
+            height: 56px;
+            background: var(--gold);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(197,160,89,0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+        .hero-mobile-call:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(197,160,89,0.6);
+        }
+        .hero-mobile-call svg {
+            width: 24px;
+            height: 24px;
+            color: var(--navy);
+        }
+
+        /* ===== STICKY CTA BAR ===== */
+        .sticky-cta {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: var(--navy);
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 40px;
+        }
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+        .sticky-cta .sticky-logo img {
+            height: 36px;
+        }
+        .sticky-cta .sticky-info {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .sticky-cta .sticky-info a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+        .sticky-cta .sticky-info a:hover {
+            color: var(--gold);
+        }
+        .sticky-cta .sticky-info svg {
+            width: 14px;
+            height: 14px;
+            color: var(--gold);
+        }
+        .sticky-cta .sticky-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 8px 24px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .sticky-cta .sticky-btn:hover {
+            background: #d4af6a;
+        }
+
+        /* ===== HERO – SPLIT LAYOUT ===== */
+        .hero {
+            display: flex;
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-scroll-arrow {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            z-index: 10;
+            opacity: 0;
+            animation: arrowFadeIn 0.6s ease 2s forwards, arrowBounce 1.5s ease-in-out 2.6s infinite;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .hero-scroll-arrow svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--gold);
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        }
+        @keyframes arrowFadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        .hero-video-side {
+            width: 50%;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--navy);
+        }
+        .hero-video-side img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-video-overlay {
+            display: none;
+        }
+        .hero-cta-btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 16px 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s;
+            margin-top: 20px;
+            border: 2px solid var(--gold);
+        }
+        .hero-cta-btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.3);
+        }
+        .hero-cta-sub {
+            color: rgba(255,255,255,0.35);
+            font-size: 12px;
+            margin-top: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-message-side {
+            flex: 1;
+            min-width: 0;
+            background: linear-gradient(170deg, #0e1a30 0%, #152242 35%, #1a2d52 60%, #132040 85%, #0a1628 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-message-side::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(197, 160, 89, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 70%, rgba(197, 160, 89, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 50% 100%, rgba(197, 160, 89, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-message {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            text-align: center;
+        }
+        .hero-logo {
+            height: 80px;
+            margin-bottom: 36px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.92;
+        }
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+        .hero-message h1 {
+            font-size: 46px;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 28px;
+        }
+        .hero-message h1 span {
+            color: var(--gold);
+        }
+        .hero-message p {
+            color: rgba(255,255,255,0.65);
+            font-size: 17px;
+            line-height: 1.8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        .hero-divider {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 24px auto;
+        }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 100px 0; }
+        .hero { padding: 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--slate);
+            font-size: 16px;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== INVESTOR CHALLENGE / SOLUTION ===== */
+        .challenge-section {
+            background: var(--white);
+        }
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .challenge-box h3 {
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .challenge-box h3 .icon-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .challenge-box p {
+            line-height: 1.8;
+        }
+        .challenge-box .highlight {
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 19px;
+            margin-top: 20px;
+        }
+
+        /* ===== PRINCIPLES ===== */
+        .principles-section {
+            background: var(--mist);
+        }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .principle-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            border-top: 3px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .principle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .principle-card .card-icon {
+            margin-bottom: 16px;
+            width: 40px;
+            height: 40px;
+            color: var(--gold);
+        }
+        .principle-card .card-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+        .principle-card h3 {
+            color: var(--navy);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .principle-card h4 {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .principle-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        .principle-card ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+        .principle-card ul li {
+            padding: 6px 0;
+            padding-left: 18px;
+            position: relative;
+            font-size: 15px;
+        }
+        .principle-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-section {
+            background: var(--white);
+        }
+        .about-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .about-photo {
+            position: relative;
+        }
+        .about-photo img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 8px;
+            display: block;
+        }
+        .about-photo .photo-label {
+            text-align: center;
+            margin-top: 16px;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 18px;
+        }
+        .about-photo .photo-role {
+            text-align: center;
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+        .about-text p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+        .about-signature {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: var(--navy);
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-section {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .services-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        .services-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .services-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(170deg, rgba(10,25,47,0.92) 0%, rgba(21,34,66,0.88) 40%, rgba(10,25,47,0.90) 100%);
+        }
+        .services-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        .services-section .section-title {
+            color: var(--white);
+        }
+        .services-section .section-subtitle {
+            color: rgba(255,255,255,0.55);
+        }
+        .services-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .service-column {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(197,160,89,0.15);
+            border-radius: 12px;
+            padding: 36px;
+        }
+        .service-column h3 {
+            color: var(--white);
+            font-size: 22px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold);
+        }
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+        }
+        .service-item .svc-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(197,160,89,0.15);
+            border: 1px solid rgba(197,160,89,0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        .service-item .svc-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+        .service-item h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .service-item p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* ===== FEE STRUCTURE ===== */
+        .fees-section {
+            background: var(--white);
+        }
+        .fee-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .fee-card {
+            background: var(--mist);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+        }
+        .fee-card .fee-card-header { order: 1; }
+        .fee-card .fee-cta { order: 2; }
+        .fee-card .fee-card-body { order: 3; }
+        .fee-card-header {
+            background: var(--navy);
+            padding: 28px 32px;
+            color: var(--white);
+        }
+        .fee-card-header h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+        .fee-card-header p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+        }
+        .fee-card-body {
+            padding: 32px;
+        }
+        .fee-card-body h4 {
+            color: var(--navy);
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .fee-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(107, 129, 140, 0.1);
+        }
+        .fee-item .fee-label {
+            color: var(--navy);
+            font-weight: 700;
+        }
+        .fee-item .fee-value {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .fee-item .fee-note {
+            font-size: 13px;
+            color: var(--slate);
+        }
+        .fee-card .fee-cta {
+            display: block;
+            text-align: center;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .fee-card .fee-cta:hover {
+            background: #d4af6a;
+        }
+
+        /* ===== HOOK A ===== */
+        .hook-map-section {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        /* ===== BLOG ===== */
+        .blog-section {
+            background: var(--white);
+        }
+        .blog-card {
+            background: var(--mist);
+            border-radius: 8px;
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .blog-card h3 {
+            color: var(--navy);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        .blog-card .blog-sub {
+            color: var(--gold);
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .blog-card p {
+            margin-bottom: 14px;
+            line-height: 1.8;
+        }
+        .blog-card .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: var(--mist);
+        }
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        .faq-category h3 {
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .faq-question {
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--navy);
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: rgba(197, 160, 89, 0.05);
+        }
+        .faq-question .faq-toggle {
+            color: var(--gold);
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .faq-answer-inner {
+            padding: 0 24px 18px;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            background: var(--white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-form h3 {
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+        .contact-form input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid rgba(107, 129, 140, 0.25);
+            border-radius: 6px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            margin-bottom: 16px;
+            background: var(--mist);
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .contact-form button {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 6px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #d4af6a;
+        }
+        .calendly-side h3 {
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+        .calendly-placeholder {
+            background: var(--mist);
+            border: 2px dashed rgba(107, 129, 140, 0.3);
+            border-radius: 8px;
+            padding: 60px 30px;
+            text-align: center;
+            color: var(--slate);
+        }
+        .calendly-placeholder p {
+            margin-bottom: 16px;
+        }
+        .contact-details {
+            margin-top: 40px;
+        }
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .contact-details .detail-icon {
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+        .contact-details .detail-icon svg {
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.5);
+            padding: 50px 0 30px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+        .footer-logo img {
+            height: 50px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column; height: 100vh; max-height: 100vh; }
+            .hero-video-side { width: 100%; height: 45vh; flex-shrink: 0; }
+            .hero-video-overlay { display: none; }
+            .hero-message-side { padding: 50px 30px; }
+            .hero-message h1 { font-size: 36px; }
+            .about-layout { grid-template-columns: 1fr; }
+            .top-nav .nav-links a { font-size: 18px; letter-spacing: 2px; }
+        }
+        @media (max-width: 768px) {
+            .hero-message h1 { font-size: 28px; }
+            .hero-tagline { font-size: 11px; letter-spacing: 3px; }
+            .hero-message-side { padding: 36px 24px; }
+            .hero-mobile-call { display: flex; }
+            .whatsapp-btn { display: inline-flex !important; }
+            .challenge-grid,
+            .principles-grid,
+            .services-columns,
+            .fee-cards,
+            .contact-grid { grid-template-columns: 1fr; }
+            .service-column { padding: 24px; }
+            .section-title { font-size: 28px; }
+            .top-nav { padding: 14px 20px; }
+            .sticky-cta { padding: 8px 16px; }
+            .sticky-cta .sticky-info { gap: 12px; }
+            .sticky-cta .sticky-info a span { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== STICKY CTA BAR (appears on scroll) ===== -->
+<div class="sticky-cta" id="stickyCta">
+    <div class="sticky-logo">
+        <a href="#home"><img src="logo-white.svg" alt="Balla Consulting"></a>
+    </div>
+    <div class="sticky-info">
+        <a href="mailto:maria.balla@ballaconsulting.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>maria.balla@ballaconsulting.com</span>
+        </a>
+        <a href="tel:+31618445121">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+31 618 445121</span>
+        </a>
+        <a href="#contact" class="sticky-btn">Kérjen Konzultációt</a>
+    </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+    <!-- Top navigation over the hero -->
+    <nav class="top-nav">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">Rólunk</a>
+            <a href="#services">Szolgáltatások</a>
+            <a href="#fees">Árak</a>
+            <a href="#contact">Kapcsolat</a>
+            <a href="#blog">Blog</a>
+            <a href="index.html">EN</a>
+        </div>
+    </nav>
+
+    <div class="hero-video-side">
+        <img src="budapest1.jpg" alt="Budapest Parlament és Lánchíd alkonyatkor">
+        <div class="hero-video-overlay"></div>
+        <!-- Mobile call button -->
+        <a href="tel:+31618445121" class="hero-mobile-call" aria-label="Hívjon minket">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+    </div>
+    <div class="hero-message-side">
+        <div class="hero-message">
+            <img src="logo-white.svg" alt="Balla Consulting" class="hero-logo">
+            <p class="hero-tagline">Lépjen a Nyugat-Európai Piacra</p>
+            <h1>Holland Cégalapítás.<br><span>Megbízhatóan.</span></h1>
+            <div class="hero-divider"></div>
+            <p>Holland B.V. alapítás &middot; Adóhatékonyság &middot; Szakmai támogatás</p>
+            <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Kérjen Konzultációt</a>
+        </div>
+        <a href="#challenge" class="hero-scroll-arrow" aria-label="Görgessen le">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ===== MIÉRT HOLLANDIA ===== -->
+<section class="challenge-section" id="challenge">
+    <div class="container">
+        <h2 class="section-title">Miért Hollandia?</h2>
+        <p class="section-subtitle">Stabil háttér a nemzetközi terjeszkedéshez</p>
+        <div class="challenge-grid">
+            <div class="challenge-box">
+                <h3><span class="icon-dot"></span> A Kihívás</h3>
+                <p>A magyar vállalkozások Nyugat-Európában bizalmi fenntartásokkal és szigorúbb fizetési feltételekkel szembesülnek. A holland piac fejlett, de a belépés összetett: jogi követelmények, adminisztráció és a nyelvi akadály megnehezítik az önálló indulást.</p>
+            </div>
+            <div class="challenge-box">
+                <h3><span class="icon-dot"></span> A Megoldás</h3>
+                <p>Teljes körű infrastruktúrát biztosítunk a holland piacra lépéshez. A cégalapítástól a hatósági ügyintézésen át a kapcsolatrendszer kiépítéséig a Balla Consulting az egész folyamatot kezeli.</p>
+                <p class="highlight">Mi végezzük a nehéz munkát, Ön pedig a növekedésre koncentrálhat.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ALAPELVEK ===== -->
+<section class="principles-section" id="principles">
+    <div class="container">
+        <h2 class="section-title">Alapelveink</h2>
+        <p class="section-subtitle">Értékteremtő Megközelítés — Hogyan Dolgozunk</p>
+        <div class="principles-grid">
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                <h3>Nemzetközi Hitelesség</h3>
+                <h4>Nyugat-Európai Jelenlét</h4>
+                <ul>
+                    <li>A magyar vállalkozások Nyugat-Európában bizalmi fenntartásokkal és szigorúbb fizetési feltételekkel szembesülnek.</li>
+                    <li>Létrehozzuk az Ön holland jelenlétét, lehetővé téve az Euróban történő egyszerű számlázást és az üzletkötéshez szükséges hitelességet.</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
+                <h3>Adóhatékonyság</h3>
+                <h4>Határokon Átnyúló Struktúrák</h4>
+                <ul>
+                    <li>A határokon átnyúló nyereség áramoltatás adózási többletterhet és adminisztratív nehézségeket okozhat.</li>
+                    <li>Jól kialakított vállalati struktúrával az osztalékok és tőkenyereségek szabályosan áramolhatnak a két ország között.</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                <h3>Finanszírozási Tanácsadás</h3>
+                <h4>Támogatások és Pályázatok</h4>
+                <ul>
+                    <li>A holland finanszírozási környezet összetett, és a külföldi vállalkozók sokszor nem jutnak hozzá a támogatásokhoz.</li>
+                    <li>Feltérképezzük a kormányzati innovációs támogatásokat és finanszírozási csatornákat, amelyekre vállalkozása jogosult lehet.</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>Holland Kapcsolatok</h3>
+                <h4>Üzleti Hálózat</h4>
+                <ul>
+                    <li>A szakmai hálózat felépítése akár évekbe is telhet, ami lassítja a piaci növekedését.</li>
+                    <li>A megfelelő üzleti közösségekhez irányítjuk Önt, így vállalkozása azonnal helyi jelenlétet biztosít.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RÓLUNK ===== -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">Rólunk</h2>
+        <p class="section-subtitle">Helyi jelenlét. Nemzetközi tapasztalat.</p>
+        <div class="about-layout">
+            <div class="about-photo">
+                <img src="assets/maria-fascetti.webp" alt="Maria Fascetti – A Balla Consulting alapítója" width="800" height="1067" loading="lazy">
+                <p class="photo-label">Maria Fascetti</p>
+                <p class="photo-role">Alapító</p>
+            </div>
+            <div class="about-text">
+                <p>A Balla Consulting alapítójaként magyar cégeknek és magánszemélyeknek segítek abban, hogy kiszámíthatóan és biztonságosan indíthassák el holland vállalkozásukat és léphessenek a nyugat-európai piacra.</p>
+                <p>2018 óta élek és dolgozom Amszterdamban. Ez idő alatt nemcsak megismertem, hanem aktív részese is váltam a holland üzleti életnek. Naprakész ismereteim lehetővé teszik, hogy ügyfeleim tisztában legyenek a helyi szabályozásokkal es elkerüljék a buktatókat, amelyekbe egyedül belefuthatnának.</p>
+                <p>Szakmai éveim alatt világossá vált számomra, hogy ügyfeleim nem csak általános információkat keresnek, hanem egy partnert is, aki végigkíséri őket a cégalapítás folyamatán.</p>
+                <p><strong>Mit jelent a gyakorlatban ez a partnerség?</strong></p>
+                <p>Legyen szó holland cégalapításról vagy piaci terjeszkedésről, a tanácsadáson túl csapatommal operatív segítséget is nyújtok. Koordinálom a teljes folyamatot, felügyelem a jogi ügymenetet, és személyesen járok el a hivatalos szerveknél az Ön érdekében.</p>
+                <p>Szolgáltatásaink túlmutatnak a papírmunkán: segítünk elindítani kapcsolatrendszerének kiépítését, feltérképezzük a holland állami támogatásokat, és igény esetén a teljes hollandiai letelepedést is megszervezzük.</p>
+                <p>Ha készen áll, hogy egy stabil hátterű nyugat-európai piac felé nyisson, beszéljünk.</p>
+                <p class="about-signature">Maria Fascetti</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SZOLGÁLTATÁSOK ===== -->
+<section class="services-section" id="services">
+    <div class="services-bg">
+        <img src="assets/DSC_8696.jpg" alt="" loading="lazy">
+    </div>
+    <div class="container">
+        <h2 class="section-title">Belépés a Holland Piacra</h2>
+        <p class="section-subtitle">Ideális megoldás magyar cégeknek</p>
+        <div class="services-columns">
+            <div class="service-column">
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22V10h6v12"/><path d="M9 6h.01M15 6h.01"/></svg></div>
+                    <div>
+                        <h4>Holland cégalapítás közjegyzői közreműködéssel – minden jogi lépés biztonságosan lebonyolítva</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <div>
+                        <h4>Bejegyzés a Holland Kereskedelmi Kamarába (KVK)</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9.5H9.5a3.5 3.5 0 1 0 0 7H17"/><line x1="6" y1="9.5" x2="20" y2="9.5"/><line x1="6" y1="16.5" x2="20" y2="16.5"/></svg></div>
+                    <div>
+                        <h4>Adószám (RSIN) és ÁFA-regisztráció</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                    <div>
+                        <h4>UBO-regisztráció</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg></div>
+                    <div>
+                        <h4>Könyvelés és pénzügyi támogatás megbízható partnerhálózatunk segítségével</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <div>
+                        <h4>Állami támogatások feltérképezése</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                    <div>
+                        <h4>Üzleti kapcsolatrendszer kiépítésének gyors és egyszerű elindítása</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ÁRAK ===== -->
+<section class="fees-section" id="fees">
+    <div class="container">
+        <h2 class="section-title">Átlátható Árazás</h2>
+        <p class="section-subtitle">Tiszta, előre meghatározott díjak, rejtett költségek nélkül</p>
+        <div class="fee-cards">
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>Holland Piaci Belépés (B.V.)</h3>
+                    <p>Magyar vállalkozóknak, akik holland jogi személyt szeretnének létrehozni.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Fix Ár</p>
+                        <p class="fee-value">&euro;1,850</p>
+                        <p class="fee-note">A törvényben előírt közjegyzői, vállalat regisztrációs díjakat és az ÁFA-t nem tartalmazza</p>
+                    </div>
+                    <h4 style="margin-top: 16px;">Tartalmazza:</h4>
+                    <ul style="list-style:none; margin-top: 8px;">
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Holland cégalapítás közjegyzői közreműködéssel</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bejegyzés a Holland Kereskedelmi Kamarába (KVK)</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Adószám (RSIN) és ÁFA-regisztráció</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> UBO-regisztráció</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Könyvelés és pénzügyi támogatás megbízható partnerhálózatunk segítségével</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Állami támogatások feltérképezése</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Üzleti kapcsolatrendszer kiépítésének gyors és egyszerű elindítása</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="fee-cta">Ajánlatkérés</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOOK A ===== -->
+<section class="hook-map-section" id="hook-bv">
+    <div class="container" style="text-align:center;">
+        <h2 class="section-title">A Holland B.V. a Megfelelő Választás az Ön Számára?</h2>
+        <a href="#" class="hero-cta-btn">B.V. vs. Kft Összehasonlító Letöltése</a>
+    </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section class="blog-section" id="blog">
+    <div class="container">
+        <h2 class="section-title">Blog</h2>
+        <p class="section-subtitle">Szakmai betekintés</p>
+        <div class="blog-card">
+            <h3>A Holland B.V.</h3>
+            <p class="blog-sub">Az egyik legrugalmasabb vállalkozási forma Európában</p>
+            <p>A holland B.V. az egyik legrugalmasabb, startup-barát vállalkozási forma Európában. A minimális alaptőke csak 0,01 euró ellentétbe a magyar 3 000 000 Ft-os induló összeggel. Az alapítás körülbelül 5 munkanapot vesz igénybe és közjegyző közreműködésével történik. Hollandia kiváló nemzetközi hírnévvel rendelkezik, fejlett angol nyelvű jogi és könyvelési infrastruktúrára épül, és számos adóegyezményi megállapodást kötött más országokkal, köztük Magyarországgal is.</p>
+            <a href="#" class="read-more">Teljes Cikk Olvasása &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GYIK ===== -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2 class="section-title">Gyakran Ismételt Kérdések</h2>
+        <p class="section-subtitle">Minden, amit a holland cégalapításról tudni érdemes</p>
+
+        <div class="faq-category">
+            <h3>Cégalapítás és Struktúra</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Miért érdemes egy magyar vállalatnak holland Kft.-t (B.V.-t) alapítania? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">A holland B.V. erős nemzetközi hitelességet, stabil hírnevet, kiszámítható jogi környezetet és közvetlen hozzáférést nyújt a fejlett nyugat-európai pénzügyi és üzleti piacokhoz.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Segítenek egy B.V., vagy bármilyen más holland cégforma alapításában? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Igen. Ha magyar vállalkozóként a nyugat-európai piacra kíván lépni, végigkísérjük a holland cégalapítás teljes folyamatán és gondoskodunk arról, hogy vállalkozása minden jogi és adminisztratív követelménynek maradéktalanul megfeleljen.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">A B.V. megegyezik a magyar Kft.-vel? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Nagyon hasonlóak. Mindkettő korlátolt felelősségű társaság. A holland B.V. azonban rugalmassága és Hollandia kiterjedt adóegyezmény-hálózata miatt világszerte elismert prémium vállalati forma.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mennyi a minimális alaptőke a BV-ben? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">2012 óta a minimális tőkekövetelmény mindössze 0,01 euró (egy cent) a magyar 3 millió forint követelménnyel szemben.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Lehet magyar állampolgárnak vagy magyar cégnek 100%-os tulajdonrésze egy holland B.V.-ben? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Igen. Nincs korlátozás a külföldi tulajdonra vonatkozóan. Magyar magánszemély vagy magyar cég is lehet 100%-os tulajdonos.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hollandiába kell utaznom a papírok aláírásához? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Nem feltétlenül. A cégbejegyzést közjegyzői meghatalmazás útján is elintézhetjük. (bizonyos esetekben ehhez meg hivatalos hitelesítés is szükséges) A bankszámla megnyitásához azonban a személyes megjelenés elengedhetetlen.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Szüksége van a B.V.-nek fizikai irodára Hollandiában? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Igen, a vállalatnak regisztrált címre van szüksége.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mennyi ideig tart a regisztrációs folyamat? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ha minden szükséges dokumentum (útlevélmásolat, lakcímigazolás, stb.) rendelkezésre áll, a holland közjegyző általában 5–10 munkanap alatt elkészíti az alapító okiratot. Ezután a cég bejegyzése a Kereskedelmi Kamarában 1–2 munkanap alatt megtörténik, így a teljes folyamat általában 2 hét alatt lezárul.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hogyan alakul a társasági adókulcs? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Hollandia társasági adókulcsa: 19% 200 000 € nyereségig, 25,8% felett. Bár ez magasabb, mint Magyarország 9%-a, a holland leányvállalatoktól kapott osztalékok és tőkenyereségek gyakran 100%-ban adómentesek.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hogyan nyitható holland üzleti bankszámla? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Hollandiában a banki előírások szigorúak, különösen külföldi tulajdonú cégek esetén. Bár senki sem tudja garantálni a számlanyitást, mi bemutatjuk Önt olyan bankoknak, amelyek nyitottak nemzetközi struktúrákra.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Mi az „UBO" nyilvántartás? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Minden holland B.V. köteles az uniós átláthatósági és átvilágítási szabályoknak megfelelően bejelenteni tulajdonosai adatát. Gondoskodunk a regisztráció szabályos lebonyolításáról, hogy a bankszámlanyitás és a működés zökkenőmentes legyen.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Adózás</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Hogyan kezeljük a holland B.V. könyvelését? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Bár mi magunk nem vagyunk könyvelők, megbízható holland adótanácsadó partnerekkel dolgozunk együtt. Ezzel biztosítjuk, hogy cége már az első naptól megfeleljen az adózási előírásoknak.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hogyan kerülhető el a kettős adóztatás Hollandia és Magyarország között? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Hollandia és Magyarország között érvényben van egy adóegyezmény, amely megakadályozza, hogy ugyanazon jövedelem után kétszer fizessen adót. Szolgáltatásunk segítségével az osztalékokat, kamatokat és egyéb jövedelmeket úgy strukturáljuk, hogy azok adóhatékonyan, jogszerűen és zökkenőmentesen áramolhassanak.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Együttműködés a Balla Consultinggal</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Mekkora a Balla Consulting csapata? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">A Balla Consulting egy butik jellegű tanácsadó cég, ahol ügyfeleink közvetlenül az alapítóval dolgoznak együtt, aki kiterjedt magyar és holland szakmai kapcsolatokkal rendelkezik. A kommunikáció személyes és a felelősségvállalás egyértelmű.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Milyen árazással dolgoznak? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Vállalati szolgáltatásainkat fix díjas csomagokban kínáljuk, amit megtalál az 'árak' menüpontban. A díjazást és a szolgáltatás pontos tartalmát minden esetben írásban, a munka megkezdése előtt rögzítjük.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Ha Hollandiában szeretnék letelepedni, segítenek-e a költözésben? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Bár fő tevékenységünk a cégalapítás, tapasztalatunk kiterjed a letelepedés gyakorlati lépéseire is és külön igény esetén, akár ebben is támogatást nyújthatunk.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Milyen további előnyökkel jár a Balla Consulting szolgáltatásainak igénybevétele? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Pénzügyi lehetőségek feltérképezése: Hollandia kiemelkedő finanszírozási lehetőségeket kínál, de kulcsfontosságú, hogy tudjuk, hol és hogyan kell keresni. Segítünk eligazodni a rendszerben, amelyeket a legtöbb külföldi vállalat kihagy. Helyi kapcsolatrendszer és bizalom: A holland üzleti élet a bizalmon alapul. Összekötjük Önt megbízható adótanácsadókkal, jogi szakemberekkel és partnerekkel, akikkel mi magunk is együtt dolgozunk. Emellett gyakorlati tippeket adunk a helyi üzleti kapcsolatrendszer kiépítéséhez, amely vállalata számára hitelességet, működési lendületet és további növekedési lehetőségeket biztosít.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Miért érdemes a Balla Consultingot választani? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Elsősorban azért, mert magyarul beszélünk, és jól ismerjük a magyar üzleti gondolkodásmódot így a holland jogi környezetben is pontos és gyakorlati tanácsokat adunk. Helyi képviselőként szakmai útmutatással segítünk elkerülni a szabályozási hibákat, igy vállalkozása biztonságosan és zökkenőmentesen működhet.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hogyan kezdhetjük el a közös munkát? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Első lépésként egy konzultáció keretében átbeszéljük céljait és lehetőségeit, majd ezek alapján személyre szabott stratégiát dolgozunk ki. Az alábbi gombra kattintva közvetlenül is kérhet konzultációt.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== KAPCSOLAT ===== -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2 class="section-title">Kapcsolat</h2>
+        <p class="section-subtitle">Válassza az Önnek legmegfelelőbb kapcsolatfelvételi módot</p>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h3>Üzenet Küldése</h3>
+                <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Az Ön Neve" required>
+                    <input type="email" name="email" placeholder="Az Ön Email Címe" required>
+                    <button type="submit">Küldés</button>
+                </form>
+                <div class="contact-details">
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> maria.balla@ballaconsulting.com</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <span style="font-size:16px;">&#x1F1F3;&#x1F1F1;</span> +31 618 445121</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <span style="font-size:16px;">&#x1F1ED;&#x1F1FA;</span> +36 70 5708972</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Amstelveen, The Netherlands</p>
+                    <p class="whatsapp-btn" style="margin-top: 16px; display: none;">
+                        <a href="https://wa.me/31618445121" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; transition: background 0.3s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="calendly-side">
+                <h3>Konzultáció Foglalása</h3>
+                <div class="calendly-placeholder">
+                    <p>Calendly foglalási widget helye</p>
+                    <p style="font-size: 13px;">Cserélje ki ezt a helykitöltőt a Calendly beágyazó kódjával</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo-white.svg" alt="Balla Consulting">
+            </div>
+            <div class="footer-social">
+                <a href="https://x.com/BallaConsulting" target="_blank" rel="noopener" title="X (Twitter)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="https://www.linkedin.com/in/balla-consulting-7455323b4" target="_blank" rel="noopener" title="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Balla Consulting. Minden jog fenntartva.</p>
+            <div class="footer-links">
+                <a href="#disclaimer">Jogi nyilatkozat</a>
+                <a href="#gdpr">GDPR és Adatvédelmi Szabályzat</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // Hamburger menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('active');
+            navLinks.classList.remove('open');
+        });
+    });
+
+    // Sticky CTA bar on scroll
+    const stickyCta = document.getElementById('stickyCta');
+    const hero = document.getElementById('home');
+
+    window.addEventListener('scroll', () => {
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        if (window.scrollY > heroBottom - 100) {
+            stickyCta.classList.add('visible');
+        } else {
+            stickyCta.classList.remove('visible');
+        }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-answer').style.maxHeight = null;
+            });
+
+            // Open clicked if it was closed
+            if (!isActive) {
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // Smooth scroll offset for fixed elements
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const stickyHeight = stickyCta.classList.contains('visible') ? stickyCta.offsetHeight : 0;
+                window.scrollTo({
+                    top: target.offsetTop - stickyHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
