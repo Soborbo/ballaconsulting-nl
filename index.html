@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balla Consulting – Your Way to Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         /* ===== RESET & BASE ===== */
@@ -37,7 +37,24 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            gap: 14px;
             padding: 18px 40px;
+        }
+        .lang-switch {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+            padding: 5px 12px;
+            border-radius: 4px;
+            z-index: 101;
+            transition: background 0.3s, color 0.3s;
+        }
+        .lang-switch:hover {
+            background: var(--gold);
+            color: var(--navy);
         }
         .top-nav .nav-links {
             position: fixed;
@@ -287,7 +304,7 @@
             text-align: center;
         }
         .hero-logo {
-            height: 80px;
+            height: 96px;
             margin-bottom: 36px;
             display: block;
             margin-left: auto;
@@ -347,7 +364,7 @@
 
         /* ===== INVESTOR CHALLENGE / SOLUTION ===== */
         .challenge-section {
-            background: var(--white);
+            background: var(--mist);
         }
         .challenge-grid {
             display: grid;
@@ -382,16 +399,34 @@
 
         /* ===== PRINCIPLES ===== */
         .principles-section {
-            background: var(--mist);
+            background: var(--white);
+        }
+        .principles-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .principles-photo {
+            border-radius: 8px;
+            overflow: hidden;
+            position: sticky;
+            top: 80px;
+        }
+        .principles-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
         }
         .principles-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
         }
         .principle-card {
-            background: var(--white);
-            padding: 40px;
+            background: var(--mist);
+            padding: 32px;
             border-radius: 8px;
             border-top: 3px solid var(--gold);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -491,10 +526,11 @@
             line-height: 1.8;
         }
         .about-signature {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'La Belle Aurore', cursive;
             color: var(--navy);
-            font-size: 28px;
+            font-size: 34px;
             margin-top: 30px;
+            letter-spacing: 2px;
         }
         .team-grid {
             display: grid;
@@ -595,19 +631,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-        }
-        .solve-divider-img {
-            margin: 40px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            height: 220px;
-        }
-        .solve-divider-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
         }
         .solve-card {
             background: rgba(255,255,255,0.05);
@@ -1036,14 +1059,15 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero { flex-direction: column; height: 100vh; max-height: 100vh; }
+            .hero { flex-direction: column; height: auto; max-height: none; overflow: visible; }
             .hero-video-side { width: 100%; height: 45vh; flex-shrink: 0; }
             .hero-video-overlay { display: none; }
             .hero-message-side { padding: 50px 30px; }
             .hero-message h1 { font-size: 36px; }
             .about-layout { grid-template-columns: 1fr; }
+            .principles-layout { grid-template-columns: 1fr; }
+            .principles-photo { max-width: 350px; margin: 0 auto; position: static; }
             .solve-grid { grid-template-columns: 1fr 1fr; }
-            .solve-divider-img { height: 180px; }
             .case-stats { grid-template-columns: repeat(2, 1fr); }
             .top-nav .nav-links a { font-size: 18px; letter-spacing: 2px; }
         }
@@ -1059,7 +1083,6 @@
             .fee-cards,
             .contact-grid { grid-template-columns: 1fr; }
             .solve-grid { grid-template-columns: 1fr; }
-            .solve-divider-img { height: 140px; }
             .team-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 28px; }
             .case-stats { grid-template-columns: 1fr 1fr; }
@@ -1094,6 +1117,7 @@
 <section class="hero" id="home">
     <!-- Top navigation over the hero -->
     <nav class="top-nav">
+        <a href="hu.html" class="lang-switch">HU</a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -1104,7 +1128,6 @@
             <a href="#fees">Fee Structure</a>
             <a href="#contact">Contact</a>
             <a href="#blog">Blog</a>
-            <a href="hu.html" style="color:var(--gold); border:1px solid var(--gold); padding:6px 14px; border-radius:4px; font-size:13px;">HU</a>
         </div>
     </nav>
 
@@ -1145,52 +1168,6 @@
                 <h3><span class="icon-dot"></span> The Solution</h3>
                 <p>We provide a turn-key infrastructure for your capital. From sourcing undervalued properties or industrial assets, negotiating the best price to managing renovations and full company setup, Balla Consulting handles the entire process.</p>
                 <p class="highlight">We do the hard work, you own the asset.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== PRINCIPLES ===== -->
-<section class="principles-section" id="principles">
-    <div class="container">
-        <h2 class="section-title">Principles</h2>
-        <p class="section-subtitle">Core Value Proposition — How We Work</p>
-        <div class="principles-grid">
-            <div class="principle-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
-                <h3>Financial Discipline</h3>
-                <h4>Full Cost Transparency</h4>
-                <ul>
-                    <li><strong>Total Cost of Acquisition — No "Hidden" Fees:</strong> Unlike standard agents, we calculate the total acquisition cost — including transfer tax, legal fees and administrative obligations before you make an offer.</li>
-                    <li><strong>Independent Valuation Check:</strong> We verify pricing against local transaction data to prevent overpayment and "foreign pricing."</li>
-                </ul>
-            </div>
-            <div class="principle-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
-                <h3>Local Advantage</h3>
-                <h4>Language Is Power</h4>
-                <ul>
-                    <li>As native Hungarian speakers, we negotiate firmly on your behalf to secure the asset at the best possible entry price.</li>
-                    <li><strong>Direct Market Presence – Local Expertise:</strong> Many foreign agencies rely on third-party local partners. We operate directly in Budapest as native Hungarian professionals, ensuring clear communication and reliable on-the-ground oversight.</li>
-                </ul>
-            </div>
-            <div class="principle-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-                <h3>Direct Communication</h3>
-                <h4>Single Point of Contact</h4>
-                <ul>
-                    <li>You have one dedicated contact throughout the process. The Chief Advisor coordinates all parties involved — from legal advisors to contractors and suppliers to accountants.</li>
-                    <li><strong>Transparent Reporting:</strong> Regular photo and video updates provide full oversight.</li>
-                    <li><strong>Speed of Execution:</strong> We actively manage timelines to ensure a swift transition from acquisition to rental.</li>
-                </ul>
-            </div>
-            <div class="principle-card">
-                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                <h3>Responsibility</h3>
-                <ul>
-                    <li><strong>Personalized Investment Strategy:</strong> Your financial objectives determine the direction. We listen first, then build a structured plan — whether for real estate or company formation.</li>
-                    <li><strong>Active Oversight:</strong> Your capital is treated with the same discipline as our own. Every step is handled transparently and within the legal framework.</li>
-                </ul>
             </div>
         </div>
     </div>
@@ -1319,11 +1296,6 @@
                 <p class="solution-label">Solution</p>
                 <p>We focus on markets such as Hungary, where entry prices remain accessible and capital growth potential is stronger.</p>
             </div>
-        </div>
-        <div class="solve-divider-img">
-            <img src="assets/DSC_8529.jpg" alt="Budapest cityscape" loading="lazy">
-        </div>
-        <div class="solve-grid">
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
                 <h3>Legal Security</h3>
@@ -1450,6 +1422,57 @@
                     <p style="color: var(--slate); text-align:center; font-size: 15px;">We offer tailored solutions for complex cross-border investments and multi-property portfolios.</p>
                 </div>
                 <a href="#contact" class="fee-cta" style="background: var(--navy); color: var(--gold);">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRINCIPLES ===== -->
+<section class="principles-section" id="principles">
+    <div class="container">
+        <h2 class="section-title">Principles</h2>
+        <p class="section-subtitle">Core Value Proposition — How We Work</p>
+        <div class="principles-layout">
+            <div class="principles-photo">
+                <img src="assets/DSC_8696.jpg" alt="Maria Fascetti – Balla Consulting" loading="lazy">
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
+                    <h3>Financial Discipline</h3>
+                    <h4>Full Cost Transparency</h4>
+                    <ul>
+                        <li><strong>Total Cost of Acquisition — No "Hidden" Fees:</strong> Unlike standard agents, we calculate the total acquisition cost — including transfer tax, legal fees and administrative obligations before you make an offer.</li>
+                        <li><strong>Independent Valuation Check:</strong> We verify pricing against local transaction data to prevent overpayment and "foreign pricing."</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                    <h3>Local Advantage</h3>
+                    <h4>Language Is Power</h4>
+                    <ul>
+                        <li>As native Hungarian speakers, we negotiate firmly on your behalf to secure the asset at the best possible entry price.</li>
+                        <li><strong>Direct Market Presence – Local Expertise:</strong> Many foreign agencies rely on third-party local partners. We operate directly in Budapest as native Hungarian professionals, ensuring clear communication and reliable on-the-ground oversight.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                    <h3>Direct Communication</h3>
+                    <h4>Single Point of Contact</h4>
+                    <ul>
+                        <li>You have one dedicated contact throughout the process. The Chief Advisor coordinates all parties involved — from legal advisors to contractors and suppliers to accountants.</li>
+                        <li><strong>Transparent Reporting:</strong> Regular photo and video updates provide full oversight.</li>
+                        <li><strong>Speed of Execution:</strong> We actively manage timelines to ensure a swift transition from acquisition to rental.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Responsibility</h3>
+                    <ul>
+                        <li><strong>Personalized Investment Strategy:</strong> Your financial objectives determine the direction. We listen first, then build a structured plan — whether for real estate or company formation.</li>
+                        <li><strong>Active Oversight:</strong> Your capital is treated with the same discipline as our own. Every step is handled transparently and within the legal framework.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
