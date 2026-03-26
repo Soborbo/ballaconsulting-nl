@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balla Consulting – Your Way to Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         /* ===== RESET & BASE ===== */
@@ -37,24 +37,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 14px;
             padding: 18px 40px;
-        }
-        .lang-switch {
-            color: var(--gold);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            border: 1px solid var(--gold);
-            padding: 5px 12px;
-            border-radius: 4px;
-            z-index: 101;
-            transition: background 0.3s, color 0.3s;
-        }
-        .lang-switch:hover {
-            background: var(--gold);
-            color: var(--navy);
         }
         .top-nav .nav-links {
             position: fixed;
@@ -304,7 +287,7 @@
             text-align: center;
         }
         .hero-logo {
-            height: 96px;
+            height: 80px;
             margin-bottom: 36px;
             display: block;
             margin-left: auto;
@@ -364,7 +347,7 @@
 
         /* ===== INVESTOR CHALLENGE / SOLUTION ===== */
         .challenge-section {
-            background: var(--mist);
+            background: var(--white);
         }
         .challenge-grid {
             display: grid;
@@ -399,34 +382,16 @@
 
         /* ===== PRINCIPLES ===== */
         .principles-section {
-            background: var(--white);
-        }
-        .principles-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .principles-photo {
-            border-radius: 8px;
-            overflow: hidden;
-            position: sticky;
-            top: 80px;
-        }
-        .principles-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
+            background: var(--mist);
         }
         .principles-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 40px;
         }
         .principle-card {
-            background: var(--mist);
-            padding: 32px;
+            background: var(--white);
+            padding: 40px;
             border-radius: 8px;
             border-top: 3px solid var(--gold);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -526,11 +491,10 @@
             line-height: 1.8;
         }
         .about-signature {
-            font-family: 'La Belle Aurore', cursive;
+            font-family: 'Dancing Script', cursive;
             color: var(--navy);
-            font-size: 34px;
+            font-size: 28px;
             margin-top: 30px;
-            letter-spacing: 2px;
         }
         .team-grid {
             display: grid;
@@ -640,6 +604,20 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+        }
+        .solve-break-img {
+            margin: 40px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 400px;
+            max-width: 100%;
+        }
+        .solve-break-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
         .solve-card {
             background: rgba(255,255,255,0.05);
@@ -818,87 +796,10 @@
             color: var(--navy);
         }
 
-        /* ===== HOOK A: FREE GUIDE ===== */
+        /* ===== HOOK A: INVESTMENT MAP ===== */
         .hook-map-section {
             background: var(--white);
             padding: 80px 0;
-        }
-        .guide-promo {
-            display: flex;
-            align-items: center;
-            gap: 48px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .guide-promo-cover {
-            flex-shrink: 0;
-            width: 280px;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 12px 40px rgba(10, 25, 47, 0.25);
-            position: relative;
-            background: var(--navy);
-        }
-        .guide-promo-cover img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .guide-promo-cover h3 {
-            color: var(--white);
-            font-size: 19px;
-            line-height: 1.3;
-            padding: 20px 20px 8px;
-        }
-        .guide-promo-cover h3 span {
-            color: var(--gold);
-        }
-        .guide-promo-cover p {
-            color: rgba(255,255,255,0.5);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0 20px 20px;
-        }
-        .guide-promo-text {
-            flex: 1;
-        }
-        .guide-promo-text h2 {
-            color: var(--navy);
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-        .guide-promo-text p {
-            color: var(--slate);
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 8px;
-        }
-        .guide-promo-text ul {
-            list-style: none;
-            padding: 0;
-            margin: 16px 0 24px;
-        }
-        .guide-promo-text ul li {
-            color: var(--slate);
-            font-size: 15px;
-            padding: 4px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        .guide-promo-text ul li::before {
-            content: '✓';
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-        @media (max-width: 768px) {
-            .guide-promo { flex-direction: column; text-align: center; gap: 32px; }
-            .guide-promo-cover { width: 200px; padding: 28px 20px; }
-            .guide-promo-text ul li { text-align: left; }
         }
 
         /* ===== PRIVATE LIST (Hook B) ===== */
@@ -1009,156 +910,85 @@
         /* ===== CONTACT ===== */
         .contact-section {
             background: var(--white);
-            padding-bottom: 50px;
         }
-        .contact-layout {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
+            gap: 60px;
         }
-        .contact-left-col {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        .contact-left-col .section-title {
-            text-align: left;
-            margin-bottom: 8px;
-        }
-        .contact-left-col .section-subtitle {
-            text-align: left;
-            margin-bottom: 28px;
-        }
-        .contact-card {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-photo {
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-        }
-        .contact-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .contact-info {
-            background: var(--navy);
-            color: var(--white);
-            padding: 28px 24px;
-            border-radius: 0 0 8px 8px;
-        }
-        .contact-info h3 {
-            color: var(--gold);
-            font-size: 18px;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-        }
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.85);
-        }
-        .contact-info p:last-child { margin-bottom: 0; }
-        .contact-info .detail-icon {
-            color: var(--gold);
-            display: inline-flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        .contact-info a {
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .contact-info a:hover { color: var(--gold); }
-        .contact-message {
-            margin-top: 28px;
-        }
-        .contact-message h3 {
+        .contact-form h3 {
             color: var(--navy);
-            font-size: 20px;
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+        .contact-form input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid rgba(107, 129, 140, 0.25);
+            border-radius: 6px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
             margin-bottom: 16px;
-        }
-        .contact-form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            align-items: start;
-        }
-        .contact-form-row input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(107, 129, 140, 0.25);
-            border-radius: 6px;
-            font-family: 'Lato', sans-serif;
-            font-size: 15px;
             background: var(--mist);
             transition: border-color 0.3s;
         }
-        .contact-form-row input:focus {
+        .contact-form input:focus {
             outline: none;
             border-color: var(--gold);
         }
-        .contact-message textarea {
+        .contact-form button {
+            display: block;
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(107, 129, 140, 0.25);
-            border-radius: 6px;
-            font-family: 'Lato', sans-serif;
-            font-size: 15px;
-            background: var(--mist);
-            transition: border-color 0.3s;
-            resize: vertical;
-            min-height: 100px;
-            margin-top: 12px;
-            box-sizing: border-box;
-        }
-        .contact-message textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-        .contact-form-btn {
-            margin-top: 12px;
-        }
-        .contact-form-btn button {
-            padding: 14px 28px;
+            padding: 16px;
             background: var(--gold);
             color: var(--navy);
             border: none;
             border-radius: 6px;
             font-family: 'Lato', sans-serif;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: background 0.3s;
-            white-space: nowrap;
-            width: 100%;
         }
-        .contact-form-btn button:hover {
+        .contact-form button:hover {
             background: #d4af6a;
         }
-        .contact-right-col {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-right-col h3 {
+        .calendly-side h3 {
             color: var(--navy);
-            font-size: 20px;
+            font-size: 22px;
+            margin-bottom: 24px;
+        }
+        .calendly-placeholder {
+            background: var(--mist);
+            border: 2px dashed rgba(107, 129, 140, 0.3);
+            border-radius: 8px;
+            padding: 60px 30px;
+            text-align: center;
+            color: var(--slate);
+        }
+        .calendly-placeholder p {
             margin-bottom: 16px;
         }
-        .calendly-inline-widget {
-            border-radius: 8px;
-            overflow: hidden;
+        .contact-details {
+            margin-top: 40px;
         }
-        .calendly-inline-widget iframe {
-            overflow: hidden !important;
+        .contact-details p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .contact-details .detail-icon {
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+        .contact-details .detail-icon svg {
+            flex-shrink: 0;
         }
 
         /* ===== FOOTER ===== */
@@ -1220,18 +1050,12 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero { flex-direction: column; height: auto; max-height: none; overflow: visible; }
+            .hero { flex-direction: column; height: 100vh; max-height: 100vh; }
             .hero-video-side { width: 100%; height: 45vh; flex-shrink: 0; }
             .hero-video-overlay { display: none; }
             .hero-message-side { padding: 50px 30px; }
             .hero-message h1 { font-size: 36px; }
             .about-layout { grid-template-columns: 1fr; }
-            .principles-layout { grid-template-columns: 1fr; }
-            .contact-layout { grid-template-columns: 1fr; }
-            .contact-left-col { max-width: 500px; margin: 0 auto; }
-            .contact-left-col .section-title,
-            .contact-left-col .section-subtitle { text-align: center; }
-            .principles-photo { max-width: 350px; margin: 0 auto; position: static; }
             .solve-grid { grid-template-columns: 1fr 1fr; }
             .case-stats { grid-template-columns: repeat(2, 1fr); }
             .top-nav .nav-links a { font-size: 18px; letter-spacing: 2px; }
@@ -1245,10 +1069,8 @@
             .challenge-grid,
             .principles-grid,
             .services-columns,
-            .fee-cards { grid-template-columns: 1fr; }
-            .contact-layout { grid-template-columns: 1fr; }
-            .contact-left-col { max-width: 400px; margin: 0 auto; }
-            .contact-form-row { grid-template-columns: 1fr; }
+            .fee-cards,
+            .contact-grid { grid-template-columns: 1fr; }
             .solve-grid { grid-template-columns: 1fr; }
             .team-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 28px; }
@@ -1264,7 +1086,6 @@
             .hero-message-side { padding: 28px 16px; }
             .hero-message h1 { font-size: 22px; line-height: 1.2; }
             .section-title { font-size: 24px; }
-            .contact-left-col { max-width: 100%; }
             .guide-promo-cover { width: 150px; padding: 16px 12px; }
         }
     </style>
@@ -1293,7 +1114,6 @@
 <section class="hero" id="home">
     <!-- Top navigation over the hero -->
     <nav class="top-nav">
-        <a href="hu.html" class="lang-switch">HU</a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -1302,9 +1122,9 @@
             <a href="#principles">Principles</a>
             <a href="#services">Services</a>
             <a href="#fees">Fee Structure</a>
-            <a href="guide.html">Guide</a>
             <a href="#contact">Contact</a>
             <!-- <a href="#blog">Blog</a> -->
+            <a href="hu.html" style="color:var(--gold); border:1px solid var(--gold); padding:6px 14px; border-radius:4px; font-size:13px;">HU</a>
         </div>
     </nav>
 
@@ -1345,6 +1165,52 @@
                 <h3><span class="icon-dot"></span> The Solution</h3>
                 <p>We provide a turn-key infrastructure for your capital. From sourcing undervalued properties or industrial assets, negotiating the best price to managing renovations and full company setup, Balla Consulting handles the entire process.</p>
                 <p class="highlight">We do the hard work, you own the asset.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRINCIPLES ===== -->
+<section class="principles-section" id="principles">
+    <div class="container">
+        <h2 class="section-title">Principles</h2>
+        <p class="section-subtitle">Core Value Proposition — How We Work</p>
+        <div class="principles-grid">
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
+                <h3>Financial Discipline</h3>
+                <h4>Full Cost Transparency</h4>
+                <ul>
+                    <li><strong>Total Cost of Acquisition — No "Hidden" Fees:</strong> Unlike standard agents, we calculate the total acquisition cost — including transfer tax, legal fees and administrative obligations before you make an offer.</li>
+                    <li><strong>Independent Valuation Check:</strong> We verify pricing against local transaction data to prevent overpayment and "foreign pricing."</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                <h3>Local Advantage</h3>
+                <h4>Language Is Power</h4>
+                <ul>
+                    <li>As native Hungarian speakers, we negotiate firmly on your behalf to secure the asset at the best possible entry price.</li>
+                    <li><strong>Direct Market Presence – Local Expertise:</strong> Many foreign agencies rely on third-party local partners. We operate directly in Budapest as native Hungarian professionals, ensuring clear communication and reliable on-the-ground oversight.</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                <h3>Direct Communication</h3>
+                <h4>Single Point of Contact</h4>
+                <ul>
+                    <li>You have one dedicated contact throughout the process. The Chief Advisor coordinates all parties involved — from legal advisors to contractors and suppliers to accountants.</li>
+                    <li><strong>Transparent Reporting:</strong> Regular photo and video updates provide full oversight.</li>
+                    <li><strong>Speed of Execution:</strong> We actively manage timelines to ensure a swift transition from acquisition to rental.</li>
+                </ul>
+            </div>
+            <div class="principle-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>Responsibility</h3>
+                <ul>
+                    <li><strong>Personalized Investment Strategy:</strong> Your financial objectives determine the direction. We listen first, then build a structured plan — whether for real estate or company formation.</li>
+                    <li><strong>Active Oversight:</strong> Your capital is treated with the same discipline as our own. Every step is handled transparently and within the legal framework.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1470,6 +1336,11 @@
                 <p class="solution-label">Solution</p>
                 <p>We focus on markets such as Hungary, where entry prices remain accessible and capital growth potential is stronger.</p>
             </div>
+        </div>
+        <div class="solve-break-img">
+            <img src="assets/DSC_8529.jpg" alt="Budapest" loading="lazy">
+        </div>
+        <div class="solve-grid">
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
                 <h3>Legal Security</h3>
@@ -1601,57 +1472,6 @@
     </div>
 </section>
 
-<!-- ===== PRINCIPLES ===== -->
-<section class="principles-section" id="principles">
-    <div class="container">
-        <h2 class="section-title">Principles</h2>
-        <p class="section-subtitle">Core Value Proposition — How We Work</p>
-        <div class="principles-layout">
-            <div class="principles-photo">
-                <img src="assets/DSC_8696.jpg" alt="Maria Fascetti – Balla Consulting" loading="lazy">
-            </div>
-            <div class="principles-grid">
-                <div class="principle-card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
-                    <h3>Financial Discipline</h3>
-                    <h4>Full Cost Transparency</h4>
-                    <ul>
-                        <li><strong>Total Cost of Acquisition — No "Hidden" Fees:</strong> Unlike standard agents, we calculate the total acquisition cost — including transfer tax, legal fees and administrative obligations before you make an offer.</li>
-                        <li><strong>Independent Valuation Check:</strong> We verify pricing against local transaction data to prevent overpayment and "foreign pricing."</li>
-                    </ul>
-                </div>
-                <div class="principle-card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
-                    <h3>Local Advantage</h3>
-                    <h4>Language Is Power</h4>
-                    <ul>
-                        <li>As native Hungarian speakers, we negotiate firmly on your behalf to secure the asset at the best possible entry price.</li>
-                        <li><strong>Direct Market Presence – Local Expertise:</strong> Many foreign agencies rely on third-party local partners. We operate directly in Budapest as native Hungarian professionals, ensuring clear communication and reliable on-the-ground oversight.</li>
-                    </ul>
-                </div>
-                <div class="principle-card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-                    <h3>Direct Communication</h3>
-                    <h4>Single Point of Contact</h4>
-                    <ul>
-                        <li>You have one dedicated contact throughout the process. The Chief Advisor coordinates all parties involved — from legal advisors to contractors and suppliers to accountants.</li>
-                        <li><strong>Transparent Reporting:</strong> Regular photo and video updates provide full oversight.</li>
-                        <li><strong>Speed of Execution:</strong> We actively manage timelines to ensure a swift transition from acquisition to rental.</li>
-                    </ul>
-                </div>
-                <div class="principle-card">
-                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3>Responsibility</h3>
-                    <ul>
-                        <li><strong>Personalized Investment Strategy:</strong> Your financial objectives determine the direction. We listen first, then build a structured plan — whether for real estate or company formation.</li>
-                        <li><strong>Active Oversight:</strong> Your capital is treated with the same discipline as our own. Every step is handled transparently and within the legal framework.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ===== CASE STUDY ===== -->
 <section class="case-section" id="case-study">
     <div class="container">
@@ -1710,28 +1530,16 @@
     </div>
 </section>
 
-<!-- ===== HOOK A: FREE GUIDE ===== -->
-<section class="hook-map-section" id="free-guide">
-    <div class="container">
-        <div class="guide-promo">
-            <div class="guide-promo-cover">
-                <img src="city-gyor.jpg" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
-                <h3>The Essential Guide to <span>Hungary</span></h3>
-                <p>Balla Consulting</p>
-            </div>
-            <div class="guide-promo-text">
-                <h2>Free Investor's Guide</h2>
-                <p>Everything you need to know before investing in Hungarian real estate or setting up a company — in one comprehensive guide.</p>
-                <ul>
-                    <li>Best cities to live &amp; invest in</li>
-                    <li>Tax benefits &amp; residency options</li>
-                    <li>Step-by-step property buying process</li>
-                    <li>Foreign buyer rules &amp; due diligence</li>
-                    <li>Cost breakdowns &amp; timelines</li>
-                </ul>
-                <a href="guide.html" class="hero-cta-btn">Read the Free Guide</a>
-            </div>
+<!-- ===== HOOK A: INVESTMENT MAP ===== -->
+<section class="hook-map-section" id="investment-map">
+    <div class="container" style="text-align:center;">
+        <h2 class="section-title">Explore Investment Opportunities</h2>
+        <p class="section-subtitle">Regional property prices across Hungary</p>
+        <div style="background: var(--mist); border: 2px dashed rgba(107,129,140,0.3); border-radius: 12px; padding: 80px 30px; margin: 0 auto 30px; max-width: 800px;">
+            <p style="color: var(--slate); font-size: 16px; margin-bottom: 10px;">Interactive Hungarian map with regional m&sup2; prices</p>
+            <p style="color: var(--slate); font-size: 13px;">Coming soon</p>
         </div>
+        <a href="#contact" class="hero-cta-btn">Get an Investment Idea!</a>
     </div>
 </section>
 
@@ -1759,53 +1567,6 @@
     </div>
 </section>
 ===== -->
-
-<!-- ===== CONTACT ===== -->
-<section class="contact-section" id="contact">
-    <div class="container">
-        <div class="contact-layout">
-            <!-- Left column: Title + Card + Form -->
-            <div class="contact-left-col">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Choose your preferred way to connect</p>
-
-                <div class="contact-card">
-                    <div class="contact-photo">
-                        <img src="assets/DSC_8540.jpg" alt="Maria Fascetti – Balla Consulting" loading="lazy">
-                    </div>
-                    <div class="contact-info">
-                        <h3>Balla Consulting</h3>
-                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:maria.balla@ballaconsulting.com">maria.balla@ballaconsulting.com</a></p>
-                        <p><span style="font-size:15px;">&#x1F1F3;&#x1F1F1;</span> <a href="tel:+31618445121">+31 618 445121</a></p>
-                        <p><span style="font-size:15px;">&#x1F1ED;&#x1F1FA;</span> <a href="tel:+36705708972">+36 70 5708972</a></p>
-                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Amstelveen, The Netherlands</p>
-                    </div>
-                </div>
-
-                <div class="contact-message">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
-                        <div class="contact-form-row">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email Address" required>
-                        </div>
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                        <div class="contact-form-btn">
-                            <button type="submit">Send</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Right column: Calendly only -->
-            <div class="contact-right-col">
-                <h3>Schedule a Consultation</h3>
-                <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ===== FAQ ===== -->
 <section class="faq-section" id="faq">
@@ -1921,6 +1682,42 @@
             <div class="faq-item">
                 <div class="faq-question">How do I get started? <span class="faq-toggle">+</span></div>
                 <div class="faq-answer"><div class="faq-answer-inner">We start with a <a href="#contact" style="color:var(--gold);">consultation</a> call to clarify your objectives in order to build a tailored-made strategy. You can request a consultation via the contact form or Calendly link below.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Choose your preferred way to connect</p>
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email Address" required>
+                    <button type="submit">Send</button>
+                </form>
+                <div class="contact-details">
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> maria.balla@ballaconsulting.com</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <span style="font-size:13px;font-size:16px;">&#x1F1F3;&#x1F1F1;</span> +31 618 445121</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span> <span style="font-size:13px;font-size:16px;">&#x1F1ED;&#x1F1FA;</span> +36 70 5708972</p>
+                    <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Amstelveen, The Netherlands</p>
+                    <p class="whatsapp-btn" style="margin-top: 16px; display: none;">
+                        <a href="https://wa.me/31618445121" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; transition: background 0.3s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg> WhatsApp
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="calendly-side">
+                <h3>Schedule a Consultation</h3>
+                <div class="calendly-placeholder">
+                    <p>Calendly booking widget will be embedded here</p>
+                    <p style="font-size: 13px;">Replace this placeholder with your Calendly embed code</p>
+                </div>
             </div>
         </div>
     </div>
