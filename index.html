@@ -320,6 +320,10 @@
             color: var(--gold);
             margin-bottom: 24px;
         }
+        .hero-tagline strong {
+            color: var(--white);
+            font-size: 18px;
+        }
         .hero-message h1 {
             font-size: 46px;
             font-weight: 900;
@@ -783,33 +787,58 @@
         }
         .case-stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
             margin-bottom: 50px;
         }
         .case-stat {
             background: var(--navy);
             color: var(--white);
-            padding: 24px;
+            padding: 18px 12px;
             border-radius: 8px;
             text-align: center;
         }
         .case-stat .stat-value {
             color: var(--gold);
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
         }
         .case-stat .stat-label {
-            font-size: 13px;
+            font-size: 12px;
             color: rgba(255,255,255,0.6);
             margin-top: 6px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
+        .case-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .case-video-side {
+            position: sticky;
+            top: 100px;
+        }
+        .case-video-side img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+        .case-video-side .case-video-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--slate);
+            margin-top: 12px;
+            font-style: italic;
+        }
         .case-body h3 {
             color: var(--navy);
             font-size: 20px;
             margin: 30px 0 12px;
+        }
+        .case-body h3:first-child {
+            margin-top: 0;
         }
         .case-body p {
             line-height: 1.8;
@@ -825,54 +854,39 @@
             padding: 80px 0;
         }
         .guide-promo {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: url('city-budapest.jpg') center/cover no-repeat;
+            min-height: 340px;
             display: flex;
             align-items: center;
-            gap: 48px;
-            max-width: 900px;
-            margin: 0 auto;
+        }
+        .guide-promo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,25,47,0.92) 0%, rgba(10,25,47,0.75) 100%);
+            z-index: 1;
         }
         .guide-promo-cover {
-            flex-shrink: 0;
-            width: 280px;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 12px 40px rgba(10, 25, 47, 0.25);
-            position: relative;
-            background: var(--navy);
-        }
-        .guide-promo-cover img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .guide-promo-cover h3 {
-            color: var(--white);
-            font-size: 19px;
-            line-height: 1.3;
-            padding: 20px 20px 8px;
-        }
-        .guide-promo-cover h3 span {
-            color: var(--gold);
-        }
-        .guide-promo-cover p {
-            color: rgba(255,255,255,0.5);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 0 20px 20px;
+            display: none;
         }
         .guide-promo-text {
+            position: relative;
+            z-index: 2;
+            padding: 48px 56px;
             flex: 1;
         }
         .guide-promo-text h2 {
-            color: var(--navy);
+            color: var(--white);
             font-size: 28px;
             margin-bottom: 12px;
         }
         .guide-promo-text p {
-            color: var(--slate);
+            color: rgba(255,255,255,0.8);
             font-size: 16px;
             line-height: 1.7;
             margin-bottom: 8px;
@@ -881,9 +895,10 @@
             list-style: none;
             padding: 0;
             margin: 16px 0 24px;
+            columns: 2;
         }
         .guide-promo-text ul li {
-            color: var(--slate);
+            color: rgba(255,255,255,0.85);
             font-size: 15px;
             padding: 4px 0;
             padding-left: 20px;
@@ -897,9 +912,8 @@
             font-weight: 700;
         }
         @media (max-width: 768px) {
-            .guide-promo { flex-direction: column; text-align: center; gap: 32px; }
-            .guide-promo-cover { width: 200px; padding: 28px 20px; }
-            .guide-promo-text ul li { text-align: left; }
+            .guide-promo-text { padding: 36px 32px; }
+            .guide-promo-text ul { columns: 1; }
         }
 
         /* ===== PRIVATE LIST (Hook B) ===== */
@@ -919,6 +933,45 @@
             margin: 0 auto 30px;
             font-size: 16px;
         }
+        .eo-form {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+        .eo-form-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .eo-form-row input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.08);
+            color: var(--white);
+            font-size: 15px;
+            font-family: 'Lato', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .eo-form-row input[type="email"]::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+        .eo-form-row input[type="email"]:focus {
+            border-color: var(--gold);
+        }
+        .eo-form-row .hero-cta-btn {
+            white-space: nowrap;
+        }
+        .eo-message {
+            margin-top: 14px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+        .eo-message.success { color: #7dcea0; }
+        .eo-message.error { color: #e74c3c; }
 
         /* ===== BLOG ===== */
         .blog-section {
@@ -1235,11 +1288,14 @@
             .principles-photo { max-width: 350px; margin: 0 auto; position: static; }
             .solve-grid { grid-template-columns: 1fr 1fr; }
             .case-stats { grid-template-columns: repeat(2, 1fr); }
+            .case-layout { grid-template-columns: 1fr; }
+            .case-video-side { position: static; max-width: 280px; margin: 0 auto; }
             .top-nav .nav-links a { font-size: 18px; letter-spacing: 2px; }
         }
         @media (max-width: 768px) {
             .hero-message h1 { font-size: 28px; }
             .hero-tagline { font-size: 11px; letter-spacing: 3px; }
+            .hero-tagline strong { font-size: 15px; }
             .hero-message-side { padding: 36px 24px; }
             .hero-mobile-call { display: flex; }
             .whatsapp-btn { display: inline-flex !important; }
@@ -1266,7 +1322,7 @@
             .hero-message h1 { font-size: 22px; line-height: 1.2; }
             .section-title { font-size: 24px; }
             .contact-left-col { max-width: 100%; }
-            .guide-promo-cover { width: 150px; padding: 16px 12px; }
+            .guide-promo-text { padding: 28px 20px; }
         }
     </style>
 </head>
@@ -1286,7 +1342,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>+31 618 445121</span>
         </a>
-        <a href="#contact" class="sticky-btn">Schedule a Consultation</a>
+        <a href="#contact" class="sticky-btn">Schedule a FREE Initial Consultation</a>
     </div>
 </div>
 
@@ -1294,7 +1350,7 @@
 <section class="hero" id="home">
     <!-- Top navigation over the hero -->
     <nav class="top-nav">
-        <a href="hu.html" class="lang-switch">HU</a>
+        <!-- <a href="hu.html" class="lang-switch">HU</a> -->
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -1304,6 +1360,7 @@
             <a href="#services">Services</a>
             <a href="#fees">Fee Structure</a>
             <a href="guide.html">Guide</a>
+            <a href="#private-list">Access to Private Deals</a>
             <a href="#contact">Contact</a>
             <!-- <a href="#blog">Blog</a> -->
         </div>
@@ -1320,11 +1377,11 @@
     <div class="hero-message-side">
         <div class="hero-message">
             <img src="logo-white.svg" alt="Balla Consulting" class="hero-logo">
-            <p class="hero-tagline">Invest in Hungary Seamlessly</p>
-            <h1>Maximize Yield.<br><span>Minimize Risk.</span><br>Optimize Tax.</h1>
+            <p class="hero-tagline">Invest in <strong>Hungary</strong> Seamlessly</p>
+            <h1>Maximize Yield<br><span>Minimize Risk</span><br>Optimize Tax</h1>
             <div class="hero-divider"></div>
             <p>Acquire Assets &middot; Establish Business &middot; 9% Corporate Tax</p>
-            <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Schedule a Consultation</a>
+            <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Schedule a FREE Initial Consultation</a>
         </div>
         <a href="#challenge" class="hero-scroll-arrow" aria-label="Scroll down">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1335,7 +1392,7 @@
 <!-- ===== INVESTOR CHALLENGE & SOLUTION ===== -->
 <section class="challenge-section" id="challenge">
     <div class="container">
-        <h2 class="section-title">Why Look Beyond the Netherlands?</h2>
+        <h2 class="section-title">Why look beyond the Netherlands and invest in Hungary?</h2>
         <p class="section-subtitle">Turn-key infrastructure for your capital</p>
         <div class="challenge-grid">
             <div class="challenge-box">
@@ -1358,19 +1415,19 @@
         <p class="section-subtitle">Dedicated professionals. Local presence. International reach.</p>
         <div class="about-layout">
             <div class="about-photo">
-                <img src="assets/maria-fascetti.webp" alt="Maria Fascetti – Founder of Balla Consulting" width="800" height="1067" loading="lazy">
-                <p class="photo-label">Maria Fascetti</p>
-                <p class="photo-role">Chief Advisor &amp; Founder</p>
+                <img src="assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" width="800" height="1067" loading="lazy">
+                <p class="photo-label">Maria Balla</p>
+                <p class="photo-role">Chief Advisor</p>
             </div>
             <div class="about-text">
-                <p>I am Maria Fascetti, a Hungarian native based in Amsterdam since 2018. I am a founder of Balla Consulting where we advise institutions, individuals and entrepreneurs who want to invest in Hungary to buy real estate, industrial assets or establish a Hungarian Kft (Ltd) or a cross-border structure.</p>
+                <p>I am Maria Balla, a Hungarian native based in Amsterdam since 2018. I am the founder of Balla Consulting where we advise institutions, individuals and entrepreneurs who want to invest in Hungary to buy real estate, industrial assets or establish a Hungarian Kft (Ltd) or a cross-border structure.</p>
                 <p>Working between the Netherlands and Hungary gives me insight into both markets — from the strict rental legislation and tax pressure in the Netherlands to the higher yields, increasing property values and more flexible tenancy laws available in Hungary.</p>
                 <p>With my team I have assisted clients with acquiring properties, overseeing renovations and managing rental operations. This hands-on experience allows me to supervise due diligence, pricing negotiation and tenant placement with care.</p>
                 <p>Hungary's 9% corporate income tax — the lowest in the European Union — can provide structural advantages when properly aligned with your investment strategy.</p>
                 <p>We provide personalized guidance at every step to our clients to navigate the Hungarian market with clarity and confidence.</p>
                 <p>You retain ownership.<br>We ensure local oversight, transparency and high-quality delivery.</p>
                 <p>If you are considering investing in Hungary, I welcome a confidential conversation.</p>
-                <p class="about-signature">Maria Fascetti</p>
+                <p class="about-signature">Maria Balla</p>
             </div>
         </div>
         <div class="team-grid">
@@ -1451,25 +1508,25 @@
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
                 <h3>Access to Hidden Yields</h3>
                 <p class="challenge-label">The Challenge</p>
-                <p>Public listings are often overpriced or remain hidden.</p>
+                <p>Public listings are often overpriced or highly competitive.</p>
                 <p class="solution-label">Solution</p>
                 <p>We bypass public portals to access off-market deals. You get access to assets with genuine value-add potential before the general market sees them.</p>
             </div>
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 16a3 3 0 0 1 6 0"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg></div>
-                <h3>Reaching Fluid Rental Market</h3>
+                <h3>Reaching Flexible Rental Market</h3>
                 <p class="challenge-label">The Challenge</p>
                 <p>In the Netherlands, strict tenant protection, indefinite contracts and government-capped rent points strip away your control and limit your profit.</p>
                 <p class="solution-label">Solution</p>
-                <p>We guide you into a market where ownership rights are respected. Hungarian rental prices are set by the market—not a point based system— fixed-term contracts are fully enforceable, ensuring your asset remains liquid and profitable.</p>
+                <p>We guide you into a market where ownership is protected. Hungarian rental prices are set by the market—not a point based system— fixed-term contracts are fully enforceable, ensuring your asset remains liquid and profitable.</p>
             </div>
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-                <h3>Key to Potential Growth</h3>
+                <h3>Key to Growth</h3>
                 <p class="challenge-label">The Challenge</p>
-                <p>In highly developed markets like the Netherlands, real estate values are largely stabilised. Limited price expansion and regulatory constraints reduce the potential for meaningful capital growth.</p>
+                <p>In highly developed markets like the Netherlands, the real estate market is already priced at premium, thus limiting meaningful capital growth.</p>
                 <p class="solution-label">Solution</p>
-                <p>We focus on markets such as Hungary, where entry prices remain accessible and capital growth potential is stronger.</p>
+                <p>We focus on markets such as Hungary, where entry prices remain accessible and capital growth is strong.</p>
             </div>
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
@@ -1483,17 +1540,17 @@
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M14.7 10.3a1 1 0 0 0 0 1.4l.6.6a1 1 0 0 0 1.4 0l1.3-1.3a3 3 0 0 1-4-4l1.3 1.3z"/></svg></div>
                 <h3>End-to-End Renovation</h3>
                 <p class="challenge-label">The Challenge</p>
-                <p>Managing a renovation from another country can introduce unnecessary risks</p>
+                <p>Managing a renovation from another country introduces additional risks and delays.</p>
                 <p class="solution-label">Solution</p>
-                <p>We act as your project manager on spot, reviewing contractors, enforcing timelines, controlling budgets. We turn run-down properties into income-generating assets by local knowledge.</p>
+                <p>We act as your project manager on spot, reviewing contractors, enforcing timelines, controlling budgets. We transform underperforming properties into income-generating assets, guided by strong local market knowledge.</p>
             </div>
             <div class="solve-card">
                 <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9.5H9.5a3.5 3.5 0 1 0 0 7H17"/><line x1="6" y1="9.5" x2="20" y2="9.5"/><line x1="6" y1="16.5" x2="20" y2="16.5"/></svg></div>
                 <h3>Tax Advantage</h3>
                 <p class="challenge-label">The Challenge</p>
-                <p>High corporate tax rates in Western Europe can significantly reduce profit margins for cross-border businesses.</p>
+                <p>High tax rates in Western Europe can significantly reduce profit margins for cross-border businesses.</p>
                 <p class="solution-label">Solution</p>
-                <p>We register your operations to leverage Hungary's 9% Corporate Tax rate—the lowest in the EU. We handle the company formation and compliance so you can focus on growth, not on the paperwork</p>
+                <p>We register your operations to leverage Hungary's 9% Corporate Tax rate—the lowest in the EU. We handle company setup and compliance, so you can focus on growth rather than paperwork.</p>
             </div>
         </div>
     </div>
@@ -1609,7 +1666,7 @@
         <p class="section-subtitle">Core Value Proposition — How We Work</p>
         <div class="principles-layout">
             <div class="principles-photo">
-                <img src="assets/DSC_8696.jpg" alt="Maria Fascetti – Balla Consulting" loading="lazy">
+                <img src="assets/DSC_8696.jpg" alt="Maria Balla – Balla Consulting" loading="lazy">
             </div>
             <div class="principles-grid">
                 <div class="principle-card">
@@ -1675,13 +1732,27 @@
                 <p class="stat-value">6% ROI</p>
                 <p class="stat-label">Status: Rented</p>
             </div>
+            <div class="case-stat">
+                <p class="stat-value">12%</p>
+                <p class="stat-label">Value Increase</p>
+            </div>
+        </div>
+        <div class="case-layout">
+        <div class="case-video-side">
+            <a href="https://www.youtube.com/watch?v=a3_Kyp2xfX8" target="_blank" rel="noopener" style="display:block;position:relative;">
+                <img src="https://i.ytimg.com/vi/a3_Kyp2xfX8/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLD2iln431v0ibt0OWkPTMrg83y6wg&usqp=CCk" alt="Before &amp; After – District V Renovation" style="width:100%;border-radius:12px;display:block;">
+                <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(0,0,0,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+                </span>
+            </a>
+            <p class="case-video-caption">Before &amp; After</p>
         </div>
         <div class="case-body">
             <h3>The Objective</h3>
-            <p>Our client, a private investor, sought a high-yield residential asset in Budapest's most prestigious neighborhood: District V. The goal was to acquire a classic apartment with "good bones" but outdated interiors, execute a value-add renovation, and secure a long-term tenant.</p>
+            <p>Our client, a private investor, sought a high-yield residential asset in Budapest's most prestigious neighborhood: District V. The goal was to acquire a classic apartment with "good bones" but outdated interiors, carry out a value-add renovation, and secure a long-term tenant.</p>
 
             <h3>The Challenge</h3>
-            <p>District V is highly competitive. Publicly listed properties are often overpriced or have bad structures. Furthermore, the client needed a specific layout (two separate bedrooms, bathroom/ toilet separation and bright interior) to maximize rental potential. Unfortunately most available apartments required significant changes that would destroy the ROI.</p>
+            <p>District V is highly competitive due to its proximity to the Hungarian Parliament. Publicly listed properties are often overpriced or have bad structures. Furthermore, the client needed a specific layout (two separate bedrooms, bathroom/ toilet separation and bright interior) to maximize rental potential. Unfortunately most available apartments required significant changes that would destroy the ROI.</p>
 
             <h3>1. Acquisition &amp; Negotiation</h3>
             <p>After a long search we identified a niche opportunity: a structurally perfect but aesthetically tired apartment in a prime location. As a good location is key to having a continuous income, we decided to go for it.</p>
@@ -1693,10 +1764,10 @@
 
             <h3>3. Financial Optimization</h3>
             <p>The purchase price was in Hungarian Forint (HUF), but the client's capital was in Euro (EUR). A standard bank transfer would have resulted in a ~2% loss on the exchange rate.</p>
-            <p><strong>Our Action:</strong> We utilized a specialized Forex platform to execute the currency swap at near-market rates, saving the client thousands of Euros in transaction fees.</p>
+            <p><strong>Our Action:</strong> We utilized a specialized Forex platform to lead the currency swap at near-market rates, saving the client thousands of Euros in transaction fees.</p>
 
             <h3>4. Renovation Management</h3>
-            <p>With the keys secured, we executed a "Design-Led" renovation.</p>
+            <p>With the keys secured, we delivered a "Design-Led" renovation.</p>
             <p><strong>The Team:</strong> We tendered the project to three vetted contractors and selected the mid-priced option: a team with verified references and performance guarantees.</p>
             <p><strong>The Design:</strong> We refused to compromise on materials. We personally sourced high-quality finishes and specialized decor painters to create a "luxury boutique" feel</p>
             <p><strong>The Control:</strong> We implemented daily on-site supervision. Every stage of the work was inspected and photographed. This strict oversight kept the superb quality.</p>
@@ -1707,6 +1778,8 @@
             <p><strong>Income:</strong> The property was listed on rental portals immediately upon completion. We secured a tenant within 4 weeks at the top end of the market rental rate.</p>
             <p><strong>Outcome:</strong> A turn-key, high-yield asset generating <strong>passive income of 6%</strong> excluding the capital gain of the property</p>
             <p><strong>Value increase:</strong> Due to the subsidized mortgage rates initiated by the Hungarian government in 2025. July, the estimated property price increase was a minimum of <strong>12%</strong>.</p>
+
+        </div>
         </div>
     </div>
 </section>
@@ -1739,9 +1812,15 @@
 <!-- ===== PRIVATE LIST ===== -->
 <section class="private-list-section" id="private-list">
     <div class="container">
-        <h2>Public listings are for tourists</h2>
-        <p>Join the Balla Consulting Private List for off-market opportunities.<br>No spam, just deal flow.</p>
-        <a href="#contact" class="hero-cta-btn">Request Access to Off-Market Deals</a>
+        <h2>Access to Private Deals</h2>
+        <p>Join the Balla Consulting Private List for access to exclusive investment deals.<br>No spam, just deal flow.</p>
+        <form id="eo-signup-form" class="eo-form" onsubmit="return eoSubmit(event)">
+            <div class="eo-form-row">
+                <input type="email" id="eo-email" name="email" placeholder="Your email address" required>
+                <button type="submit" class="hero-cta-btn">Access to Private Deals</button>
+            </div>
+            <p id="eo-message" class="eo-message"></p>
+        </form>
     </div>
 </section>
 
@@ -1772,7 +1851,7 @@
 
                 <div class="contact-card">
                     <div class="contact-photo">
-                        <img src="assets/DSC_8540.jpg" alt="Maria Fascetti – Balla Consulting" loading="lazy">
+                        <img src="assets/DSC_8540.jpg" alt="Maria Balla – Balla Consulting" loading="lazy">
                     </div>
                     <div class="contact-info">
                         <h3>Balla Consulting</h3>
@@ -1800,7 +1879,7 @@
 
             <!-- Right column: Calendly only -->
             <div class="contact-right-col">
-                <h3>Schedule a Consultation</h3>
+                <h3>Schedule a FREE Initial Consultation</h3>
                 <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
@@ -1942,7 +2021,7 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Balla Consulting. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#disclaimer">Disclaimer</a>
+                <a href="disclaimer.html">Disclaimer</a>
                 <a href="#gdpr">GDPR &amp; Privacy Policy</a>
             </div>
         </div>
@@ -2015,6 +2094,48 @@
             }
         });
     });
+
+    // EmailOctopus signup
+    // CONFIGURE: Replace these with your actual EmailOctopus credentials
+    const EO_LIST_ID = 'YOUR_LIST_ID';
+    const EO_API_KEY = 'YOUR_API_KEY';
+
+    async function eoSubmit(e) {
+        e.preventDefault();
+        const msgEl = document.getElementById('eo-message');
+        const emailInput = document.getElementById('eo-email');
+        const email = emailInput.value;
+        msgEl.className = 'eo-message';
+        msgEl.textContent = '';
+
+        try {
+            const res = await fetch(
+                'https://emailoctopus.com/api/1.6/lists/' + EO_LIST_ID + '/contacts',
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        api_key: EO_API_KEY,
+                        email_address: email,
+                        status: 'PENDING'
+                    })
+                }
+            );
+            const data = await res.json();
+            if (res.ok) {
+                msgEl.textContent = 'Thanks! Please check your email to confirm your subscription.';
+                msgEl.className = 'eo-message success';
+                emailInput.value = '';
+            } else {
+                msgEl.textContent = data.error?.message || 'Something went wrong. Please try again.';
+                msgEl.className = 'eo-message error';
+            }
+        } catch (err) {
+            msgEl.textContent = 'Network error. Please try again.';
+            msgEl.className = 'eo-message error';
+        }
+        return false;
+    }
 </script>
 
 </body>
