@@ -99,8 +99,12 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 4px;
+            padding: 10px;
             z-index: 1001;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
         }
         .hamburger span {
             display: block;
@@ -109,6 +113,10 @@
             background: var(--white);
             border-radius: 2px;
             transition: all 0.3s;
+        }
+        /* Lock body scroll when menu is open */
+        body.menu-open {
+            overflow: hidden;
         }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
@@ -336,7 +344,6 @@
         }
         .hero-tagline strong {
             color: var(--gold);
-            letter-spacing: 6px;
             display: inline-block;
             border-bottom: 2px solid var(--gold);
             padding-bottom: 0px;
@@ -974,7 +981,7 @@
         }
         .eo-form-row input[type="email"] {
             flex: 1;
-            min-width: 220px;
+            min-width: min(220px, 100%);
             padding: 14px 20px;
             border: 1px solid rgba(255,255,255,0.2);
             border-radius: 6px;
@@ -1301,6 +1308,17 @@
             color: var(--gold);
         }
 
+        /* ===== FOCUS STATES ===== */
+        :focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+        .hamburger:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero { flex-direction: column; height: auto; max-height: none; overflow: visible; }
@@ -1340,18 +1358,29 @@
             .section-title { font-size: 28px; }
             .case-stats { grid-template-columns: 1fr 1fr; }
             .top-nav { padding: 14px 20px; }
+            .hamburger { right: 20px; }
             .sticky-cta { padding: 8px 16px; }
+            .sticky-cta .sticky-logo { gap: 10px; }
+            .sticky-cta .sticky-logo a:last-child { display: none; }
             .sticky-cta .sticky-info { gap: 12px; }
             .sticky-cta .sticky-info a span { display: none; }
+            .sticky-cta .sticky-btn { font-size: 11px; padding: 7px 14px; }
             .fee-card { display: block; }
+            .hero-cta-btn { padding: 14px 28px; font-size: 13px; }
+            .faq-question { min-height: 48px; }
         }
         @media (max-width: 480px) {
             .top-nav { padding: 12px 16px; }
+            .hamburger { right: 16px; top: 12px; }
             .hero-message-side { padding: 28px 16px; }
             .hero-message h1 { font-size: 22px; line-height: 1.2; }
+            .hero-tagline { font-size: 10px; letter-spacing: 2px; }
+            .hero-tagline strong { font-size: 14px; }
             .section-title { font-size: 24px; }
             .contact-left-col { max-width: 100%; }
             .guide-promo-text { padding: 28px 20px; }
+            .sticky-cta .sticky-info .sticky-btn { font-size: 10px; padding: 6px 10px; letter-spacing: 0.5px; }
+            .hero-scroll-arrow { bottom: 16px; }
         }
     </style>
 </head>
@@ -1361,7 +1390,7 @@
 <div class="sticky-cta" id="stickyCta">
     <div class="sticky-logo" style="display:flex; align-items:center; gap:18px;">
         <a href="#home"><img src="logo-white.svg" alt="Balla Consulting"></a>
-        <a href="#private-list" style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--gold); padding:5px 14px; border-radius:4px; white-space:nowrap; transition:background 0.3s, color 0.3s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--navy)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Access to Private Deals</a>
+        <a href="#private-list" style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--gold); padding:5px 14px; border-radius:4px; white-space:nowrap; transition:background 0.3s, color 0.3s;" onmouseover="this.style.background='#C5A059';this.style.color='#0A192F'" onmouseout="this.style.background='transparent';this.style.color='#C5A059'">Access to Private Deals</a>
     </div>
     <div class="sticky-info">
         <a href="mailto:maria.balla@ballaconsulting.com">
@@ -1410,7 +1439,7 @@
             <p class="hero-tagline">Invest in <strong>Hungary</strong> Seamlessly</p>
             <h1>Maximize Yield<br><span>Minimize Risk</span><br>Optimize Tax</h1>
             <div class="hero-divider"></div>
-            <p style="white-space:nowrap; font-size:14px;">Undervalued Assets &middot; 9% Corporate Tax &middot; Strategic Investment in Hungary</p>
+            <p style="font-size:14px;">Undervalued Assets &middot; 9% Corporate Tax &middot; Strategic Investment in Hungary</p>
             <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Schedule a FREE Initial Consultation</a>
         </div>
         <a href="#challenge" class="hero-scroll-arrow" aria-label="Scroll down">
@@ -2060,26 +2089,35 @@
     hamburgerBtn.addEventListener('click', () => {
         hamburgerBtn.classList.toggle('active');
         navLinks.classList.toggle('open');
+        document.body.classList.toggle('menu-open');
     });
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             hamburgerBtn.classList.remove('active');
             navLinks.classList.remove('open');
+            document.body.classList.remove('menu-open');
         });
     });
 
-    // Sticky CTA bar on scroll
+    // Sticky CTA bar on scroll (throttled)
     const stickyCta = document.getElementById('stickyCta');
     const hero = document.getElementById('home');
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const heroBottom = hero.offsetTop + hero.offsetHeight;
-        if (window.scrollY > heroBottom - 100) {
-            stickyCta.classList.add('visible');
-        } else {
-            stickyCta.classList.remove('visible');
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const heroBottom = hero.offsetTop + hero.offsetHeight;
+                if (window.scrollY > heroBottom - 100) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(q => {
@@ -2120,7 +2158,6 @@
     });
 
     // EmailOctopus signup - uses native form POST (no CORS issues)
-    }
 </script>
 
 </body>
