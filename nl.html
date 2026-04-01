@@ -1833,12 +1833,11 @@
     <div class="container">
         <h2>Toegang tot investeringsmogelijkheden</h2>
         <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
-        <form id="eo-signup-form" class="eo-form" onsubmit="return eoSubmit(event)">
+        <form id="eo-signup-form" class="eo-form" action="https://eocampaign1.com/form/dfbbeefc-2ce0-11f1-9609-dfa09277aacd" method="POST" target="_blank">
             <div class="eo-form-row">
-                <input type="email" id="eo-email" name="email" placeholder="Uw e-mailadres" required>
+                <input type="email" name="field_0" placeholder="Uw e-mailadres" required>
                 <button type="submit" class="hero-cta-btn">Toegang tot investeringsmogelijkheden</button>
             </div>
-            <p id="eo-message" class="eo-message"></p>
         </form>
     </div>
 </section>
@@ -2098,47 +2097,7 @@
         });
     });
 
-    // EmailOctopus signup
-    // CONFIGURE: Replace these with your actual EmailOctopus credentials
-    const EO_LIST_ID = 'dfbbeefc-2ce0-11f1-9609-dfa09277aacd';
-    const EO_API_KEY = 'eo_59cf6deb428e378eecccba192de3ccd7ff5754401f8c1a2919f4f96ec974c86c';
-
-    async function eoSubmit(e) {
-        e.preventDefault();
-        const msgEl = document.getElementById('eo-message');
-        const emailInput = document.getElementById('eo-email');
-        const email = emailInput.value;
-        msgEl.className = 'eo-message';
-        msgEl.textContent = '';
-
-        try {
-            const res = await fetch(
-                'https://emailoctopus.com/api/1.6/lists/' + EO_LIST_ID + '/contacts',
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        api_key: EO_API_KEY,
-                        email_address: email,
-                        status: 'PENDING'
-                    })
-                }
-            );
-            const data = await res.json();
-            if (res.ok) {
-                msgEl.textContent = 'Thanks! Please check your email to confirm your subscription.';
-                msgEl.className = 'eo-message success';
-                emailInput.value = '';
-            } else {
-                msgEl.textContent = data.error?.message || 'Something went wrong. Please try again.';
-                msgEl.className = 'eo-message error';
-            }
-        } catch (err) {
-            msgEl.textContent = 'Network error. Please try again.';
-            msgEl.className = 'eo-message error';
-        }
-        return false;
-    }
+    // EmailOctopus signup - uses native form POST (no CORS issues)
 </script>
 
 </body>
