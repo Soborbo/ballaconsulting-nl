@@ -33,11 +33,28 @@
             position: absolute;
             top: 0;
             right: 0;
-            z-index: 100;
+            z-index: 1002;
             display: flex;
             align-items: center;
             justify-content: flex-end;
+            gap: 14px;
             padding: 18px 40px;
+        }
+        .lang-switch {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+            padding: 5px 12px;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+            z-index: 1001;
+        }
+        .lang-switch:hover {
+            background: var(--gold);
+            color: var(--navy);
         }
         .top-nav .nav-links {
             position: fixed;
@@ -79,7 +96,7 @@
             background: none;
             border: none;
             padding: 4px;
-            z-index: 101;
+            z-index: 1001;
         }
         .hamburger span {
             display: block;
@@ -947,6 +964,7 @@
 <section class="hero" id="home">
     <!-- Top navigation over the hero -->
     <nav class="top-nav">
+        <a href="index.html" class="lang-switch">EN</a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -956,7 +974,6 @@
             <a href="#fees">Árak</a>
             <a href="#contact">Kapcsolat</a>
             <a href="#blog">Blog</a>
-            <a href="index.html">EN</a>
         </div>
     </nav>
 
