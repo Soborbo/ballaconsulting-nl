@@ -89,17 +89,18 @@
 
         /* Hamburger toggle */
         .hamburger {
-            position: fixed;
-            top: 20px;
-            right: 40px;
             display: flex;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 4px;
+            padding: 10px;
             z-index: 1001;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
         }
         .hamburger span {
             display: block;
@@ -838,7 +839,7 @@
 <!-- ===== GUIDE HERO ===== -->
 <header class="guide-hero" id="top">
     <nav class="top-nav">
-        <a href="hu.html" class="lang-switch">HU</a>
+        <a href="guide-nl.html" class="lang-switch">NL</a>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
