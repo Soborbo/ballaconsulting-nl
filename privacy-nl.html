@@ -24,10 +24,95 @@
             --white: #FFFFFF;
             --text: #343549;
         }
+        /* ===== TOP NAVBAR ===== */
+        .top-nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1002;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 14px;
+            padding: 18px 40px;
+        }
+        .lang-switch {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border: 1px solid var(--gold);
+            padding: 5px 12px;
+            border-radius: 4px;
+            z-index: 1001;
+            transition: background 0.3s, color 0.3s;
+        }
+        .lang-switch:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .top-nav .nav-links {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 25, 47, 0.97);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s;
+        }
+        .top-nav .nav-links.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .top-nav .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        .top-nav .nav-links a:hover {
+            color: var(--gold);
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 1001;
+            min-width: 44px;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
         .disclaimer-header {
             background: var(--navy);
             padding: 48px 0 40px;
             text-align: center;
+            position: relative;
         }
         .disclaimer-header a {
             display: inline-block;
@@ -120,6 +205,18 @@
 <body>
 
 <header class="disclaimer-header">
+    <nav class="top-nav">
+        <a href="privacy.html" class="lang-switch">EN</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="nl.html">Home</a>
+            <a href="nl.html#about">Over ons</a>
+            <a href="nl.html#services">Diensten</a>
+            <a href="nl.html#contact">Contact</a>
+        </div>
+    </nav>
     <div class="container">
         <a href="nl.html"><img src="logo-white.svg" alt="Balla Consulting"></a>
         <h1>Privacybeleid</h1>
@@ -311,6 +408,21 @@
         <p>&copy; 2026 Balla Consulting. Alle rechten voorbehouden.</p>
     </div>
 </footer>
+
+<script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('active');
+            navLinks.classList.remove('open');
+        });
+    });
+</script>
 
 </body>
 </html>
