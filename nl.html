@@ -16,8 +16,12 @@
     <meta name="twitter:description" content="Kijk verder dan Nederland en investeer in Hongarije.">
     <meta name="twitter:image" content="https://ballaconsulting.com/assets/og-nl.jpg">
     <title>Balla Consulting – Uw Weg naar Groei</title>
-    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="icon" type="image/webp" href="icon.webp">
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -865,7 +869,7 @@
             overflow: hidden;
             max-width: 1000px;
             margin: 0 auto;
-            background: url('city-budapest.jpg') center/cover no-repeat;
+            background: url('city-budapest.webp') center/cover no-repeat;
             min-height: 340px;
             display: flex;
             align-items: center;
@@ -1506,7 +1510,7 @@
     </nav>
 
     <div class="hero-video-side">
-        <img src="budapest1.jpg" alt="Budapest Parliament Building and Chain Bridge at dusk">
+        <img src="budapest1.webp" alt="Budapest Parliament Building and Chain Bridge at dusk" width="643" height="845" fetchpriority="high">
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-message-side">
@@ -1809,7 +1813,7 @@
         <p class="section-subtitle">Hoe wij werken</p>
         <div class="principles-layout">
             <div class="principles-photo">
-                <img src="assets/DSC_8696.jpg" alt="Maria Balla – Balla Consulting" loading="lazy">
+                <img src="assets/DSC_8696.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
             </div>
             <div class="principles-grid">
                 <div class="principle-card">
@@ -1926,7 +1930,7 @@
     <div class="container">
         <div class="guide-promo">
             <div class="guide-promo-cover">
-                <img src="city-budapest.jpg" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
+                <img src="city-budapest.webp" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
                 <h3>The Essential Guide to <span>Hungary</span></h3>
                 <p>Balla Consulting</p>
             </div>
@@ -1966,7 +1970,7 @@
 
                 <div class="contact-card">
                     <div class="contact-photo">
-                        <img src="assets/DSC_8540.jpg" alt="Maria Balla – Balla Consulting" loading="lazy">
+                        <img src="assets/DSC_8540.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
                     </div>
                     <div class="contact-info">
                         <h3>Balla Consulting</h3>
@@ -1997,7 +2001,9 @@
             <div class="contact-right-col" id="schedule">
                 <h3>Plan een kosteloos kennismakingsgesprek</h3>
                 <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <script>
+                (function(){var w=document.querySelector('.calendly-inline-widget');if(!w)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;w.parentNode.insertBefore(s,w.nextSibling);o.disconnect();}},{rootMargin:'400px'});o.observe(w);})();
+                </script>
             </div>
         </div>
     </div>
