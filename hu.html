@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Holland cégalapítás megbízhatóan. Balla Consulting segít a nyugat-európai piacra lépésben, cégjogi tanácsadással és teljes körű ügyintézéssel.">
+    <meta property="og:title" content="Balla Consulting – Útja a Növekedéshez">
+    <meta property="og:description" content="Holland cégalapítás megbízhatóan. Segítünk a nyugat-európai piacra lépésben.">
+    <meta property="og:image" content="https://ballaconsulting.com/assets/og-hu.jpg">
+    <meta property="og:url" content="https://ballaconsulting.com/hu.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Balla Consulting">
+    <meta property="og:locale" content="hu_HU">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Balla Consulting – Útja a Növekedéshez">
+    <meta name="twitter:description" content="Holland cégalapítás megbízhatóan.">
+    <meta name="twitter:image" content="https://ballaconsulting.com/assets/og-hu.jpg">
     <title>Balla Consulting – Útja a Növekedéshez</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://assets.calendly.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="icon" type="image/webp" href="icon.webp">
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -117,33 +133,6 @@
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-        /* Mobile call button in hero */
-        .hero-mobile-call {
-            display: none;
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            z-index: 10;
-            width: 56px;
-            height: 56px;
-            background: var(--gold);
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(197,160,89,0.5);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-decoration: none;
-        }
-        .hero-mobile-call:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 24px rgba(197,160,89,0.6);
-        }
-        .hero-mobile-call svg {
-            width: 24px;
-            height: 24px;
-            color: var(--navy);
-        }
 
         /* ===== STICKY CTA BAR ===== */
         .sticky-cta {
@@ -830,16 +819,12 @@
             font-size: 22px;
             margin-bottom: 24px;
         }
-        .calendly-placeholder {
-            background: var(--mist);
-            border: 2px dashed rgba(107, 129, 140, 0.3);
+        .calendly-inline-widget {
             border-radius: 8px;
-            padding: 60px 30px;
-            text-align: center;
-            color: var(--slate);
+            overflow: hidden;
         }
-        .calendly-placeholder p {
-            margin-bottom: 16px;
+        .calendly-inline-widget iframe {
+            overflow: hidden !important;
         }
         .contact-details {
             margin-top: 40px;
@@ -932,7 +917,6 @@
             .hero-message h1 { font-size: 28px; }
             .hero-tagline { font-size: 11px; letter-spacing: 3px; }
             .hero-message-side { padding: 36px 24px; }
-            .hero-mobile-call { display: flex; }
             .whatsapp-btn { display: inline-flex !important; }
             .challenge-grid,
             .principles-grid,
@@ -944,23 +928,92 @@
             .top-nav { padding: 14px 20px; }
 
             .sticky-cta { padding: 8px 16px; }
+            .sticky-cta .sticky-logo { gap: 10px; }
             .sticky-cta .sticky-info { gap: 12px; }
+            .sticky-cta .sticky-info a:not(.sticky-btn) { display: none; }
             .sticky-cta .sticky-info a span { display: none; }
+            .sticky-cta .sticky-btn { font-size: 11px; padding: 7px 14px; }
+            .footer-links { flex-direction: column; gap: 8px; align-items: flex-end; }
         }
         @media (max-width: 480px) {
             .top-nav { padding: 12px 16px; }
-
+            .sticky-cta .sticky-info .sticky-btn { font-size: 10px; padding: 6px 10px; letter-spacing: 0.5px; }
+        }
+        /* Mobile bottom CTA */
+        .mobile-bottom-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            background: var(--navy);
+            border-top: 1px solid rgba(197,160,89,0.3);
+            padding: 10px 16px;
+            display: none;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .mobile-bottom-cta.visible { transform: translateY(0); }
+        .mobile-bottom-cta .cta-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+        .mobile-bottom-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 10px 0;
+            border-radius: 4px;
+            flex: 1;
+            justify-content: center;
+        }
+        .mobile-bottom-cta .cta-call {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .mobile-bottom-cta .cta-email {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .mobile-bottom-cta a svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 1024px) {
+            .mobile-bottom-cta { display: flex; }
+            body { padding-bottom: 56px; }
         }
     </style>
     <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js"></script>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js" async></script>
     <!-- End cookieyes banner -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Balla Consulting – Útja a Növekedéshez",
+        "description": "Holland cégalapítás megbízhatóan. Balla Consulting segít a nyugat-európai piacra lépésben.",
+        "url": "https://ballaconsulting.com/hu.html",
+        "inLanguage": "hu",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Balla Consulting"
+        }
+    }
+    </script>
 </head>
 <body>
 
 <!-- ===== STICKY CTA BAR (appears on scroll) ===== -->
 <div class="sticky-cta" id="stickyCta">
-    <div class="sticky-logo">
+    <div class="sticky-logo" style="display:flex; align-items:center; gap:18px;">
         <a href="#home"><img src="logo-white.svg" alt="Balla Consulting"></a>
     </div>
     <div class="sticky-info">
@@ -972,7 +1025,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>+31 618 445121</span>
         </a>
-        <a href="#contact" class="sticky-btn">Kérjen Konzultációt</a>
+        <a href="#schedule" class="sticky-btn">Kérjen INGYENES Konzultációt</a>
     </div>
 </div>
 
@@ -994,12 +1047,8 @@
     </nav>
 
     <div class="hero-video-side">
-        <img src="budapest1.jpg" alt="Budapest Parlament és Lánchíd alkonyatkor">
+        <img src="budapest1.webp" alt="Budapest Parlament és Lánchíd alkonyatkor" width="643" height="845" fetchpriority="high">
         <div class="hero-video-overlay"></div>
-        <!-- Mobile call button -->
-        <a href="tel:+31618445121" class="hero-mobile-call" aria-label="Hívjon minket">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
     </div>
     <div class="hero-message-side">
         <div class="hero-message">
@@ -1008,7 +1057,7 @@
             <h1>Holland Cégalapítás.<br><span>Megbízhatóan.</span></h1>
             <div class="hero-divider"></div>
             <p>Holland B.V. alapítás &middot; Adóhatékonyság &middot; Szakmai támogatás</p>
-            <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Kérjen Konzultációt</a>
+            <a href="#schedule" class="hero-cta-btn" style="margin-top:35px;">Kérjen Konzultációt</a>
         </div>
         <a href="#challenge" class="hero-scroll-arrow" aria-label="Görgessen le">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1109,7 +1158,7 @@
 <!-- ===== SZOLGÁLTATÁSOK ===== -->
 <section class="services-section" id="services">
     <div class="services-bg">
-        <img src="assets/DSC_8696.jpg" alt="" loading="lazy">
+        <img src="assets/DSC_8696.webp" alt="" loading="lazy">
     </div>
     <div class="container">
         <h2 class="section-title">Belépés a Holland Piacra</h2>
@@ -1343,12 +1392,12 @@
                     </p>
                 </div>
             </div>
-            <div class="calendly-side">
+            <div class="calendly-side" id="schedule">
                 <h3>Konzultáció Foglalása</h3>
-                <div class="calendly-placeholder">
-                    <p>Calendly foglalási widget helye</p>
-                    <p style="font-size: 13px;">Cserélje ki ezt a helykitöltőt a Calendly beágyazó kódjával</p>
-                </div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
+                <script>
+                (function(){var w=document.querySelector('.calendly-inline-widget');if(!w)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;w.parentNode.insertBefore(s,w.nextSibling);o.disconnect();}},{rootMargin:'400px'});o.observe(w);})();
+                </script>
             </div>
         </div>
     </div>
@@ -1369,8 +1418,8 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Balla Consulting. Minden jog fenntartva.</p>
             <div class="footer-links">
-                <a href="#disclaimer">Jogi nyilatkozat</a>
-                <a href="#gdpr">GDPR és Adatvédelmi Szabályzat</a>
+                <a href="disclaimer.html">Jogi nyilatkozat</a>
+                <a href="privacy.html">GDPR és Adatvédelmi Szabályzat</a>
             </div>
         </div>
     </div>
@@ -1443,6 +1492,21 @@
         });
     });
 </script>
+
+<!-- Mobile bottom CTA -->
+<div class="mobile-bottom-cta" id="mobileBottomCta">
+    <div class="cta-row">
+        <a href="tel:+31618445121" class="cta-call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Hívjon most
+        </a>
+        <a href="mailto:maria.balla@ballaconsulting.com" class="cta-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            E-mail küldése
+        </a>
+    </div>
+</div>
+<script>setTimeout(function(){var el=document.getElementById('mobileBottomCta');if(el)el.classList.add('visible');},8000);</script>
 
 </body>
 </html>

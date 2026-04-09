@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="De Essential Guide voor Hongarije – praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer.">
+    <meta property="og:title" content="The Essential Guide voor Hongarije – Balla Consulting">
+    <meta property="og:description" content="Praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer.">
+    <meta property="og:image" content="https://ballaconsulting.com/assets/og-guide-nl.jpg">
+    <meta property="og:url" content="https://ballaconsulting.com/guide-nl.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Balla Consulting">
+    <meta property="og:locale" content="nl_NL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Essential Guide voor Hongarije – Balla Consulting">
+    <meta name="twitter:description" content="Praktische inzichten voor expats, investeerders en remote professionals.">
+    <meta name="twitter:image" content="https://ballaconsulting.com/assets/og-guide-nl.jpg">
     <title>Balla Consulting – The Essential Guide voor Hongarije</title>
-    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
+    <link rel="icon" type="image/webp" href="icon.webp">
     <style>
         /* ===== RESET & BASE ===== */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -812,19 +827,98 @@
             .costs-grid { grid-template-columns: 1fr; }
             .city-grid { grid-template-columns: 1fr; }
             .sticky-cta { padding: 8px 16px; }
+            .sticky-cta .sticky-logo { gap: 10px; }
             .sticky-cta .sticky-info { gap: 12px; }
+            .sticky-cta .sticky-info a:not(.sticky-btn) { display: none; }
             .sticky-cta .sticky-info a span { display: none; }
+            .sticky-cta .sticky-btn { font-size: 11px; padding: 7px 14px; }
+            .summary-box .cta-btn { padding: 14px 24px; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .sticky-cta .sticky-info .sticky-btn { font-size: 10px; padding: 6px 10px; letter-spacing: 0.5px; }
+        }
+
+        /* Mobile bottom CTA */
+        .mobile-bottom-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            background: var(--navy);
+            border-top: 1px solid rgba(197,160,89,0.3);
+            padding: 10px 16px;
+            display: none;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .mobile-bottom-cta.visible { transform: translateY(0); }
+        .mobile-bottom-cta .cta-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+        .mobile-bottom-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            padding: 10px 0;
+            border-radius: 4px;
+            flex: 1;
+            justify-content: center;
+        }
+        .mobile-bottom-cta .cta-call {
+            background: var(--gold);
+            color: var(--navy);
+        }
+        .mobile-bottom-cta .cta-email {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .mobile-bottom-cta a svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 1024px) {
+            .mobile-bottom-cta { display: flex; }
+            body { padding-bottom: 56px; }
         }
     </style>
     <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js"></script>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js" async></script>
     <!-- End cookieyes banner -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Essential Guide voor Hongarije",
+        "description": "Praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer.",
+        "url": "https://ballaconsulting.com/guide-nl.html",
+        "inLanguage": "nl",
+        "image": "https://ballaconsulting.com/assets/og-guide-nl.jpg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Balla Consulting",
+            "url": "https://ballaconsulting.com"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Balla Consulting"
+        }
+    }
+    </script>
 </head>
 <body>
 
 <!-- ===== STICKY CTA BAR ===== -->
 <div class="sticky-cta" id="stickyCta">
-    <div class="sticky-logo">
+    <div class="sticky-logo" style="display:flex; align-items:center; gap:18px;">
         <a href="nl.html"><img src="logo-white.svg" alt="Balla Consulting"></a>
     </div>
     <div class="sticky-info">
@@ -836,7 +930,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>+31 618 445121</span>
         </a>
-        <a href="nl.html#contact" class="sticky-btn">Plan een kosteloos kennismakingsgesprek</a>
+        <a href="nl.html#schedule" class="sticky-btn">Plan een kosteloos kennismakingsgesprek</a>
     </div>
 </div>
 
@@ -909,7 +1003,7 @@
             <div class="city-card featured">
                 <div class="city-card-inner">
                     <div class="city-img">
-                        <img src="city-budapest.jpg" alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy">
+                        <img src="city-budapest.webp" alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy">
                     </div>
                     <div class="city-card-body">
                         <h3>Budapest</h3>
@@ -964,8 +1058,8 @@
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="city-debrecen-bg.jpg">
-                        <img src="city-debrecen.jpg" alt="Debrecen Great Reformed Church" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="city-debrecen-bg.webp">
+                        <img src="city-debrecen.webp" alt="Debrecen Great Reformed Church" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">
@@ -985,8 +1079,8 @@
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="city-szeged-bg.jpg">
-                        <img src="city-szeged.jpg" alt="Szeged Cathedral" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="city-szeged-bg.webp">
+                        <img src="city-szeged.webp" alt="Szeged Cathedral" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">
@@ -1005,8 +1099,8 @@
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="city-gyor-bg.jpg">
-                        <img src="city-gyor.jpg" alt="Győr city center" loading="lazy">
+                        <source media="(min-width: 769px)" srcset="city-gyor-bg.webp">
+                        <img src="city-gyor.webp" alt="Győr city center" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">
@@ -1226,7 +1320,7 @@
         <div class="summary-box">
             <p>Het aankoopproces duurt doorgaans 1 tot 3 maanden, afhankelijk van factoren zoals vergunningen of financiering.</p>
             <p>Het Hongaarse vastgoedproces is transparant, juridisch gestructureerd en toegankelijk voor buitenlandse investeerders. Met de juiste begeleiding biedt het een gecontroleerde en overzichtelijke toegang tot een markt met solide perspectieven.</p>
-            <a href="nl.html#contact" class="cta-btn">Plan een kosteloos kennismakingsgesprek</a>
+            <a href="nl.html#schedule" class="cta-btn">Plan een kosteloos kennismakingsgesprek</a>
         </div>
     </div>
 </section>
@@ -1246,7 +1340,7 @@
         <div class="footer-bottom">
             <p>&copy; 2026 Balla Consulting. Alle rechten voorbehouden.</p>
             <div class="footer-links">
-                <a href="nl.html#disclaimer">Disclaimer</a>
+                <a href="disclaimer.html">Disclaimer</a>
                 <a href="privacy-nl.html">GDPR &amp; Privacybeleid</a>
             </div>
         </div>
@@ -1279,6 +1373,21 @@
         }
     });
 </script>
+
+<!-- Mobile bottom CTA -->
+<div class="mobile-bottom-cta" id="mobileBottomCta">
+    <div class="cta-row">
+        <a href="tel:+31618445121" class="cta-call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Bel nu
+        </a>
+        <a href="mailto:maria.balla@ballaconsulting.com" class="cta-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Stuur e-mail
+        </a>
+    </div>
+</div>
+<script>setTimeout(function(){var el=document.getElementById('mobileBottomCta');if(el)el.classList.add('visible');},8000);</script>
 
 </body>
 </html>
