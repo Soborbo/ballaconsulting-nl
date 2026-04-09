@@ -18,6 +18,7 @@
     <title>Balla Consulting – Útja a Növekedéshez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://assets.calendly.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"></noscript>
     <link rel="icon" type="image/webp" href="icon.webp">
@@ -818,16 +819,12 @@
             font-size: 22px;
             margin-bottom: 24px;
         }
-        .calendly-placeholder {
-            background: var(--mist);
-            border: 2px dashed rgba(107, 129, 140, 0.3);
+        .calendly-inline-widget {
             border-radius: 8px;
-            padding: 60px 30px;
-            text-align: center;
-            color: var(--slate);
+            overflow: hidden;
         }
-        .calendly-placeholder p {
-            margin-bottom: 16px;
+        .calendly-inline-widget iframe {
+            overflow: hidden !important;
         }
         .contact-details {
             margin-top: 40px;
@@ -1028,7 +1025,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>+31 618 445121</span>
         </a>
-        <a href="#contact" class="sticky-btn">Kérjen INGYENES Konzultációt</a>
+        <a href="#schedule" class="sticky-btn">Kérjen INGYENES Konzultációt</a>
     </div>
 </div>
 
@@ -1060,7 +1057,7 @@
             <h1>Holland Cégalapítás.<br><span>Megbízhatóan.</span></h1>
             <div class="hero-divider"></div>
             <p>Holland B.V. alapítás &middot; Adóhatékonyság &middot; Szakmai támogatás</p>
-            <a href="#contact" class="hero-cta-btn" style="margin-top:35px;">Kérjen Konzultációt</a>
+            <a href="#schedule" class="hero-cta-btn" style="margin-top:35px;">Kérjen Konzultációt</a>
         </div>
         <a href="#challenge" class="hero-scroll-arrow" aria-label="Görgessen le">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1395,12 +1392,12 @@
                     </p>
                 </div>
             </div>
-            <div class="calendly-side">
+            <div class="calendly-side" id="schedule">
                 <h3>Konzultáció Foglalása</h3>
-                <div class="calendly-placeholder">
-                    <p>Calendly foglalási widget helye</p>
-                    <p style="font-size: 13px;">Cserélje ki ezt a helykitöltőt a Calendly beágyazó kódjával</p>
-                </div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
+                <script>
+                (function(){var w=document.querySelector('.calendly-inline-widget');if(!w)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;w.parentNode.insertBefore(s,w.nextSibling);o.disconnect();}},{rootMargin:'400px'});o.observe(w);})();
+                </script>
             </div>
         </div>
     </div>
