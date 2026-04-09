@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kijk verder dan Nederland en investeer in Hongarije. Balla Consulting biedt een turn-key infrastructuur voor vastgoedinvesteringen, bedrijfsoprichting en renovatiemanagement.">
+    <meta property="og:title" content="Balla Consulting – Uw Weg naar Groei">
+    <meta property="og:description" content="Kijk verder dan Nederland en investeer in Hongarije. Turn-key infrastructuur voor vastgoedinvesteringen, bedrijfsoprichting en renovatiemanagement.">
+    <meta property="og:image" content="https://ballaconsulting.com/assets/og-nl.jpg">
+    <meta property="og:url" content="https://ballaconsulting.com/nl.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Balla Consulting">
+    <meta property="og:locale" content="nl_NL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Balla Consulting – Uw Weg naar Groei">
+    <meta name="twitter:description" content="Kijk verder dan Nederland en investeer in Hongarije.">
+    <meta name="twitter:image" content="https://ballaconsulting.com/assets/og-nl.jpg">
     <title>Balla Consulting – Uw Weg naar Groei</title>
     <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="icon.png">
@@ -1378,10 +1390,89 @@
             .sticky-cta .sticky-info .sticky-btn { font-size: 10px; padding: 6px 10px; letter-spacing: 0.5px; }
             .hero-scroll-arrow { bottom: 16px; }
         }
+
+        /* Mobile bottom call CTA */
+        .mobile-bottom-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            background: var(--navy);
+            border-top: 1px solid rgba(197,160,89,0.3);
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .mobile-bottom-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--navy);
+            background: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 10px 28px;
+            border-radius: 4px;
+            width: 100%;
+            justify-content: center;
+        }
+        .mobile-bottom-cta a svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 1024px) {
+            .mobile-bottom-cta { display: block; }
+            body { padding-bottom: 56px; }
+        }
     </style>
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js"></script>
     <!-- End cookieyes banner -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Balla Consulting",
+        "url": "https://ballaconsulting.com",
+        "logo": "https://ballaconsulting.com/logo-white.svg",
+        "description": "Kijk verder dan Nederland en investeer in Hongarije. Turn-key infrastructuur voor vastgoedinvesteringen, bedrijfsoprichting en renovatiemanagement.",
+        "email": "maria.balla@ballaconsulting.com",
+        "telephone": "+31618445121",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Amstelveen",
+            "addressCountry": "NL"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Maria Balla",
+            "jobTitle": "Chief Advisor"
+        },
+        "areaServed": ["NL", "HU"],
+        "sameAs": [
+            "https://x.com/BallaMa49578",
+            "https://www.linkedin.com/company/balla-consulting"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Balla Consulting – Uw Weg naar Groei",
+        "description": "Kijk verder dan Nederland en investeer in Hongarije. Turn-key infrastructuur voor vastgoedinvesteringen, bedrijfsoprichting en renovatiemanagement.",
+        "url": "https://ballaconsulting.com/nl.html",
+        "inLanguage": "nl",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Balla Consulting"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -2132,6 +2223,14 @@
 
     // EmailOctopus signup - uses native form POST (no CORS issues)
 </script>
+
+<!-- Mobile bottom call CTA -->
+<div class="mobile-bottom-cta">
+    <a href="tel:+31618445121">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Bel ons – Kosteloos kennismakingsgesprek
+    </a>
+</div>
 
 </body>
 </html>
