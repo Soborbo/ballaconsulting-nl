@@ -823,9 +823,11 @@
             .costs-grid { grid-template-columns: 1fr; }
             .city-grid { grid-template-columns: 1fr; }
             .sticky-cta { padding: 8px 16px; }
+            .sticky-cta .sticky-logo { gap: 10px; }
             .sticky-cta .sticky-info { gap: 12px; }
             .sticky-cta .sticky-info a:not(.sticky-btn) { display: none; }
             .sticky-cta .sticky-info a span { display: none; }
+            .sticky-cta .sticky-btn { font-size: 11px; padding: 7px 14px; }
             .summary-box .cta-btn { padding: 14px 24px; text-align: center; }
         }
 
@@ -909,7 +911,7 @@
 
 <!-- ===== STICKY CTA BAR ===== -->
 <div class="sticky-cta" id="stickyCta">
-    <div class="sticky-logo">
+    <div class="sticky-logo" style="display:flex; align-items:center; gap:18px;">
         <a href="index.html"><img src="logo-white.svg" alt="Balla Consulting"></a>
     </div>
     <div class="sticky-info">
