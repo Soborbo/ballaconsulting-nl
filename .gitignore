@@ -1,5 +1,6 @@
 # Astro build output
 dist/
+.astro/
 node_modules/
 
 # Source/reference files - not part of the website
