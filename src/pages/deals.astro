@@ -4,6 +4,41 @@ export const prerender = true;
 import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Footer from '../components/Footer.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Access to Private Deals – Balla Consulting",
+    "description": "Join the Balla Consulting Private List for access to exclusive real estate investment deals in Hungary. No spam, just deal flow.",
+    "url": "https://ballaconsulting.com/deals",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com",
+      "logo": "https://ballaconsulting.com/logo-white.svg"
+    }
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Deals",
+    "description": "Exclusive access to curated real estate investment opportunities in Hungary, including off-market properties and value-add renovation projects.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "areaServed": ["NL", "HU"],
+    "serviceType": "Real Estate Investment Advisory"
+  })
+];
 ---
 
 <BaseLayout
@@ -19,6 +54,7 @@ import Footer from '../components/Footer.astro';
   twitterDescription="Exclusive real estate investment deals in Hungary. No spam, just deal flow."
   twitterImage="https://ballaconsulting.com/assets/og-index.jpg"
   lang="en"
+  structuredData={structuredData}
 >
 
 <section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">

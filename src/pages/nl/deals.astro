@@ -4,6 +4,41 @@ export const prerender = true;
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Toegang tot investeringsmogelijkheden – Balla Consulting",
+    "description": "Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden in Hongarije.",
+    "url": "https://ballaconsulting.com/nl/deals",
+    "inLanguage": "nl",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com",
+      "logo": "https://ballaconsulting.com/logo-white.svg"
+    }
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Deals",
+    "description": "Exclusieve toegang tot zorgvuldig geselecteerde vastgoedinvesteringen in Hongarije, inclusief off-market objecten en renovatieprojecten met meerwaarde.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "areaServed": ["NL", "HU"],
+    "serviceType": "Vastgoedinvestering Advies"
+  })
+];
 ---
 
 <BaseLayout
@@ -19,6 +54,7 @@ import Footer from '../../components/Footer.astro';
   twitterDescription="Exclusieve investeringsmogelijkheden in Hongarije. Geen spam, enkel dealflow."
   twitterImage="https://ballaconsulting.com/assets/og-nl.jpg"
   lang="nl"
+  structuredData={structuredData}
 >
 
 <section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
