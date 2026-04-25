@@ -1,18 +1,41 @@
 ---
 export const prerender = true;
-// LinkedIn strips URL fragments (#deals), so this page acts as a redirect.
-// ballaconsulting.com/deals -> ballaconsulting.com/#private-list
+
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/#private-list">
-    <link rel="canonical" href="https://ballaconsulting.com/">
-    <title>Redirecting…</title>
-</head>
-<body>
-    <script is:inline>window.location.replace('/#private-list');</script>
-</body>
-</html>
+<BaseLayout
+  title="Private Deals – Balla Consulting"
+  description="Join the Balla Consulting Private List for access to exclusive real estate investment deals in Hungary. No spam, just deal flow."
+  ogTitle="Access to Private Deals – Balla Consulting"
+  ogDescription="Join the Balla Consulting Private List for access to exclusive real estate investment deals in Hungary. No spam, just deal flow."
+  ogImage="https://ballaconsulting.com/assets/og-index.jpg"
+  ogUrl="https://ballaconsulting.com/deals"
+  ogType="website"
+  ogLocale="en_US"
+  twitterTitle="Access to Private Deals – Balla Consulting"
+  twitterDescription="Exclusive real estate investment deals in Hungary. No spam, just deal flow."
+  twitterImage="https://ballaconsulting.com/assets/og-index.jpg"
+  lang="en"
+>
+
+<section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
+    <div class="container">
+        <a href="/" style="display:inline-block;margin-bottom:40px;">
+            <img src="/logo-white.svg" alt="Balla Consulting" style="height:32px;">
+        </a>
+        <h2>Access to Private Deals</h2>
+        <p>Join the Balla Consulting Private List for access to exclusive investment deals.<br>No spam, just deal flow.</p>
+        <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <script is:inline>
+        (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
+        </script>
+        <p style="margin-top:40px;"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;">&larr; Back to ballaconsulting.com</a></p>
+    </div>
+</section>
+
+<Footer />
+
+</BaseLayout>

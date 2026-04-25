@@ -1,18 +1,45 @@
 ---
 export const prerender = true;
-// LinkedIn strips URL fragments (#deals), so this page acts as a redirect.
-// ballaconsulting.com/nl/deals -> ballaconsulting.com/nl#private-list
+
+import '../../styles/main.css';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/nl#private-list">
-    <link rel="canonical" href="https://ballaconsulting.com/nl">
-    <title>Doorverwijzing…</title>
-</head>
-<body>
-    <script is:inline>window.location.replace('/nl#private-list');</script>
-</body>
-</html>
+<BaseLayout
+  title="Private Deals – Balla Consulting"
+  description="Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden in Hongarije."
+  ogTitle="Toegang tot investeringsmogelijkheden – Balla Consulting"
+  ogDescription="Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden in Hongarije."
+  ogImage="https://ballaconsulting.com/assets/og-nl.jpg"
+  ogUrl="https://ballaconsulting.com/nl/deals"
+  ogType="website"
+  ogLocale="nl_NL"
+  twitterTitle="Toegang tot investeringsmogelijkheden – Balla Consulting"
+  twitterDescription="Exclusieve investeringsmogelijkheden in Hongarije. Geen spam, enkel dealflow."
+  twitterImage="https://ballaconsulting.com/assets/og-nl.jpg"
+  lang="nl"
+>
+
+<section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
+    <div class="container">
+        <a href="/nl" style="display:inline-block;margin-bottom:40px;">
+            <img src="/logo-white.svg" alt="Balla Consulting" style="height:32px;">
+        </a>
+        <h2>Toegang tot investeringsmogelijkheden</h2>
+        <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
+        <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <script is:inline>
+        (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
+        </script>
+        <p style="margin-top:40px;"><a href="/nl" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;">&larr; Terug naar ballaconsulting.com</a></p>
+    </div>
+</section>
+
+<Footer
+  disclaimerHref="/disclaimer"
+  privacyHref="/privacy-nl"
+  copyrightText="&copy; 2025 Balla Consulting. Alle rechten voorbehouden."
+/>
+
+</BaseLayout>
