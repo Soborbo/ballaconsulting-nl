@@ -1,8 +1,10 @@
 ---
 export const prerender = true;
 
+import { Image } from 'astro:assets';
 import '../styles/legal.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import logoWhite from '../assets/logo-white.svg';
 ---
 
 <BaseLayout
@@ -26,7 +28,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
     </nav>
     <div class="container">
-        <a href="/nl"><img src="/logo-white.svg" alt="Balla Consulting"></a>
+        <a href="/nl"><Image src={logoWhite} alt="Balla Consulting" /></a>
         <h1>Privacybeleid</h1>
         <p>Laatst bijgewerkt: april 2026</p>
     </div>

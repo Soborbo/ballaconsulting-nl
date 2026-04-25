@@ -1,12 +1,17 @@
 ---
 export const prerender = true;
 
+import { Image } from 'astro:assets';
 import '../styles/hu.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StickyBar from '../components/StickyBar.astro';
 import Footer from '../components/Footer.astro';
 import MobileCTA from '../components/MobileCTA.astro';
 import MainScripts from '../components/MainScripts.astro';
+import logoWhite from '../assets/logo-white.svg';
+import budapestHero from '../assets/budapest1.webp';
+import mariaFascetti from '../assets/maria-fascetti.webp';
+import dsc8696 from '../assets/DSC_8696.webp';
 
 const structuredData = [
   JSON.stringify({
@@ -77,12 +82,12 @@ const structuredData = [
     </nav>
 
     <div class="hero-video-side">
-        <img src="/budapest1.webp" alt="Budapest Parlament és Lánchíd alkonyatkor" width="643" height="845" fetchpriority="high">
+        <Image src={budapestHero} alt="Budapest Parlament és Lánchíd alkonyatkor" widths={[480, 768, 1024, 1280]} sizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high" loading="eager" />
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-message-side">
         <div class="hero-message">
-            <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+            <Image src={logoWhite} alt="Balla Consulting" class="hero-logo" />
             <p class="hero-tagline">Lépjen a Nyugat-Európai Piacra</p>
             <h1>Holland Cégalapítás.<br><span>Megbízhatóan.</span></h1>
             <div class="hero-divider"></div>
@@ -167,7 +172,7 @@ const structuredData = [
         <p class="section-subtitle">Helyi jelenlét. Nemzetközi tapasztalat.</p>
         <div class="about-layout">
             <div class="about-photo">
-                <img src="/assets/maria-fascetti.webp" alt="Maria Fascetti – A Balla Consulting alapítója" width="800" height="1067" loading="lazy">
+                <Image src={mariaFascetti} alt="Maria Fascetti – A Balla Consulting alapítója" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 400px" loading="lazy" />
                 <p class="photo-label">Maria Fascetti</p>
                 <p class="photo-role">Alapító</p>
             </div>
@@ -188,7 +193,7 @@ const structuredData = [
 <!-- ===== SZOLGÁLTATÁSOK ===== -->
 <section class="services-section" id="services">
     <div class="services-bg">
-        <img src="/assets/DSC_8696.webp" alt="" loading="lazy">
+        <Image src={dsc8696} alt="" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 600px" loading="lazy" />
     </div>
     <div class="container">
         <h2 class="section-title">Belépés a Holland Piacra</h2>

@@ -1,12 +1,30 @@
 ---
 export const prerender = true;
 
+import { Image, getImage } from 'astro:assets';
 import '../styles/guide.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StickyBar from '../components/StickyBar.astro';
 import Footer from '../components/Footer.astro';
 import MobileCTA from '../components/MobileCTA.astro';
 import MainScripts from '../components/MainScripts.astro';
+import logoWhite from '../assets/logo-white.svg';
+import cityBudapest from '../assets/city-budapest.webp';
+import cityDebrecen from '../assets/city-debrecen.webp';
+import cityDebrecenBg from '../assets/city-debrecen-bg.webp';
+import cityGyor from '../assets/city-gyor.webp';
+import cityGyorBg from '../assets/city-gyor-bg.webp';
+import citySzeged from '../assets/city-szeged.webp';
+import citySzegedBg from '../assets/city-szeged-bg.webp';
+
+const [debrecenSm, debrecenBg, szegedSm, szegedBg, gyorSm, gyorBg] = await Promise.all([
+  getImage({ src: cityDebrecen, format: 'webp' }),
+  getImage({ src: cityDebrecenBg, format: 'webp' }),
+  getImage({ src: citySzeged, format: 'webp' }),
+  getImage({ src: citySzegedBg, format: 'webp' }),
+  getImage({ src: cityGyor, format: 'webp' }),
+  getImage({ src: cityGyorBg, format: 'webp' }),
+]);
 
 const structuredData = [
   JSON.stringify({
@@ -71,7 +89,7 @@ const structuredData = [
         </div>
     </nav>
     <div class="container">
-        <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+        <Image src={logoWhite} alt="Balla Consulting" class="hero-logo" />
         <p class="hero-tagline">Balla Consulting Gids</p>
         <h1>The Essential Guide<br>voor <span>Hongarije</span></h1>
         <div class="hero-divider"></div>
@@ -123,7 +141,7 @@ const structuredData = [
             <div class="city-card featured">
                 <div class="city-card-inner">
                     <div class="city-img">
-                        <img src="/city-budapest.webp" alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy">
+                        <Image src={cityBudapest} alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy" widths={[480, 768, 1024]} sizes="(max-width: 768px) 100vw, 50vw" />
                     </div>
                     <div class="city-card-body">
                         <h3>Budapest</h3>
@@ -178,8 +196,8 @@ const structuredData = [
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="/city-debrecen-bg.webp">
-                        <img src="/city-debrecen.webp" alt="Debrecen Great Reformed Church" loading="lazy">
+                        <source media="(min-width: 769px)" srcset={debrecenBg.src}>
+                        <img src={debrecenSm.src} width={debrecenSm.attributes.width} height={debrecenSm.attributes.height} alt="Debrecen Great Reformed Church" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">
@@ -199,8 +217,8 @@ const structuredData = [
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="/city-szeged-bg.webp">
-                        <img src="/city-szeged.webp" alt="Szeged Cathedral" loading="lazy">
+                        <source media="(min-width: 769px)" srcset={szegedBg.src}>
+                        <img src={szegedSm.src} width={szegedSm.attributes.width} height={szegedSm.attributes.height} alt="Szeged Cathedral" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">
@@ -219,8 +237,8 @@ const structuredData = [
             <div class="city-card">
                 <div class="city-card-img">
                     <picture>
-                        <source media="(min-width: 769px)" srcset="/city-gyor-bg.webp">
-                        <img src="/city-gyor.webp" alt="Győr city center" loading="lazy">
+                        <source media="(min-width: 769px)" srcset={gyorBg.src}>
+                        <img src={gyorSm.src} width={gyorSm.attributes.width} height={gyorSm.attributes.height} alt="Győr city center" loading="lazy">
                     </picture>
                 </div>
                 <div class="city-card-body">

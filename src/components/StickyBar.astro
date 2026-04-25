@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoWhite from '../assets/logo-white.svg';
+
 interface Props {
   homeHref?: string;
   privateDealsLabel?: string;
@@ -20,7 +23,7 @@ const {
 
 <div class="sticky-cta" id="stickyCta">
     <div class="sticky-logo" style="display:flex; align-items:center; gap:18px;">
-        <a href={homeHref}><img src="/logo-white.svg" alt="Balla Consulting"></a>
+        <a href={homeHref}><Image src={logoWhite} alt="Balla Consulting" /></a>
         {showPrivateDeals && <a href={privateDealsHref} style="color:var(--gold); text-decoration:none; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; border:1px solid var(--gold); padding:5px 14px; border-radius:4px; white-space:nowrap; transition:background 0.3s, color 0.3s;" onmouseover="this.style.background='#C5A059';this.style.color='#0A192F'" onmouseout="this.style.background='transparent';this.style.color='#C5A059'">{privateDealsLabel}</a>}
     </div>
     <div class="sticky-info">
