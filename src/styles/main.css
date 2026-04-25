@@ -1156,26 +1156,6 @@ section { padding: 100px 0; }
     flex-direction: column;
     text-align: left;
 }
-.deals-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--gold) !important;
-    font-size: 11px !important;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin: 0 0 24px !important;
-    max-width: none !important;
-    text-align: left !important;
-}
-.deals-eyebrow-line {
-    width: 28px;
-    height: 1px;
-    background: rgba(197, 160, 89, 0.55);
-}
-.deals-eyebrow-line:last-child { display: none; }
-
 .deals-title {
     color: var(--white);
     font-size: 44px;
@@ -1198,38 +1178,6 @@ section { padding: 100px 0; }
     text-align: left !important;
 }
 
-.deals-benefits {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.deals-benefits li {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 15px;
-    line-height: 1.55;
-}
-.deals-benefit-marker {
-    flex-shrink: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border: 1px solid rgba(197, 160, 89, 0.45);
-    border-radius: 50%;
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-family: 'Lato', serif;
-}
-
 .deals-form {
     margin-top: 4px;
 }
@@ -1241,16 +1189,6 @@ section { padding: 100px 0; }
     margin-left: 0 !important;
     margin-right: 0 !important;
     max-width: 480px !important;
-}
-
-.deals-trust {
-    color: rgba(255, 255, 255, 0.4) !important;
-    font-size: 12px !important;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 24px 0 0 !important;
-    max-width: none !important;
-    text-align: left !important;
 }
 
 /* ----- success state ----- */
@@ -1336,7 +1274,6 @@ section { padding: 100px 0; }
     .deals-content { padding: 36px 24px 36px; }
     .deals-title { font-size: 30px; }
     .deals-lede { font-size: 15px !important; }
-    .deals-eyebrow { letter-spacing: 3px; }
     .deals-success { padding: 56px 28px; }
     .deals-success h2 { font-size: 26px; }
 }
