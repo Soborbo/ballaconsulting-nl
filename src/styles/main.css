@@ -985,32 +985,38 @@ section { padding: 100px 0; }
 }
 .deals-layout {
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 48px;
-    align-items: start;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    align-items: center;
     text-align: left;
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
+    padding: 48px 40px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
 }
 .deals-left {
     text-align: center;
 }
 .deals-photo {
     width: 100%;
-    max-width: 240px;
+    max-width: 200px;
     border-radius: 12px;
     display: block;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 .deals-name {
     color: var(--white) !important;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     margin-top: 16px;
     margin-bottom: 4px;
+    letter-spacing: 0.02em;
 }
 .deals-role {
-    color: rgba(255,255,255,0.5) !important;
-    font-size: 14px;
+    color: rgba(255,255,255,0.45) !important;
+    font-size: 13px;
     font-style: italic;
     margin-bottom: 0;
 }
@@ -1019,15 +1025,27 @@ section { padding: 100px 0; }
 }
 .deals-right h2 {
     text-align: left;
+    font-size: 28px;
+    margin-bottom: 12px;
 }
 .deals-right p {
     text-align: left;
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 28px;
 }
 .deals-right div {
     max-width: 100% !important;
 }
 .deals-success {
     text-align: center;
+    padding: 60px 40px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 .deals-success h2 {
     color: var(--white);
@@ -1038,17 +1056,21 @@ section { padding: 100px 0; }
     color: rgba(255,255,255,0.6);
     font-size: 18px;
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .deals-layout {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 32px;
         text-align: center;
+        padding: 36px 24px;
     }
     .deals-photo {
-        max-width: 160px;
+        max-width: 140px;
         margin: 0 auto;
     }
-    .deals-right h2,
+    .deals-right h2 {
+        text-align: center;
+        font-size: 24px;
+    }
     .deals-right p {
         text-align: center;
     }
