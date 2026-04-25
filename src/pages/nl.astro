@@ -1,0 +1,717 @@
+---
+export const prerender = true;
+
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StickyBar from '../components/StickyBar.astro';
+import Footer from '../components/Footer.astro';
+import MobileCTA from '../components/MobileCTA.astro';
+import MainScripts from '../components/MainScripts.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Balla Consulting",
+    "url": "https://ballaconsulting.com",
+    "logo": "https://ballaconsulting.com/logo-white.svg",
+    "description": "Kijk verder dan Nederland en investeer in Hongarije. Balla Consulting biedt een sleutelklare investerings-infrastructuur, vastgoed sourcing, renovatiebeheer en bedrijfsoprichting.",
+    "email": "maria.balla@ballaconsulting.com",
+    "telephone": "+31618445121",
+    "address": {"@type": "PostalAddress", "addressLocality": "Amstelveen", "addressCountry": "NL"},
+    "founder": {"@type": "Person", "name": "Maria Balla", "jobTitle": "Chief Advisor"},
+    "areaServed": ["NL", "HU"],
+    "sameAs": ["https://x.com/BallaMa49578", "https://www.linkedin.com/company/balla-consulting"]
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Balla Consulting – Uw Weg naar Groei",
+    "description": "Kijk verder dan Nederland en investeer in Hongarije. Sleutelklare investerings-infrastructuur, vastgoed sourcing, renovatiebeheer en bedrijfsoprichting.",
+    "url": "https://ballaconsulting.com/nl",
+    "inLanguage": "nl",
+    "publisher": {"@type": "Organization", "name": "Balla Consulting"}
+  })
+];
+---
+
+<BaseLayout
+  title="Balla Consulting – Uw Weg naar Groei"
+  description="Kijk verder dan Nederland en investeer in Hongarije. Balla Consulting biedt een sleutelklare investerings-infrastructuur, vastgoed sourcing, renovatiebeheer en bedrijfsoprichting."
+  ogTitle="Balla Consulting – Uw Weg naar Groei"
+  ogDescription="Kijk verder dan Nederland en investeer in Hongarije. Sleutelklare investerings-infrastructuur, vastgoed sourcing, renovatiebeheer en bedrijfsoprichting."
+  ogImage="https://ballaconsulting.com/assets/og-nl.jpg"
+  ogUrl="https://ballaconsulting.com/nl"
+  ogType="website"
+  ogLocale="nl_NL"
+  twitterTitle="Balla Consulting – Uw Weg naar Groei"
+  twitterDescription="Kijk verder dan Nederland en investeer in Hongarije."
+  twitterImage="https://ballaconsulting.com/assets/og-nl.jpg"
+  lang="nl"
+  includeBelleAurore={true}
+  structuredData={structuredData}
+>
+
+<style is:global>
+  .hero-message { max-width: 650px; }
+  .hero-message h1 { font-size: 40px; }
+</style>
+
+
+<StickyBar
+  privateDealsLabel="Toegang tot Private Deals"
+  privateDealsHref="#private-list"
+  ctaLabel="Gratis Kennismakingsgesprek Inplannen"
+  ctaHref="#schedule"
+/>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+    <!-- Top navigation over the hero -->
+    <nav class="top-nav">
+        <a href="/" class="lang-switch">EN</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">Over ons</a>
+            <a href="#principles">Uitgangspunten</a>
+            <a href="#services">Diensten</a>
+            <a href="#fees">Tarieven</a>
+            <a href="/guide-nl">Gids</a>
+            <a href="#private-list">Investeringsmogelijkheden</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero-video-side">
+        <img src="/budapest1.webp" alt="Budapest Parliament Building and Chain Bridge at dusk" width="643" height="845" fetchpriority="high">
+        <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-message-side">
+        <div class="hero-message">
+            <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+            <p class="hero-tagline">Investeer in <strong>Hongarije</strong> met vertrouwen</p>
+            <h1>Maximaliseer uw rendement<br><span>Beperk uw risico</span></h1>
+            <div class="hero-divider"></div>
+            <p style="font-size:16px;">Ondergewaardeerd vastgoed &middot; Strategisch investeren in Hongarije</p>
+            <a href="#schedule" class="hero-cta-btn" style="margin-top:35px;">Plan een kosteloos kennismakingsgesprek</a>
+        </div>
+        <a href="#challenge" class="hero-scroll-arrow" aria-label="Scroll down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ===== INVESTOR CHALLENGE & SOLUTION ===== -->
+<section class="challenge-section" id="challenge">
+    <div class="container">
+        <h2 class="section-title">Waarom buiten Nederland kijken en investeren in Hongarije?</h2>
+        <p class="section-subtitle">Laat uw kapitaal direct voor u werken</p>
+        <div class="challenge-grid">
+            <div class="challenge-box">
+                <h3><span class="icon-dot"></span> De uitdaging voor investeerders</h3>
+                <p>De Nederlandse markt is voor beleggers momenteel uitdagend. Aanvangsrendementen staan onder druk en strenge huurbescherming kan ertoe leiden dat vastgoed voor langere tijd minder liquide blijft.</p>
+                <p>Hongarije biedt daarentegen solide groeiperspectieven en een meer liquide markt. Tegelijkertijd is de toetredingsdrempel hoger. Complexe regelgeving, een competitieve vastgoedmarkt en de taalbarrière maken het voor veel investeerders lastig om de eerste stap te zetten.</p>
+            </div>
+            <div class="challenge-box">
+                <h3><span class="icon-dot" style="background:var(--gold)"></span> Onze oplossing</h3>
+                <p>Wij bieden een gestructureerde en geïntegreerde aanpak voor uw investering.</p>
+                <p>Van het selecteren van ondergewaardeerde woningen of bedrijfsmatig vastgoed, het voeren van onderhandelingen tot het begeleiden van renovaties en het opzetten van een passende vennootschapsstructuur — Balla Consulting regisseert het volledige traject.</p>
+                <p class="highlight">U behoudt de eigendom. Wij bewaken de uitvoering.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">Over ons</h2>
+        <p class="section-subtitle">Uw partner in Hongaarse vastgoed- en bedrijfsinvesteringen</p>
+        <div class="about-layout">
+            <div class="about-photo">
+                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" width="800" height="1067" loading="lazy">
+                <p class="photo-label">Maria Balla</p>
+                <p class="photo-role">Chief Advisor</p>
+            </div>
+            <div class="about-text">
+                <p>Ik ben Maria Balla, geboren in Hongarije en sinds 2018 woonachtig in Amsterdam. Met Balla Consulting begeleid ik ondernemers en particulieren die actief willen worden in Hongarije.</p>
+                <p>In de afgelopen jaren heb ik voor cliënten vastgoed in Hongarije aangekocht en renovaties begeleid, van eerste bezichtiging tot verhuur. Ik ken de markt van binnenuit en weet waar de aandachtspunten liggen — juridisch, praktisch en financieel. Het gaat daarbij niet alleen om het vinden van een goed object, maar om het zorgvuldig uitvoeren van het hele project.</p>
+                <p>Mijn loopbaan heeft mij in vijf landen gebracht — Zwitserland, het Verenigd Koninkrijk, Oostenrijk, Nederland en Hongarije — binnen zowel private banking als internationale bedrijfsvoering. Daardoor begrijp ik hoe het is om in een nieuwe omgeving zaken te doen. U wilt duidelijkheid, betrouwbaarheid en iemand ter plaatse die meedenkt en vooruitkijkt.</p>
+                <p>Die rol neem ik graag op mij. Of het nu gaat om het selecteren van passend vastgoed in Hongarije of het oprichten van een fiscaal geoptimaliseerde Kft, ik zorg dat het project overzichtelijk verloopt en dat u weet waar u aan toe bent.</p>
+                <p>Voor mij draait het om betrokkenheid en zorgvuldigheid. Geen snelle transacties, maar duurzame keuzes.</p>
+                <p>Wilt u bespreken wat in uw situatie mogelijk is? Dan maken wij graag kennis.</p>
+                <p class="about-signature">Maria Balla</p>
+            </div>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="20"/><line x1="4" y1="5" x2="20" y2="5"/><path d="M4 5L2 13c0 1.7 1.3 3 3 3s3-1.3 3-3L6 5"/><path d="M18 5l2 8c0 1.7-1.3 3-3 3s-3-1.3-3-3l2-8"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="10" y1="22" x2="14" y2="22"/></svg></div>
+                <h4>Dr. Judit Márton</h4>
+                <p>Juridisch adviseur en advocaat</p>
+                <p class="member-bio">Met meer dan 20 jaar ervaring is Dr. Judit Márton gespecialiseerd in vastgoedrecht en bedrijfsoprichting. Zij ondersteunt internationale investeerders bij het uitbreiden van hun vastgoedbezit en hun zakelijke aanwezigheid in Hongarije.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <h4>Csaba Gidró</h4>
+                <p>Renovatieadviseur</p>
+                <p class="member-bio">Csaba Gidró beschikt over meer dan 15 jaar ervaring in vastgoedrenovatie en begeleidt projecten van planning tot oplevering. Hij zorgt voor een soepel verloop en hoogwaardige resultaten voor onze klanten.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="services">
+    <div class="container">
+        <h2 class="section-title">Diensten</h2>
+        <p class="section-subtitle">Vastgoedbegeleiding en ondernemingsstructuur</p>
+        <div class="services-columns">
+            <div class="service-column">
+                <h3>Vastgoedbegeleiding in Hongarije</h3>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div>
+                        <h4>Selectie van geschikte objecten</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <div>
+                        <h4>Juridische begeleiding bij aankoop</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                    <div>
+                        <h4>Coördinatie van renovaties</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div>
+                        <h4>Voorbereiding van verhuur</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="service-column">
+                <h3>Ondernemingsstructuur in Hongarije</h3>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22V10h6v12"/><path d="M9 6h.01M15 6h.01"/></svg></div>
+                    <div>
+                        <h4>Oprichting van een Kft (B.V.)</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <div>
+                        <h4>Registratie bij bevoegde instanties</h4>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9.5H9.5a3.5 3.5 0 1 0 0 7H17"/><line x1="6" y1="9.5" x2="20" y2="9.5"/><line x1="6" y1="16.5" x2="20" y2="16.5"/></svg></div>
+                    <div>
+                        <h4>Praktische begeleiding bij bankrelatie en vestigingsadres</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CHALLENGES WE SOLVE ===== -->
+<section class="solve-section">
+    <div class="container">
+        <h2 class="section-title">Uitdagingen die wij oplossen</h2>
+        <p class="section-subtitle">Klik om onze oplossingen te ontdekken</p>
+        <div class="solve-grid">
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+                <h3>Toegang tot verborgen rendement</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>Openbare aanbiedingen zijn vaak scherp geprijsd en sterk concurrerend.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Wij werken niet uitsluitend via openbare vastgoedportalen, maar benutten ons lokale netwerk om toegang te krijgen tot transacties buiten het brede aanbod. Hierdoor ontstaat toegang tot investeringsmogelijkheden met daadwerkelijk waardepotentieel.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5l9-7 9 7"/><path d="M5 9.5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M2 21c2-1 4-1.5 6-1.5s4 1 6 1.5 4 .5 6-.5"/><path d="M9 14h6v4.5H9z"/></svg></div>
+                <h3>Toegang tot een flexibele huurmarkt</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>De Nederlandse vastgoedmarkt wordt gekenmerkt door strenge huurbescherming, langdurige contractvormen en gereguleerde huurprijzen, wat de flexibiliteit en het rendement voor beleggers kan beperken.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Wij begeleiden u naar een markt waarin eigendom en contractuele afspraken beter in balans zijn. In Hongarije worden huurprijzen bepaald door de markt en zijn tijdelijke contracten juridisch afdwingbaar, waardoor uw vastgoed liquide en rendabel blijft.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <h3>Ruimte voor groei</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>In volwassen markten zoals Nederland zijn vastgoedprijzen vaak al op een hoog niveau, waardoor verdere waardegroei beperkt kan zijn.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Wij richten ons op markten zoals Hongarije, waar instapprijzen nog toegankelijk zijn en ruimte bestaat voor structurele waardegroei.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Juridische zekerheid</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>Een buitenlandse juridische omgeving kan complex en onoverzichtelijk zijn.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Balla Consulting werkt volgens een zorgvuldige en gestructureerde aanpak. In samenwerking met gespecialiseerde vastgoedadvocaten worden alle documenten gecontroleerd, zodat uw eigendom juridisch correct en veilig wordt overgedragen.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M14.7 10.3a1 1 0 0 0 0 1.4l.6.6a1 1 0 0 0 1.4 0l1.3-1.3a3 3 0 0 1-4-4l1.3 1.3z"/></svg></div>
+                <h3>Renovatie onder regie</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>Het op afstand aansturen van een renovatie brengt risico's en vertraging met zich mee.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Wij treden op als lokale projectmanager. Wij selecteren en begeleiden aannemers, bewaken planning en budget en zorgen voor een gecontroleerde uitvoering. Zo wordt vastgoed met potentie ontwikkeld tot een kwalitatief en rendabel object.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
+                <h3>Fiscaal voordeel</h3>
+                <p class="challenge-label">De uitdaging</p>
+                <p>In delen van West-Europa kunnen hogere belastingtarieven de winstmarges van internationaal actieve bedrijven beperken.</p>
+                <p class="solution-label">Oplossing</p>
+                <p>Wij helpen u inzicht te krijgen in de mogelijke voordelen van het Hongaarse vennootschapsbelastingtarief van 9%, waar van toepassing, en wij verzorgen de oprichting en naleving—zodat u zich kunt richten op groei.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEE STRUCTURE ===== -->
+<section class="fees-section" id="fees">
+    <div class="container">
+        <h2 class="section-title">Transparantie staat centraal</h2>
+        <p class="section-subtitle">Duidelijke, vooraf vastgestelde vergoedingen</p>
+        <div class="fee-cards">
+            <!-- Aankoopbegeleiding -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>Aankoopbegeleiding</h3>
+                    <p>Voor investeerders die een veilige aankoop wensen en het beheer zelf uitvoeren.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Startvergoeding</p>
+                        <p class="fee-value">&euro;950</p>
+                        <p class="fee-note">Voor aanvang van het traject vragen wij een startvergoeding. Deze dekt het initiële onderzoek, selectie en eerste beoordelingen ter plaatse.</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Succesvergoeding</p>
+                        <p class="fee-value">2,0% van de aankoopprijs</p>
+                        <p class="fee-note">Bij succesvolle aankoop rekenen wij een succesvergoeding van 2,0%. De startvergoeding van &euro;950 wordt hiermee verrekend.</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Minimum</p>
+                        <p class="fee-value">&euro;3.000</p>
+                        <p class="fee-note">(Exclusief btw en wettelijke kosten zoals notaris en overdrachtsbelasting)</p>
+                    </div>
+                    <h4 style="margin-top: 16px;">Inclusief:</h4>
+                    <ul style="list-style:none; margin-top: 8px;">
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Selectie van geschikte objecten</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Juridische controle en juridische begeleiding</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Onderhandeling en contractcontrole</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding bij overdracht en sleuteloverdracht</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="fee-cta">Neem contact op</a>
+            </div>
+
+            <!-- Aankoop + Renovatie -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>Aankoop + Renovatie</h3>
+                    <p>Voor investeerders die een instapklaar object wensen, gereed voor verhuur.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Aankoopvergoeding</p>
+                        <p class="fee-value">Gelijk aan Aankoopbegeleiding</p>
+                        <p class="fee-note">&euro;950 startvergoeding + 2,0% succesvergoeding (min. &euro;3.000)</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Renovatiebegeleiding</p>
+                        <p class="fee-value">15% van het totale renovatiebudget</p>
+                        <p class="fee-note">5% bij start van de renovatie &middot; 5% halverwege het project &middot; 5% bij oplevering</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Vastgoedbeheer</p>
+                        <p class="fee-value">10% van de bruto maandelijkse huurinkomsten</p>
+                        <p class="fee-note">Onderhoud, reparaties en kosten van derden worden afzonderlijk doorbelast.</p>
+                    </div>
+                </div>
+                <a href="#contact" class="fee-cta">Neem contact op</a>
+            </div>
+
+            <!-- Oprichting Hongaarse Kft -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>Oprichting Hongaarse Kft</h3>
+                    <p>Voor ondernemers die een vennootschap in Hongarije willen opzetten binnen een fiscaal gunstig kader.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Vaste prijs</p>
+                        <p class="fee-value">&euro;1.850</p>
+                        <p class="fee-note">(Exclusief btw en wettelijke kosten)</p>
+                    </div>
+                    <h4 style="margin-top: 16px;">Inclusief:</h4>
+                    <ul style="list-style:none; margin-top: 8px;">
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Oprichting van de Kft (vergelijkbaar met een B.V.)</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Registratie bij belastingdienst en Kamer van Koophandel</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Introductie bij bankrelatie</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Begeleiding bij vestigingsadres</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="fee-cta">Neem contact op</a>
+            </div>
+
+            <!-- Op maat -->
+            <div class="fee-card fee-card-full" style="border: 2px dashed var(--gold); background: linear-gradient(135deg, rgba(197,160,89,0.04), rgba(10,25,47,0.06)); box-shadow: 0 4px 20px rgba(197,160,89,0.1);">
+                <div class="fee-card-header" style="background: transparent; border-bottom: 1px solid rgba(197,160,89,0.2);">
+                    <h3 style="color: var(--navy); font-size: 26px;">Op maat</h3>
+                    <p style="color: var(--text); font-size: 16px;">Heeft u specifieke wensen? Wij bespreken graag uw situatie.</p>
+                </div>
+                <div class="fee-card-body" style="display:flex; align-items:center; justify-content:center; min-height: 150px;">
+                    <p style="color: var(--text); text-align:center; font-size: 17px; line-height:1.8;">Wij bieden maatwerkoplossingen voor complexe grensoverschrijdende investeringen en meervoudige vastgoedportefeuilles.<br><span style="color:var(--gold); font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; margin-top:10px; display:inline-block;">Vertel ons wat u nodig heeft — wij maken het mogelijk.</span></p>
+                </div>
+                <a href="#contact" class="fee-cta" style="background: var(--gold); color: var(--navy); font-size: 14px; padding: 14px 36px;">Neem contact op</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRINCIPLES ===== -->
+<section class="principles-section" id="principles">
+    <div class="container">
+        <h2 class="section-title">Onze uitgangspunten</h2>
+        <p class="section-subtitle">Hoe wij werken</p>
+        <div class="principles-layout">
+            <div class="principles-photo">
+                <img src="/assets/DSC_8696.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
+                    <h3>Financiële discipline</h3>
+                    <h4>Volledig kostenoverzicht</h4>
+                    <ul>
+                        <li><strong>Volledig inzicht in de totale verwervingskosten — geen verborgen kosten:</strong> In tegenstelling tot standaardmakelaars brengen wij alle kosten vooraf in kaart — inclusief overdrachtsbelasting, juridische kosten en administratieve verplichtingen — voordat u een bod uitbrengt.</li>
+                        <li><strong>Onafhankelijke waardetoets:</strong> Wij toetsen de vraagprijs aan de hand van lokale transactiegegevens om overbetaling en zogenoemde "foreign pricing" te voorkomen.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                    <h3>Lokaal voordeel</h3>
+                    <h4>Taal en onderhandeling</h4>
+                    <ul>
+                        <li>Als native Hongaarse professionals voeren wij de onderhandelingen namens u, met als doel een verantwoorde en optimale aankoopprijs.</li>
+                        <li><strong>Directe aanwezigheid in de markt:</strong> Waar veel buitenlandse partijen werken met lokale tussenpersonen, opereren wij rechtstreeks in Boedapest. Dit zorgt voor duidelijke communicatie en betrouwbaar toezicht ter plaatse.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                    <h3>Regie en communicatie</h3>
+                    <h4>Eén vast aanspreekpunt</h4>
+                    <ul>
+                        <li>U hebt gedurende het gehele traject één contactpersoon. De lead advisor coördineert alle betrokken partijen — van juridische adviseurs tot aannemers, leveranciers en accountants.</li>
+                        <li><strong>Transparante voortgangsinformatie:</strong> U ontvangt regelmatige updates, inclusief foto- en videomateriaal, zodat u volledig inzicht houdt in het proces.</li>
+                        <li><strong>Bewaking van de doorlooptijd:</strong> Wij sturen actief op planning, zodat de periode tussen aankoop en verhuur zo efficiënt mogelijk verloopt.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Verantwoordelijkheid</h3>
+                    <ul>
+                        <li><strong>Persoonlijke investeringsstrategie:</strong> Uw doelstellingen vormen het uitgangspunt. Wij luisteren eerst en vertalen dit vervolgens naar een gestructureerde aanpak — zowel voor vastgoed als voor vennootschapsstructuren.</li>
+                        <li><strong>Actief toezicht:</strong> Wij behandelen uw investering met dezelfde zorgvuldigheid als onze eigen middelen. Iedere stap wordt transparant en binnen de geldende wet- en regelgeving uitgevoerd.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CASE STUDY ===== -->
+<section class="case-section" id="case-study">
+    <div class="container">
+        <h2 class="section-title">District V &ndash; investeren met richting en zekerheid</h2>
+        <p class="section-subtitle">Een succesverhaal uit de meest prestigieuze wijk van Boedapest</p>
+        <div class="case-stats">
+            <div class="case-stat">
+                <p class="stat-value">District V</p>
+                <p class="stat-label">Locatie</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">3%</p>
+                <p class="stat-label">Gerealiseerde korting</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">6 maanden</p>
+                <p class="stat-label">Renovatieduur</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">6% ROI</p>
+                <p class="stat-label">Verhuurd met 6% rendement</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">12%</p>
+                <p class="stat-label">Waardestijging</p>
+            </div>
+        </div>
+        <div class="case-layout">
+        <div class="case-video-side">
+            <a href="https://youtube.com/shorts/XA0HgWcqqEI" target="_blank" rel="noopener" style="display:block;position:relative;">
+                <img src="/assets/yt-thumb.webp" alt="Voor &amp; Na – District V Renovation" width="540" height="960" style="width:100%;border-radius:12px;display:block;">
+                <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(0,0,0,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+                </span>
+            </a>
+            <p class="case-video-caption">Voor &amp; Na</p>
+        </div>
+        <div class="case-body">
+            <h3>De opdracht (The Objective)</h3>
+            <p>De cliënt zocht een appartement met karakter en een degelijke basis in Budapest District V. Twee volwaardige slaapkamers, gescheiden sanitaire voorzieningen en een licht interieur waren essentieel. Het doel was niet een snelle verkoop, maar een stabiele inkomstenstroom en een zorgvuldig opgebouwde waardegroei op langere termijn.</p>
+
+            <h3>De uitgangssituatie</h3>
+            <p>District V behoort tot de meest gewilde wijken van de stad, mede door de nabijheid van het Hongaarse parlement. Monumentale panden, representatieve adressen en een blijvende vraag naar kwalitatieve huurwoningen maken het tot een stabiele, maar concurrerende markt. Het aanbod is beperkt en prijzen liggen hoog. Wat online aantrekkelijk lijkt, blijkt bij nadere analyse niet altijd bouwkundig, juridisch of financieel verantwoord.</p>
+
+            <h3>1. De zoektocht: geduld en discipline</h3>
+            <p>In dit type markt is geduld essentieel. Wij hebben meerdere appartementen bezichtigd en afgewezen. Sommige waren te hoog geprijsd, andere vereisten ingrijpende verbouwingen die het rendement zouden aantasten. Na een langere selectieperiode vonden wij een appartement dat het juiste uitgangspunt bood: constructief sterk, een goede indeling en een uitstekende locatie, maar esthetisch verouderd.</p>
+            <p><strong>De onderhandeling:</strong> Hoewel de vraagprijs al iets onder het marktniveau lag, zagen wij ruimte voor verdere optimalisatie. Onze inzet was een reductie van 5%. Uiteindelijk realiseerden wij een prijsverlaging van <strong>3%</strong>.</p>
+
+            <h3>2. Juridische zekerheid</h3>
+            <p>Uit het juridisch onderzoek bleek dat er nog een aanzienlijke hypotheek op het appartement rustte. In overleg met onze vaste advocaat hebben wij rechtstreeks contact opgenomen met de bank van de verkoper. Er is een regeling getroffen waarbij een deel van de koopsom eerst werd gebruikt om de hypotheek volledig af te lossen.</p>
+
+            <h3>3. Valutamanagement</h3>
+            <p>De koopsom werd vastgesteld in Hongaarse forint, terwijl het vermogen van de klant in Euro beschikbaar was. Wij hebben een gespecialiseerde FX-partner ingeschakeld. De omwisseling vond plaats tegen vrijwel marktconforme koers.</p>
+
+            <h3>4. De renovatie: toezicht en kwaliteit</h3>
+            <p>Wij hebben drie aannemers geselecteerd op basis van eerdere samenwerking en gecontroleerde referenties. De renovatie werd geen standaardopknapbeurt. Wij hebben materialen zorgvuldig geselecteerd en samengewerkt met gespecialiseerde vakmensen.</p>
+
+            <h3>Het resultaat</h3>
+            <p>Het project is opgeleverd met een hoog afwerkingsniveau, conform de wensen van de cliënt.</p>
+            <p><strong>Status:</strong> Volledig gerenoveerd tweeslaapkamerappartement op A-locatie in District V Budapest</p>
+            <p><strong>Inkomsten:</strong> Het appartement is direct na oplevering op de huurmarkt gebracht. Binnen 4 weken is een huurder gevonden tegen een huurprijs aan de bovenkant van het segment</p>
+            <p><strong>Resultaat:</strong> Een instapklaar object met een netto rendement van circa <strong>6%</strong>, exclusief waardegroei</p>
+            <p><strong>Waardestijging:</strong> Als gevolg van de in juli 2025 geïntroduceerde regeling met gesubsidieerde hypotheekrentes, wordt een minimale waardestijging van circa <strong>12%</strong> verwacht</p>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOOK A: FREE GUIDE ===== -->
+<section class="hook-map-section" id="free-guide">
+    <div class="container">
+        <div class="guide-promo">
+            <div class="guide-promo-cover">
+                <img src="/city-budapest.webp" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
+                <h3>The Essential Guide to <span>Hungary</span></h3>
+                <p>Balla Consulting</p>
+            </div>
+            <div class="guide-promo-text">
+                <h2>De Essential Guide voor Hongarije</h2>
+                <p>Praktische inzichten voor expats, investeerders en remote professionals</p>
+                <ul>
+                    <li>Beste steden om te wonen en te investeren</li>
+                    <li>Belastingvoordelen en verblijfsopties</li>
+                    <li>Het aankoopproces van vastgoed stap voor stap</li>
+                    <li>Regels voor buitenlandse kopers en due diligence</li>
+                    <li>Kostenoverzicht en doorlooptijden</li>
+                </ul>
+                <a href="/guide-nl" class="hero-cta-btn">Lees de gratis gids</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRIVATE LIST ===== -->
+<section class="private-list-section" id="private-list">
+    <div class="container">
+        <h2>Toegang tot investeringsmogelijkheden</h2>
+        <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
+        <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <script is:inline>
+        (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);o.disconnect();}},{rootMargin:'400px'});o.observe(p);})();
+        </script>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-layout">
+            <!-- Left column: Title + Card + Form -->
+            <div class="contact-left-col">
+                <h2 class="section-title">Neem contact op</h2>
+                <p class="section-subtitle">Wij zijn er om u te helpen</p>
+
+                <div class="contact-card">
+                    <div class="contact-photo">
+                        <img src="/assets/DSC_8540.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Balla Consulting</h3>
+                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:maria.balla@ballaconsulting.com">maria.balla@ballaconsulting.com</a></p>
+                        <p><span style="font-size:15px;">&#x1F1F3;&#x1F1F1;</span> <a href="tel:+31618445121">+31 618 445121</a></p>
+                        <p><span style="font-size:15px;">&#x1F1ED;&#x1F1FA;</span> <a href="tel:+36705708972">+36 70 5708972</a></p>
+                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Amstelveen, Nederland</p>
+                        <p style="margin-top:4px; font-size:13px; color:#8892b0;">KVK: 99116537</p>
+                    </div>
+                </div>
+
+                <div class="contact-message">
+                    <h3>Stuur een bericht</h3>
+                    <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                        <div class="contact-form-row">
+                            <input type="text" name="name" placeholder="Uw naam" required>
+                            <input type="email" name="email" placeholder="Uw e-mailadres" required>
+                        </div>
+                        <textarea name="message" placeholder="Uw bericht" required></textarea>
+                        <div class="contact-form-btn">
+                            <button type="submit">Versturen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right column: Calendly only -->
+            <div class="contact-right-col" id="schedule">
+                <h3>Plan een kosteloos kennismakingsgesprek</h3>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
+                <script is:inline>
+                (function(){var w=document.querySelector('.calendly-inline-widget');if(!w)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;w.parentNode.insertBefore(s,w.nextSibling);o.disconnect();}},{rootMargin:'400px'});o.observe(w);})();
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2 class="section-title">Veelgestelde vragen</h2>
+        <p class="section-subtitle">Alles wat u moet weten voor uw investering</p>
+
+        <div class="faq-category">
+            <h3>Vastgoedinvestering &amp; Aankoop</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Waarom investeren in Hongarije in plaats van in Nederland? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">De Nederlandse markt kent momenteel relatief lage aanvangsrendementen (circa 3–4%) en een toenemende fiscale en regulatoire druk, waaronder de Box 3-heffing. Hongarije/Boedapest biedt daarentegen een stabiel juridisch kader binnen de Europese Unie, gecombineerd met hogere instaprendementen (6% of meer) en solide groeipotentieel.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is het veilig voor een buitenlandse investeerder om vastgoed in Hongarije te kopen? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja. Het Hongaarse kadaster is een volledig digitaal en centraal systeem, vergelijkbaar met het Nederlandse Kadaster. Eigendomsrechten zijn juridisch vastgelegd en beschermd binnen het EU-recht. Wij voeren altijd een volledige eigendoms- en titelcontrole uit voordat een bod wordt uitgebracht.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Wat betekent "off-market" aankoop? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Veel kwalitatief hoogwaardige objecten worden niet openbaar aangeboden via vastgoedportalen. Wij verwerven objecten via gemeentelijke trajecten, executieveilingen en ons eigen netwerk. Hierdoor krijgen onze cliënten toegang tot transacties tegen reële marktwaarde, vaak onder de openbare vraagprijs.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kan ik als particulier kopen of is een vennootschap nodig? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">EU-burgers kunnen zonder beperkingen residentieel vastgoed in Hongarije kopen als privépersoon. Bij meerdere objecten of wanneer fiscale optimalisatie gewenst is, adviseren wij per situatie welke structuur het meest passend is.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoe bepalen jullie de werkelijke waarde van een object? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij baseren ons niet uitsluitend op de vraagprijs van de verkoper. Wij analyseren recente transacties in de omgeving en berekenen de volledige verwervingskosten voordat een bod wordt uitgebracht.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Ik kan niet regelmatig naar Hongarije reizen. Hoe regelen jullie renovaties? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij treden op als lokaal projectmanager. Wij selecteren en screenen aannemers, bewaken budgetten en planning en verstrekken periodieke foto- en videorapportages. U behoudt volledig inzicht en controle zonder fysiek aanwezig te hoeven zijn.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Wat zijn de gebruikelijke aankoopkosten in Hongarije? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">U dient rekening te houden met: 4% overdrachtsbelasting, circa 1% juridische kosten, en een beperkte administratieve registratievergoeding. Wij verstrekken vooraf een volledig kostenoverzicht.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Begeleiden jullie zowel woningvastgoed als bedrijfsvastgoed? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij begeleiden zowel woningvastgoed als bedrijfsvastgoed. Onze focus ligt op rendement en risicobeheersing. Of het nu gaat om een appartement of een logistiek object, wij selecteren het type vastgoed dat aansluit bij uw investeringsdoelstellingen.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kunnen jullie helpen bij financiering in Hongarije? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Financiering voor buitenlandse investeerders kan complex zijn. Wij kunnen u in contact brengen met lokale banken.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Vennootschappen &amp; Fiscale Structuur</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Klopt het dat de vennootschapsbelasting in Hongarije 9% bedraagt? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja. Hongarije hanteert momenteel het laagste vennootschapsbelastingtarief binnen de Europese Unie: 9%. Dit geldt voor handelsvennootschappen en holdingstructuren, wat Hongarije aantrekkelijk maakt voor internationale activiteiten.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Wat is een Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">De Kft (Korlátolt Felelősségű Társaság) is de Hongaarse equivalent van de Nederlandse B.V. De vennootschap biedt beperkte aansprakelijkheid en is de gebruikelijke rechtsvorm voor ondernemingsactiviteiten.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kan een Nederlandse particulier of B.V. eigenaar zijn van een Hongaarse Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja. Zowel een Nederlandse particulier als een Nederlandse B.V. kan 100% aandeelhouder zijn van een Hongaarse Kft.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Moet ik fysiek aanwezig zijn om een vennootschap op te richten? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">In de meeste gevallen kan de oprichting op afstand plaatsvinden via een volmacht. Voor het openen van een bankrekening is doorgaans wel een korte persoonlijke afspraak in Hongarije vereist in verband met identificatieverplichtingen (KYC).</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoe lang duurt de oprichting van een vennootschap? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Na ondertekening van de documenten vindt de elektronische registratie doorgaans binnen 4 à 5 werkdagen plaats.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoeveel startkapitaal is vereist voor een Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Het wettelijk aandelenkapitaal bedraagt 3 miljoen HUF (circa €7.500). Dit bedrag hoeft niet direct bij oprichting op een bankrekening te worden gestort. De inbreng kan binnen maximaal twee jaar plaatsvinden. Directe vereiste: U dient de administratieve en juridische oprichtingskosten te voldoen. Let op: Het volledige aandelenkapitaal moet zijn volgestort voordat dividend kan worden uitgekeerd.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoe wordt de boekhouding geregeld voor mijn Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij werken samen met betrouwbare adviseurs in Hongarije. Wij brengen u met hen in contact en zorgen dat uw vennootschap vanaf de start voldoet aan alle wettelijke verplichtingen.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Samenwerking met Balla Consulting</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Zijn jullie een groot kantoor? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Balla Consulting is een gespecialiseerd en bewust kleinschalig kantoor. Wij geloven in persoonlijk contact en korte lijnen. U hebt rechtstreeks contact met de directie en wordt niet doorverwezen naar steeds wisselende contactpersonen.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoe worden jullie diensten gefactureerd? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij maken vooraf duidelijke afspraken. Bij vastgoed rekenen wij een vaste startvergoeding en een aanvullende vergoeding bij aankoop. Voor vennootschappen hanteren wij vaste tarieven. Alle afspraken leggen wij vooraf schriftelijk vast.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Kunnen jullie ook ondersteunen bij verhuizing naar Hongarije? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja. Wij kunnen begeleiden bij verblijfsregistratie, belastingnummers en huisvesting.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Waarom een aankoopbegeleider inschakelen in plaats van rechtstreeks bij de verkoper kopen? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">De makelaar van de verkoper werkt voor de verkoper en streeft naar de hoogste prijs. Wij werken voor u. Wij beoordelen het object kritisch, onderhandelen scherp en zorgen dat u niet voor onverwachte risico's komt te staan.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Wat bedoelen jullie met een zorgvuldige werkwijze? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Wij werken strikt binnen de geldende wet- en regelgeving en maken geen gebruik van twijfelachtige constructies. Overeenkomsten, vergunningen en aangiften worden correct en zorgvuldig afgehandeld. Zo beschermen wij uw vermogen en uw reputatie.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Beschikken jullie over een juridisch netwerk? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Ja. Wij geven zelf geen juridisch advies, maar werken samen met gespecialiseerde vastgoed- en ondernemingsadvocaten in Hongarije die de juridische uitvoering verzorgen.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Hoe start ik het traject? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We beginnen met een <a href='#schedule' style='color:var(--gold);'>kosteloos kennismakingsgesprek</a> waarin we uw situatie en plannen bespreken. Op basis daarvan bepalen we samen de vervolgstappen en de aanpak die daarbij past. Een afspraak kunt u eenvoudig aanvragen via de contactpagina op onze website.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<Footer
+  disclaimerHref="/disclaimer"
+  privacyHref="/privacy-nl"
+  disclaimerLabel="Disclaimer"
+  privacyLabel="AVG &amp; Privacybeleid"
+/>
+
+<MainScripts />
+
+<MobileCTA callLabel="Bel Nu" emailLabel="E-mail" />
+
+</body>
+</BaseLayout>

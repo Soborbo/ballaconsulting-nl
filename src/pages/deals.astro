@@ -1,0 +1,18 @@
+---
+export const prerender = true;
+// LinkedIn strips URL fragments (#deals), so this page acts as a redirect.
+// ballaconsulting.com/deals -> ballaconsulting.com/#private-list
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=/#private-list">
+    <link rel="canonical" href="https://ballaconsulting.com/">
+    <title>Redirecting…</title>
+</head>
+<body>
+    <script is:inline>window.location.replace('/#private-list');</script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+---
+export const prerender = true;
+
+import '../styles/main.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StickyBar from '../components/StickyBar.astro';
+import Footer from '../components/Footer.astro';
+import MobileCTA from '../components/MobileCTA.astro';
+import MainScripts from '../components/MainScripts.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Balla Consulting",
+    "url": "https://ballaconsulting.com",
+    "logo": "https://ballaconsulting.com/logo-white.svg",
+    "description": "Look beyond the Netherlands and invest in Hungary. Turn-key investment infrastructure, property sourcing, renovation management and company setup.",
+    "email": "maria.balla@ballaconsulting.com",
+    "telephone": "+31618445121",
+    "address": {"@type": "PostalAddress", "addressLocality": "Amstelveen", "addressCountry": "NL"},
+    "founder": {"@type": "Person", "name": "Maria Balla", "jobTitle": "Chief Advisor"},
+    "areaServed": ["NL", "HU"],
+    "sameAs": ["https://x.com/BallaMa49578", "https://www.linkedin.com/company/balla-consulting"]
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Balla Consulting – Your Way to Growth",
+    "description": "Look beyond the Netherlands and invest in Hungary. Turn-key investment infrastructure, property sourcing, renovation management and company setup.",
+    "url": "https://ballaconsulting.com/",
+    "inLanguage": "en",
+    "publisher": {"@type": "Organization", "name": "Balla Consulting"}
+  })
+];
+---
+
+<BaseLayout
+  title="Balla Consulting – Your Way to Growth"
+  description="Look beyond the Netherlands and invest in Hungary. Balla Consulting provides turn-key investment infrastructure, property sourcing, renovation management and company setup."
+  ogTitle="Balla Consulting – Your Way to Growth"
+  ogDescription="Look beyond the Netherlands and invest in Hungary. Turn-key investment infrastructure, property sourcing, renovation management and company setup."
+  ogImage="https://ballaconsulting.com/assets/og-index.jpg"
+  ogUrl="https://ballaconsulting.com/"
+  ogType="website"
+  ogLocale="en_US"
+  twitterTitle="Balla Consulting – Your Way to Growth"
+  twitterDescription="Look beyond the Netherlands and invest in Hungary."
+  twitterImage="https://ballaconsulting.com/assets/og-index.jpg"
+  lang="en"
+  includeBelleAurore={true}
+  structuredData={structuredData}
+>
+
+
+<StickyBar />
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+    <!-- Top navigation over the hero -->
+    <nav class="top-nav">
+        <a href="/nl" class="lang-switch">NL</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#principles">Principles</a>
+            <a href="#services">Services</a>
+            <a href="#fees">Fee Structure</a>
+            <a href="/guide">Guide</a>
+            <a href="#private-list">Access to Private Deals</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero-video-side">
+        <img src="/budapest1.webp" alt="Budapest Parliament Building and Chain Bridge at dusk" width="643" height="845" fetchpriority="high">
+        <div class="hero-video-overlay"></div>
+    </div>
+    <div class="hero-message-side">
+        <div class="hero-message">
+            <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+            <p class="hero-tagline">Invest in <strong>Hungary</strong> Seamlessly</p>
+            <h1>Maximize Yield<br><span>Minimize Risk</span></h1>
+            <div class="hero-divider"></div>
+            <p style="font-size:16px;">Undervalued Assets &middot; Strategic Investment in Hungary</p>
+            <a href="#schedule" class="hero-cta-btn" style="margin-top:35px;">Schedule a FREE Initial Consultation</a>
+        </div>
+        <a href="#challenge" class="hero-scroll-arrow" aria-label="Scroll down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ===== INVESTOR CHALLENGE & SOLUTION ===== -->
+<section class="challenge-section" id="challenge">
+    <div class="container">
+        <h2 class="section-title">Why look beyond the Netherlands and invest in Hungary?</h2>
+        <p class="section-subtitle">Turn-key infrastructure for your capital</p>
+        <div class="challenge-grid">
+            <div class="challenge-box">
+                <h3><span class="icon-dot"></span> Investor's Challenge</h3>
+                <p>The Dutch market is challenging for investors — low yields and <strong>extreme tenant protection</strong> can make your asset illiquid for years. Hungary offers strong growth and liquidity, yet the barrier to entry remains high. Complex legislation, a demanding property market, and the language challenge can prevent investors to start.</p>
+            </div>
+            <div class="challenge-box">
+                <h3><span class="icon-dot"></span> The Solution</h3>
+                <p>We provide a turn-key infrastructure for your capital. From sourcing undervalued properties or industrial assets, negotiating the best price to managing renovations and full company setup, Balla Consulting handles the entire process.</p>
+                <p class="highlight">We do the hard work, you own the asset.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">Meet the Team</h2>
+        <p class="section-subtitle">Dedicated professionals. Local presence. International reach.</p>
+        <div class="about-layout">
+            <div class="about-photo">
+                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" width="800" height="1067" loading="lazy">
+                <p class="photo-label">Maria Balla</p>
+                <p class="photo-role">Chief Advisor</p>
+            </div>
+            <div class="about-text">
+                <p>I am Maria Balla, a Hungarian native based in Amsterdam since 2018. I am the founder of Balla Consulting where we advise institutions, individuals and entrepreneurs who want to invest in Hungary to buy real estate, industrial assets or establish a Hungarian Kft (Ltd) or a cross-border structure.</p>
+                <p>Working between the Netherlands and Hungary gives me insight into both markets — from the strict rental legislation and tax pressure in the Netherlands to the higher yields, increasing property values and more flexible tenancy laws available in Hungary.</p>
+                <p>With my team I have assisted clients with acquiring properties, overseeing renovations and managing rental operations. This hands-on experience allows me to supervise due diligence, pricing negotiation and tenant placement with care.</p>
+                <p>Hungary's 9% corporate income tax — the lowest in the European Union — can provide structural advantages when properly aligned with your investment strategy.</p>
+                <p>We provide personalized guidance at every step to our clients to navigate the Hungarian market with clarity and confidence.</p>
+                <p>You retain ownership.<br>We ensure local oversight, transparency and high-quality delivery.</p>
+                <p>If you are considering investing in Hungary, I welcome a confidential conversation.</p>
+                <p class="about-signature">Maria Balla</p>
+            </div>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="20"/><line x1="4" y1="5" x2="20" y2="5"/><path d="M4 5L2 13c0 1.7 1.3 3 3 3s3-1.3 3-3L6 5"/><path d="M18 5l2 8c0 1.7-1.3 3-3 3s-3-1.3-3-3l2-8"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="10" y1="22" x2="14" y2="22"/></svg></div>
+                <h4>Dr. Judit Márton</h4>
+                <p>Legal Advisor and Attorney</p>
+                <p class="member-bio">With over 20 years of experience, Dr. Judit Márton specialises in real estate law and company incorporation, supporting international investors in expanding their portfolios and business presence in Hungary.</p>
+            </div>
+            <div class="team-member">
+                <div class="member-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <h4>Csaba Gidró</h4>
+                <p>Renovation Advisor</p>
+                <p class="member-bio">Csaba Gidró brings 15+ years of experience in property renovation, overseeing projects from planning to completion. He ensures smooth delivery and high-quality outcomes for our clients.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services-section" id="services">
+    <div class="container">
+        <h2 class="section-title">Comprehensive Support</h2>
+        <p class="section-subtitle">For real estate and business expansion</p>
+        <div class="services-columns">
+            <div class="service-column">
+                <h3>Real Estate Support in Hungary</h3>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div>
+                        <h4>Asset Sourcing</h4>
+                        <p>Identifying high-potential assets in Hungary</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <div>
+                        <h4>Purchase Support</h4>
+                        <p>Managing the bidding and legal process till ownership</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                    <div>
+                        <h4>Renovation Management</h4>
+                        <p>Overseeing renovation to maximize ROI</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-column">
+                <h3>Business &amp; Tax Netherlands &amp; Hungary</h3>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22V10h6v12"/><path d="M9 6h.01M15 6h.01"/></svg></div>
+                    <div>
+                        <h4>Company Registration</h4>
+                        <p>Seamless business setup in both jurisdictions</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9.5H9.5a3.5 3.5 0 1 0 0 7H17"/><line x1="6" y1="9.5" x2="20" y2="9.5"/><line x1="6" y1="16.5" x2="20" y2="16.5"/></svg></div>
+                    <div>
+                        <h4>Tax Optimization</h4>
+                        <p>Maximizing corporate tax efficiency and benefits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CHALLENGES WE SOLVE ===== -->
+<section class="solve-section">
+    <div class="container">
+        <h2 class="section-title">Challenges We Solve</h2>
+        <p class="section-subtitle">Click to explore our solutions</p>
+        <div class="solve-grid">
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+                <h3>Access to Hidden Yields</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>Public listings are often overpriced or highly competitive.</p>
+                <p class="solution-label">Solution</p>
+                <p>We leverage our local network and sourcing capabilities beyond standard property portals, providing access to investment opportunities with genuine value-add potential.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5l9-7 9 7"/><path d="M5 9.5v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8"/><path d="M2 21c2-1 4-1.5 6-1.5s4 1 6 1.5 4 .5 6-.5"/><path d="M9 14h6v4.5H9z"/></svg></div>
+                <h3>Reaching Flexible Rental Market</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>The Dutch real estate market is characterized by strong tenant protection, long-term contracts, and regulated rental pricing, which can limit flexibility and returns for investors.</p>
+                <p class="solution-label">Solution</p>
+                <p>We guide you into a market where ownership rights are clearly defined and protected. Hungarian rental prices are set by the market—not a point based system— fixed-term contracts are fully enforceable, ensuring your asset remains liquid and profitable.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <h3>Key to Growth</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>In highly developed markets like the Netherlands, the real estate market is already priced at premium, thus limiting meaningful capital growth.</p>
+                <p class="solution-label">Solution</p>
+                <p>We focus on markets such as Hungary, where entry prices remain accessible and capital growth is strong.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                <h3>Legal Security</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>Navigating a foreign legal system can feel risky and unclear.</p>
+                <p class="solution-label">Solution</p>
+                <p>Balla Consulting protects your interests with a "Compliance First" standard. Verifying each of your documents with a real estate attorney ensures your ownership and the safety of your investment.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M14.7 10.3a1 1 0 0 0 0 1.4l.6.6a1 1 0 0 0 1.4 0l1.3-1.3a3 3 0 0 1-4-4l1.3 1.3z"/></svg></div>
+                <h3>End-to-End Renovation</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>Managing a renovation from another country introduces additional risks and delays.</p>
+                <p class="solution-label">Solution</p>
+                <p>We act as your project manager on spot, reviewing contractors, enforcing timelines, controlling budgets. We transform underperforming properties into income-generating assets, guided by strong local market knowledge.</p>
+            </div>
+            <div class="solve-card">
+                <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
+                <h3>Tax Advantage</h3>
+                <p class="challenge-label">The Challenge</p>
+                <p>Higher tax rates in parts of Western Europe may impact profit margins for cross-border businesses.</p>
+                <p class="solution-label">Solution</p>
+                <p>We advise on the potential benefits of Hungary's 9% corporate tax rate, where applicable, and support company setup and compliance—so you can focus on growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEE STRUCTURE ===== -->
+<section class="fees-section" id="fees">
+    <div class="container">
+        <h2 class="section-title">Transparency Is Our Policy</h2>
+        <p class="section-subtitle">Clear, upfront pricing with no hidden costs</p>
+        <div class="fee-cards">
+            <!-- Acquisition Suite -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>The Acquisition Suite</h3>
+                    <p>For the investor who wants a secure purchase but plans to manage the property independently.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Engagement Retainer</p>
+                        <p class="fee-value">€950</p>
+                        <p class="fee-note">Deducted from final fee. Covers initial research and on-site due diligence.</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Success Fee</p>
+                        <p class="fee-value">2.0% of purchase price</p>
+                        <p class="fee-note">Upon successful completion of the acquisition.</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Minimum Total Fee</p>
+                        <p class="fee-value">€3,000</p>
+                        <p class="fee-note">Excludes VAT and statutory notary/state fees.</p>
+                    </div>
+                    <h4 style="margin-top: 16px;">Includes:</h4>
+                    <ul style="list-style:none; margin-top: 8px;">
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Asset Sourcing</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Due Diligence & Legal Coordination</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Price Negotiation & Contract Review</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Key Handover & Meter Check</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="fee-cta">Request Proposal</a>
+            </div>
+
+            <!-- Value-Add Suite -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>The Value-Add Suite</h3>
+                    <p>For the investor who wants a turn-key asset delivered ready for rental.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Acquisition Fee</p>
+                        <p class="fee-value">Same as Acquisition Suite</p>
+                        <p class="fee-note">€950 retainer + 2.0% success fee (min. €3,000)</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Renovation Oversight Fee</p>
+                        <p class="fee-value">15% of renovation budget</p>
+                        <p class="fee-note">5% at start · 5% at midterm · 5% at completion</p>
+                    </div>
+                    <div class="fee-item">
+                        <p class="fee-label">Property Management</p>
+                        <p class="fee-value">10% gross monthly rent</p>
+                        <p class="fee-note">Maintenance, repairs and third-party costs charged separately.</p>
+                    </div>
+                </div>
+                <a href="#contact" class="fee-cta">Request Proposal</a>
+            </div>
+
+            <!-- Corporate Package -->
+            <div class="fee-card">
+                <div class="fee-card-header">
+                    <h3>Hungary Market Entry (Kft)</h3>
+                    <p>For Dutch entrepreneurs establishing a low-tax entity.</p>
+                </div>
+                <div class="fee-card-body">
+                    <div class="fee-item">
+                        <p class="fee-label">Fixed Price</p>
+                        <p class="fee-value">€1,850</p>
+                        <p class="fee-note">Excludes VAT and statutory notary/state fees.</p>
+                    </div>
+                    <h4 style="margin-top: 16px;">Includes:</h4>
+                    <ul style="list-style:none; margin-top: 8px;">
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Kft (B.V) Registration & Deed of Foundation</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> VAT & Chamber of Commerce Registration</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bank Account Introduction</li>
+                        <li style="padding: 4px 0; padding-left: 16px; position: relative; font-size: 14px;"><svg style="position:absolute;left:0;top:6px;width:12px;height:12px;color:var(--gold);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Registered Address Setup Assistance</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="fee-cta">Request Proposal</a>
+            </div>
+
+            <!-- Placeholder for balance -->
+            <div class="fee-card fee-card-full" style="border: 2px dashed var(--gold); background: linear-gradient(135deg, rgba(197,160,89,0.04), rgba(10,25,47,0.06)); box-shadow: 0 4px 20px rgba(197,160,89,0.1);">
+                <div class="fee-card-header" style="background: transparent; border-bottom: 1px solid rgba(197,160,89,0.2);">
+                    <h3 style="color: var(--navy); font-size: 26px;">Custom Package</h3>
+                    <p style="color: var(--text); font-size: 16px;">Need something specific? Let's discuss your requirements.</p>
+                </div>
+                <div class="fee-card-body" style="display:flex; align-items:center; justify-content:center; min-height: 150px;">
+                    <p style="color: var(--text); text-align:center; font-size: 17px; line-height:1.8;">We offer tailored solutions for complex cross-border investments and multi-property portfolios.<br><span style="color:var(--gold); font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; margin-top:10px; display:inline-block;">Tell us what you need — we'll build it.</span></p>
+                </div>
+                <a href="#contact" class="fee-cta" style="background: var(--gold); color: var(--navy); font-size: 14px; padding: 14px 36px;">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRINCIPLES ===== -->
+<section class="principles-section" id="principles">
+    <div class="container">
+        <h2 class="section-title">Principles</h2>
+        <p class="section-subtitle">Core Value Proposition — How We Work</p>
+        <div class="principles-layout">
+            <div class="principles-photo">
+                <img src="/assets/DSC_8696.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4 7h16M6 7l2 10h8l2-10M9 12h6"/></svg></div>
+                    <h3>Financial Discipline</h3>
+                    <h4>Full Cost Transparency</h4>
+                    <ul>
+                        <li><strong>Total Cost of Acquisition — No "Hidden" Fees:</strong> Unlike standard agents, we calculate the total acquisition cost — including transfer tax, legal fees and administrative obligations before you make an offer.</li>
+                        <li><strong>Independent Valuation Check:</strong> We verify pricing against local transaction data to prevent overpayment and "foreign pricing."</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg></div>
+                    <h3>Local Advantage</h3>
+                    <h4>Language Is Power</h4>
+                    <ul>
+                        <li>As native Hungarian speakers, we negotiate firmly on your behalf to secure the asset at the best possible entry price.</li>
+                        <li><strong>Direct Market Presence – Local Expertise:</strong> Many foreign agencies rely on third-party local partners. We operate directly in Budapest as native Hungarian professionals, ensuring clear communication and reliable on-the-ground oversight.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+                    <h3>Direct Communication</h3>
+                    <h4>Single Point of Contact</h4>
+                    <ul>
+                        <li>You have one dedicated contact throughout the process. The Chief Advisor coordinates all parties involved — from legal advisors to contractors and suppliers to accountants.</li>
+                        <li><strong>Transparent Reporting:</strong> Regular photo and video updates provide full oversight.</li>
+                        <li><strong>Speed of Execution:</strong> We actively manage timelines to ensure a swift transition from acquisition to rental.</li>
+                    </ul>
+                </div>
+                <div class="principle-card">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <h3>Responsibility</h3>
+                    <ul>
+                        <li><strong>Personalized Investment Strategy:</strong> Your financial objectives determine the direction. We listen first, then build a structured plan — whether for real estate or company formation.</li>
+                        <li><strong>Active Oversight:</strong> Your capital is treated with the same discipline as our own. Every step is handled transparently and within the legal framework.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CASE STUDY ===== -->
+<section class="case-section" id="case-study">
+    <div class="container">
+        <h2 class="section-title">The "District V" Turnaround</h2>
+        <p class="section-subtitle">A real client story from Budapest's most prestigious neighborhood</p>
+        <div class="case-stats">
+            <div class="case-stat">
+                <p class="stat-value">District V</p>
+                <p class="stat-label">Location</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">3%</p>
+                <p class="stat-label">Discount Secured</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">6 Months</p>
+                <p class="stat-label">Renovation Time</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">6% ROI</p>
+                <p class="stat-label">Status: Rented</p>
+            </div>
+            <div class="case-stat">
+                <p class="stat-value">12%</p>
+                <p class="stat-label">Value Increase</p>
+            </div>
+        </div>
+        <div class="case-layout">
+        <div class="case-video-side">
+            <a href="https://youtube.com/shorts/XA0HgWcqqEI" target="_blank" rel="noopener" style="display:block;position:relative;">
+                <img src="/assets/yt-thumb.webp" alt="Before &amp; After – District V Renovation" width="540" height="960" style="width:100%;border-radius:12px;display:block;">
+                <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(0,0,0,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+                </span>
+            </a>
+            <p class="case-video-caption">Before &amp; After</p>
+        </div>
+        <div class="case-body">
+            <h3>The Objective</h3>
+            <p>Our client, a private investor, sought a high-yield residential asset in Budapest's most prestigious neighborhood: District V. The goal was to acquire a classic apartment with "good bones" but outdated interiors, carry out a value-add renovation, and secure a long-term tenant.</p>
+
+            <h3>The Challenge</h3>
+            <p>District V is highly competitive due to its proximity to the Hungarian Parliament. Publicly listed properties are often overpriced or have bad structures. Furthermore, the client needed a specific layout (two separate bedrooms, bathroom/ toilet separation and bright interior) to maximize rental potential. Unfortunately most available apartments required significant changes that would destroy the ROI.</p>
+
+            <h3>1. Acquisition &amp; Negotiation</h3>
+            <p>After a long search we identified a niche opportunity: a structurally perfect but aesthetically tired apartment in a prime location. As a good location is key to having a continuous income, we decided to go for it.</p>
+            <p><strong>The Price:</strong> While the asking price was already slightly below market value, we negotiated aggressively. Our target was a 5% discount; we secured a <strong>3% reduction</strong>, locking in immediate equity upon purchase.</p>
+
+            <h3>2. Legal Safety &amp; Complexity</h3>
+            <p>Due diligence revealed a significant risk: the seller had a substantial mortgage on the property. A standard transfer would have exposed the buyer to liability.</p>
+            <p><strong>Our Action:</strong> We coordinated a rigorous legal process. Our partner lawyer negotiated directly with the seller's bank to establish an escrow mechanism. We structured the payment so that funds were released to the bank <strong>first</strong> to clear the title, guaranteeing our client a clean ownership deed before the final sum was paid.</p>
+
+            <h3>3. Financial Optimization</h3>
+            <p>The purchase price was in Hungarian Forint (HUF), but the client's capital was in Euro (EUR). A standard bank transfer would have resulted in a ~2% loss on the exchange rate.</p>
+            <p><strong>Our Action:</strong> We utilized a specialized Forex platform to lead the currency swap at near-market rates, saving the client thousands of Euros in transaction fees.</p>
+
+            <h3>4. Renovation Management</h3>
+            <p>With the keys secured, we delivered a "Design-Led" renovation.</p>
+            <p><strong>The Team:</strong> We tendered the project to three vetted contractors and selected the mid-priced option: a team with verified references and performance guarantees.</p>
+            <p><strong>The Design:</strong> We refused to compromise on materials. We personally sourced high-quality finishes and specialized decor painters to create a "luxury boutique" feel</p>
+            <p><strong>The Control:</strong> We implemented daily on-site supervision. Every stage of the work was inspected and photographed. This strict oversight kept the superb quality.</p>
+
+            <h3>The Result</h3>
+            <p>The project was delivered with a super high-end quality as our client requested</p>
+            <p><strong>Asset Status:</strong> Fully renovated, luxury 2-bedroom apartment in District V.</p>
+            <p><strong>Income:</strong> The property was listed on rental portals immediately upon completion. We secured a tenant within 4 weeks at the top end of the market rental rate.</p>
+            <p><strong>Outcome:</strong> A turn-key, high-yield asset generating <strong>passive income of 6%</strong> excluding the capital gain of the property</p>
+            <p><strong>Value increase:</strong> Due to the subsidized mortgage rates initiated by the Hungarian government in 2025. July, the estimated property price increase was a minimum of <strong>12%</strong>.</p>
+
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOOK A: FREE GUIDE ===== -->
+<section class="hook-map-section" id="free-guide">
+    <div class="container">
+        <div class="guide-promo">
+            <div class="guide-promo-cover">
+                <img src="/city-budapest.webp" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
+                <h3>The Essential Guide to <span>Hungary</span></h3>
+                <p>Balla Consulting</p>
+            </div>
+            <div class="guide-promo-text">
+                <h2>Free Investor's Guide</h2>
+                <p>Everything you need to know before investing in Hungarian real estate or setting up a company — in one comprehensive guide.</p>
+                <ul>
+                    <li>Best cities to live &amp; invest in</li>
+                    <li>Tax benefits &amp; residency options</li>
+                    <li>Step-by-step property buying process</li>
+                    <li>Foreign buyer rules &amp; due diligence</li>
+                    <li>Cost breakdowns &amp; timelines</li>
+                </ul>
+                <a href="/guide" class="hero-cta-btn">Read the Free Guide</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRIVATE LIST ===== -->
+<section class="private-list-section" id="private-list">
+    <div class="container">
+        <h2>Access to Private Deals</h2>
+        <p>Join the Balla Consulting Private List for access to exclusive investment deals.<br>No spam, just deal flow.</p>
+        <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <script is:inline>
+        (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);o.disconnect();}},{rootMargin:'400px'});o.observe(p);})();
+        </script>
+    </div>
+</section>
+
+<!-- ===== BLOG (commented out) =====
+<section class="blog-section" id="blog">
+    <div class="container">
+        <h2 class="section-title">From the Blog</h2>
+        <p class="section-subtitle">Insights on cross-border investing</p>
+        <div class="blog-card">
+            <h3>Why Dutch Real Estate Investors Are Looking Beyond the Netherlands</h3>
+            <p class="blog-sub">Rental Flexibility and Long-Term Growth</p>
+            <p>In recent months, we noticed a shift in conversations with Dutch investors. It is not driven by urgency or dissatisfaction, it is more thoughtful than that. The Netherlands remains a stable and well-regulated property market, but stability alone is no longer enough. Investors are asking whether their capital still has sufficient flexibility and growth potential.</p>
+            <p>The question is no longer <em>"Is it safe?"</em> — More <em>"Is it still efficient and worthy for the long term?"</em></p>
+            <a href="#" class="read-more">Read Full Article &rarr;</a>
+        </div>
+    </div>
+</section>
+===== -->
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="contact-layout">
+            <!-- Left column: Title + Card + Form -->
+            <div class="contact-left-col">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Choose your preferred way to connect</p>
+
+                <div class="contact-card">
+                    <div class="contact-photo">
+                        <img src="/assets/DSC_8540.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+                    </div>
+                    <div class="contact-info">
+                        <h3>Balla Consulting</h3>
+                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> <a href="mailto:maria.balla@ballaconsulting.com">maria.balla@ballaconsulting.com</a></p>
+                        <p><span style="font-size:15px;">&#x1F1F3;&#x1F1F1;</span> <a href="tel:+31618445121">+31 618 445121</a></p>
+                        <p><span style="font-size:15px;">&#x1F1ED;&#x1F1FA;</span> <a href="tel:+36705708972">+36 70 5708972</a></p>
+                        <p><span class="detail-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Amstelveen, The Netherlands</p>
+                        <p style="margin-top:4px; font-size:13px; color:#8892b0;">KVK: 99116537</p>
+                    </div>
+                </div>
+
+                <div class="contact-message">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                        <div class="contact-form-row">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email Address" required>
+                        </div>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <div class="contact-form-btn">
+                            <button type="submit">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right column: Calendly only -->
+            <div class="contact-right-col" id="schedule">
+                <h3>Schedule a FREE Initial Consultation</h3>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/maria-balla-ballaconsulting/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff" style="min-width:280px;height:700px;"></div>
+                <script is:inline>
+                (function(){var w=document.querySelector('.calendly-inline-widget');if(!w)return;var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){var s=document.createElement('script');s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;w.parentNode.insertBefore(s,w.nextSibling);o.disconnect();}},{rootMargin:'400px'});o.observe(w);})();
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know before investing</p>
+
+        <div class="faq-category">
+            <h3>Real Estate Investment &amp; Acquisition</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Why should I invest in Budapest compared to the Netherlands? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">In the Netherlands, landlords face a "triple threat": lower yields, heavy Box 3 taxation, and some of the strictest tenant protection laws in Europe. In contrast, Hungary offers a more balanced legal framework where owner's rights are enforceable. Combined with higher entry yields and strong growth potential, Hungary provides a liquid and secure environment for your investment.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is it safe for a foreign investor to buy property in Hungary? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes. The Hungarian Land Registry is a fully digital, centralized system similar to the Dutch Kadaster. Ownership rights are absolute and protected by EU law. We perform a complete title deed check before any offer is made.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is "Off-Market" sourcing? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Most high-value deals never appear on public portals. We source properties through municipal tenders, liquidation auctions, and our private network. This allows you to acquire assets at true market value.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I buy property as a private individual or do I need a company? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">EU citizens can purchase residential property in Hungary as private individuals without restriction. However, for tax optimization or when acquiring multiple properties, establishing a Hungarian company (Kft) is often recommended. We advise on the best structure for your specific needs.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do you verify the true value of a property? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We do not rely on the seller's asking price. We cross-reference the property with actual transaction data from the area and assess the "Total Cost of Acquisition" to ensure the numbers stack up before you bid.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">I cannot travel to Hungary frequently. How do you handle renovations? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We act as your local project manager. We vet contractors, enforce strict budget controls, and provide you with regular video/photo updates. You retain full control without needing to visit the construction site.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What are the typical transaction costs in Hungary? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">You should budget approximately 4% for Property Transfer Tax, 1% for legal fees, and a small administrative fee for land registry filing. We provide a full cost breakdown sheet before you make an offer.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you handle commercial real estate or only residential? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We handle both. Our focus is on ROI. Whether that comes from a classic apartment or a logistics warehouse, we source the asset that fits your investment criteria.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can you help with financing or mortgages in Hungary? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Financing for foreigners can be complex. We can introduce you to local banking partners, though we typically advise clients to have liquid capital ready for the most agile acquisition strategy.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Corporate Services &amp; Tax Optimization</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Is the 9% Corporate Tax rate real in Hungary? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes. Hungary currently has the lowest Corporate Income Tax rate in the European Union at 9%. This applies to trading companies and holding structures, making it highly efficient for cross-border operations.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is a "Kft"? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">The Kft is almost equivalent to a Dutch B.V. It provides limited liability protection and is the standard vehicle for doing business in Hungary.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can a Dutch citizen own a Hungarian Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Absolutely. A Dutch individual or a Dutch B.V. can be the 100% owner of a Hungarian Kft. We handle the entire registration process.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do I need to be physically present to open the company? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">In most cases, company registration can be handled remotely via Power of Attorney. However, opening a bank account usually requires a one-day personal visit to Budapest for compliance (KYC) checks.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long does company registration take? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Once the documents are signed, the electronic registration is very fast — typically completed within 7 business days.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How much cash do I need upfront to start the Kft? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">While the legal share capital is 3M HUF (~€7,500), you are not required to deposit this amount into a bank account upon registering the company. You only need to cover the administrative and legal setup fees. Note: You need to fully pay up the capital before you take your first dividend payment.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What about ongoing accounting and compliance? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We are not accountants, but we partner with trusted, English-speaking tax firms in Hungary. We set up the relationship and ensure your company is compliant from day one.</div></div>
+            </div>
+        </div>
+
+        <div class="faq-category">
+            <h3>Working with Balla Consulting</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">Are you a large agency? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">No, Balla Consulting is a boutique firm. You work directly with the founder, ensuring a single point of accountability and consistent communication.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do you charge for your services? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We believe in transparency. For real estate acquisition, we work on a fixed retainer depending on the search complexity and the workload. For corporate services, we offer fixed-price packages. All fees are agreed upon in writing before we start.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can you help with relocation if I decide to move? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes. While our primary focus is investment and company registration, we have extensive experience in Executive Relocation. For additional requests we can manage the residency, tax number and housing process for our clients.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Why should I use Balla Consulting instead of going directly to the seller? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">The seller's agent works for the seller and is incentivized to get the highest price. We work exclusively for you. Our job is to find the flaws, negotiate the price down, and protect your interests.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What is your "Compliance First" approach? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We have zero tolerance for "grey areas." We ensure every contract, renovation permit, and tax filing is strictly legal. This protects your assets and your reputation.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you have a network of legal professionals? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">Yes. We do not provide legal advice ourselves; we coordinate a network of trusted property and corporate legal practitioners in Hungary who execute the legal work.</div></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I get started? <span class="faq-toggle">+</span></div>
+                <div class="faq-answer"><div class="faq-answer-inner">We start with a <a href="#schedule" style="color:var(--gold);">FREE initial consultation</a> call to clarify your objectives in order to build a tailored-made strategy. You can request a FREE initial consultation via the contact form or Calendly link below.</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<Footer />
+
+<MainScripts />
+
+<MobileCTA />
+
+</body>
+</html>
+</BaseLayout>

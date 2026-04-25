@@ -1,0 +1,21 @@
+{
+  "name": "ballaconsulting-nl",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "wrangler deploy --config dist/server/wrangler.json",
+    "deploy:preview": "wrangler versions upload --config dist/server/wrangler.json"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^13.2.1",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.9",
+    "astro-critters": "^2.2.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.85.0"
+  }
+}
