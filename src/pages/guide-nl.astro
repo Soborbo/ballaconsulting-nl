@@ -1,0 +1,459 @@
+---
+import '../styles/guide.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StickyBar from '../components/StickyBar.astro';
+import Footer from '../components/Footer.astro';
+import MobileCTA from '../components/MobileCTA.astro';
+import MainScripts from '../components/MainScripts.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Essential Guide voor Hongarije",
+    "description": "Praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer.",
+    "url": "https://ballaconsulting.com/guide-nl",
+    "inLanguage": "nl",
+    "image": "https://ballaconsulting.com/assets/og-guide-nl.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Balla Consulting"
+    }
+  })
+];
+---
+
+<BaseLayout
+  title="Balla Consulting – The Essential Guide voor Hongarije"
+  description="De Essential Guide voor Hongarije – praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer."
+  lang="nl"
+  ogTitle="The Essential Guide voor Hongarije – Balla Consulting"
+  ogDescription="Praktische inzichten voor expats, investeerders en remote professionals. Steden, belastingvoordelen, aankoopproces en meer."
+  ogImage="https://ballaconsulting.com/assets/og-guide-nl.jpg"
+  ogUrl="https://ballaconsulting.com/guide-nl"
+  ogType="article"
+  ogLocale="nl_NL"
+  twitterTitle="The Essential Guide voor Hongarije – Balla Consulting"
+  twitterDescription="Praktische inzichten voor expats, investeerders en remote professionals."
+  twitterImage="https://ballaconsulting.com/assets/og-guide-nl.jpg"
+  includeBelleAurore={true}
+  structuredData={structuredData}
+>
+
+<!-- ===== STICKY CTA BAR ===== -->
+<StickyBar
+  showPrivateDeals={false}
+  ctaLabel="Plan een kosteloos kennismakingsgesprek"
+  ctaHref="/nl#schedule"
+/>
+
+<!-- ===== GUIDE HERO ===== -->
+<header class="guide-hero" id="top">
+    <nav class="top-nav">
+        <a href="/guide" class="lang-switch">EN</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="/nl">Home</a>
+            <a href="#benefits">Voordelen</a>
+            <a href="#cities">Steden</a>
+            <a href="#tax">Belasting & Verblijf</a>
+            <a href="#buying">Vastgoed kopen</a>
+            <a href="/nl#contact">Contact</a>
+        </div>
+    </nav>
+    <div class="container">
+        <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+        <p class="hero-tagline">Balla Consulting Gids</p>
+        <h1>The Essential Guide<br>voor <span>Hongarije</span></h1>
+        <div class="hero-divider"></div>
+        <p class="hero-sub">Praktische inzichten voor expats, investeerders en remote professionals</p>
+        <a href="/nl" class="back-link">&larr; Terug naar Home</a>
+    </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section class="guide-section" id="intro">
+    <div class="container">
+        <p class="guide-intro">Hongarije is een aantrekkelijke bestemming binnen Europa voor wie op zoek is naar een combinatie van betaalbaar wonen, investeringsmogelijkheden en toegang tot de Europese markt.</p>
+    </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="guide-section alt" id="benefits">
+    <div class="container">
+        <h2 class="section-title">Voordelen</h2>
+        <p class="section-subtitle">Waarom Hongarije zich onderscheidt voor investeerders en expats</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Centrale ligging</h3>
+                <p>Hongarije ligt in het hart van Europa en heeft goede verbindingen met onder meer Oostenrijk, Slowakije, Sloveni&euml;, Kroati&euml; en Oost-Europa. Als EU-lidstaat biedt het volledige toegang tot de interne markt.</p>
+                <p style="margin-top:12px;">De luchthaven van Boedapest fungeert als een belangrijk knooppunt voor zowel zakelijke als particuliere reizen. Er zijn meerdere dagelijkse verbindingen met Nederland.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Kosten van levensonderhoud</h3>
+                <p>Het levensonderhoud ligt in Hongarije lager dan in veel West-Europese landen. Huurprijzen liggen vaak 40% tot 60% lager, afhankelijk van locatie en type woning.</p>
+                <p style="margin-top:12px;">Openbaar vervoer en dagelijkse voorzieningen zijn aanzienlijk goedkoper.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BEST CITIES ===== -->
+<section class="guide-section dark" id="cities">
+    <div class="container">
+        <h2 class="section-title">Beste steden om te wonen en te investeren</h2>
+        <p class="section-subtitle">Van de hoofdstad tot opkomende regionale centra</p>
+        <div class="city-grid">
+            <!-- Budapest -->
+            <div class="city-card featured">
+                <div class="city-card-inner">
+                    <div class="city-img">
+                        <img src="/city-budapest.webp" alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy">
+                    </div>
+                    <div class="city-card-body">
+                        <h3>Budapest</h3>
+                        <p class="city-location">Hoofdstad</p>
+                        <p>Boedapest is het economische centrum van Hongarije en biedt de meeste faciliteiten.</p>
+                        <div class="pros-cons">
+                            <div>
+                                <h4>Voordelen</h4>
+                                <ul>
+                                    <li>Sterke huurmarkt</li>
+                                    <li>Internationale gemeenschap</li>
+                                    <li>Goede infrastructuur</li>
+                                    <li>Potentieel voor waardegroei</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Aandachtspunten</h4>
+                                <ul>
+                                    <li>Hogere aankoopprijzen</li>
+                                    <li>Toenemende regulering voor short-term verhuur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regionale steden -->
+            <div class="city-card">
+                <div class="city-card-body">
+                    <h3>Regionale steden</h3>
+                    <div class="pros-cons">
+                        <div>
+                            <h4>Voordelen</h4>
+                            <ul>
+                                <li>Lagere instapprijzen</li>
+                                <li>Opkomende investeringsmogelijkheden</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Aandachtspunten</h4>
+                            <ul>
+                                <li>Kleinere huurmarkten</li>
+                                <li>Lagere liquiditeit en rendement ten opzichte van Boedapest</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debrecen -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-debrecen-bg.webp">
+                        <img src="/city-debrecen.webp" alt="Debrecen Great Reformed Church" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Debrecen</h3>
+                    <p class="city-location">Oost-Hongarije</p>
+                    <div class="features">
+                        <ul>
+                            <li>Sterke industri&euml;le ontwikkeling</li>
+                            <li>Toenemende vraag naar woningen</li>
+                            <li>Strategische ligging richting Roemeni&euml; en Oekra&iuml;ne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Szeged -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-szeged-bg.webp">
+                        <img src="/city-szeged.webp" alt="Szeged Cathedral" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Szeged</h3>
+                    <p class="city-location">Zuid-Hongarije</p>
+                    <div class="features">
+                        <ul>
+                            <li>Universiteitsstad met stabiele huurvraag</li>
+                            <li>Lagere instapprijzen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Győr -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-gyor-bg.webp">
+                        <img src="/city-gyor.webp" alt="Győr city center" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Győr</h3>
+                    <p class="city-location">West-Hongarije</p>
+                    <div class="features">
+                        <ul>
+                            <li>Sterke economie (automotive sector)</li>
+                            <li>Ligging nabij Oostenrijk en Slowakije</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RESIDENCY, TAX & COST OF LIVING ===== -->
+<section class="guide-section alt" id="tax">
+    <div class="container">
+        <h2 class="section-title">Verblijf, belasting en kosten van levensonderhoud</h2>
+        <p class="section-subtitle">Eenvoudig belastingstelsel, betaalbaar wonen</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Verblijf en visa</h3>
+                <ul>
+                    <li><strong>EU-burgers:</strong> kunnen vrij wonen en werken in Hongarije</li>
+                    <li><strong>Niet-EU-burgers:</strong> hebben een verblijfsvergunning nodig</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Inkomstenbelasting</h3>
+                <p>Hongarije kent een eenvoudig belastingstelsel:</p>
+                <ul>
+                    <li>Vast tarief van <span class="highlight">15%</span> inkomstenbelasting</li>
+                    <li>Geen progressieve schijven</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Belasting op huurinkomsten</h3>
+                <ul>
+                    <li>Huurinkomsten worden belast tegen <span class="highlight">15%</span> &mdash; In bepaalde gevallen zijn kosten aftrekbaar</li>
+                    <li>Structurering via vennootschap: Mogelijkheid tot investeren via een Kft (vergelijkbaar met een B.V.) met <span class="highlight">9%</span> vennootschapsbelasting</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Kosten van levensonderhoud</h3>
+                <p><strong>Huur</strong></p>
+                <ul>
+                    <li>Boedapest centrum: circa <strong>&euro;600&ndash;&euro;1.300 per maand</strong></li>
+                    <li>Buiten centrum / kleinere steden: circa <strong>&euro;400&ndash;&euro;900 per maand</strong></li>
+                </ul>
+                <p style="margin-top:16px;"><strong>Nutsvoorzieningen</strong></p>
+                <ul>
+                    <li>&euro;100&ndash;&euro;200 per maand afhankelijk van omvang en gebruik</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW TO BUY ===== -->
+<section class="guide-section" id="buying">
+    <div class="container">
+        <h2 class="section-title">Vastgoed kopen in Hongarije</h2>
+        <p class="section-subtitle">Een overzichtelijk en juridisch goed gestructureerd aankoopproces</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Selectie van het object</h3>
+                    <p>Vaststellen van een geschikt object op basis van budget en doelstelling.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Inschakelen van een advocaat</h3>
+                    <p>Een Hongaarse advocaat is verplicht en begeleidt het volledige proces.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Controle van eigendom</h3>
+                    <p>Verificatie via het kadaster van eigendom en eventuele lasten.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Bod en onderhandeling</h3>
+                    <p>Vaststellen van prijs en voorwaarden.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Koopovereenkomst en aanbetaling</h3>
+                    <p>Aanbetaling van circa 10%. Registratie van de koop in het kadaster.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Betaling restant koopsom</h3>
+                    <p>Volgens de afspraken in de overeenkomst.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>Definitieve registratie</h3>
+                    <p>Eigendom wordt volledig overgedragen na inschrijving in het kadaster.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Requirement -->
+        <div class="legal-box">
+            <h3>Juridische vereisten</h3>
+            <p>Een advocaat is verplicht bij iedere vastgoedtransactie en is verantwoordelijk voor:</p>
+            <ul>
+                <li>Opstellen en controleren van de overeenkomst</li>
+                <li>Juridisch onderzoek van het object</li>
+                <li>Registratie bij het kadaster</li>
+                <li>Naleving van de geldende wet- en regelgeving</li>
+            </ul>
+            <p style="margin-top:16px;">Het Hongaarse systeem is gebaseerd op Europese standaarden en biedt een gestructureerde en veilige overdracht.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOREIGN BUYER RULES ===== -->
+<section class="guide-section alt" id="foreign-buyers">
+    <div class="container">
+        <h2 class="section-title">Regels voor buitenlandse kopers</h2>
+        <p class="section-subtitle">Toegankelijk voor zowel EU- als niet-EU-burgers</p>
+        <div class="buyer-grid">
+            <div class="buyer-card">
+                <h3>EU-burgers</h3>
+                <p>Kunnen zonder beperkingen vastgoed aankopen.</p>
+            </div>
+            <div class="buyer-card">
+                <h3>Niet-EU-burgers</h3>
+                <p>Hebben een aankoopvergunning nodig. Doorlooptijd: circa 30&ndash;60 dagen.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COSTS OF BUYING ===== -->
+<section class="guide-section">
+    <div class="container">
+        <h2 class="section-title">Kosten bij aankoop van vastgoed</h2>
+        <p class="section-subtitle">Relatief laag in vergelijking met West-Europese markten</p>
+        <div class="costs-grid">
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Overdrachtsbelasting</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">4%</p>
+                    <p>Van de aankoopprijs (te voldoen na afronding van de verkoop)</p>
+                </div>
+            </div>
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Juridische kosten</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">~1%</p>
+                    <p>Van de vastgoedwaarde (+ btw)</p>
+                </div>
+            </div>
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Renovatiebudget</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">10&ndash;20%</p>
+                    <p>Richtlijn afhankelijk van staat. Wij adviseren vooraf een technische inspectie uit te laten voeren om een realistische kosteninschatting te maken.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DUE DILIGENCE ===== -->
+<section class="guide-section dark" id="due-diligence">
+    <div class="container">
+        <h2 class="section-title">Due diligence</h2>
+        <p class="section-subtitle">Essenti&euml;le controles voorafgaand aan aankoop</p>
+        <div class="dd-grid">
+            <div class="dd-card">
+                <h3>Kadastercontrole</h3>
+                <p>Verificatie van eigendom en eventuele lasten.</p>
+            </div>
+            <div class="dd-card">
+                <h3>Controle op schulden</h3>
+                <p>Zekerstellen dat er geen openstaande verplichtingen zijn.</p>
+            </div>
+            <div class="dd-card">
+                <h3>Technische beoordeling</h3>
+                <p>Inzicht in staat van onderhoud en benodigde investeringen. De juridische controles worden door de advocaat uitgevoerd. Technische inspecties worden doorgaans verzorgd door een externe specialist.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TIMELINE & SUMMARY ===== -->
+<section class="guide-section alt" id="summary">
+    <div class="container">
+        <h2 class="section-title">Tijdlijn en samenvatting</h2>
+        <p class="section-subtitle">Doorgaans 1 tot 3 maanden van start tot afronding</p>
+        <div class="summary-box">
+            <p>Het aankoopproces duurt doorgaans 1 tot 3 maanden, afhankelijk van factoren zoals vergunningen of financiering.</p>
+            <p>Het Hongaarse vastgoedproces is transparant, juridisch gestructureerd en toegankelijk voor buitenlandse investeerders. Met de juiste begeleiding biedt het een gecontroleerde en overzichtelijke toegang tot een markt met solide perspectieven.</p>
+            <a href="/nl#schedule" class="cta-btn">Plan een kosteloos kennismakingsgesprek</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<Footer
+  privacyHref="/privacy-nl"
+  copyrightText="&copy; 2026 Balla Consulting. Alle rechten voorbehouden."
+  privacyLabel="GDPR &amp; Privacybeleid"
+/>
+
+<!-- ===== JAVASCRIPT ===== -->
+<MainScripts />
+
+<!-- Mobile bottom CTA -->
+<MobileCTA callLabel="Bel nu" emailLabel="Stuur e-mail" />
+
+</BaseLayout>

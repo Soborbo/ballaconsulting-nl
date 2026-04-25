@@ -1,0 +1,431 @@
+---
+import '../styles/guide.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StickyBar from '../components/StickyBar.astro';
+import Footer from '../components/Footer.astro';
+import MobileCTA from '../components/MobileCTA.astro';
+import MainScripts from '../components/MainScripts.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Essential Guide to Hungary",
+    "description": "Practical insights for expats, investors and remote professionals. Cities, tax benefits, property buying process and more.",
+    "url": "https://ballaconsulting.com/guide.html",
+    "inLanguage": "en",
+    "image": "https://ballaconsulting.com/assets/og-guide.jpg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Balla Consulting"
+    }
+  }, null, 4)
+];
+---
+
+<BaseLayout
+  title="The Essential Guide to Hungary – Balla Consulting"
+  description="The Essential Guide to Hungary – practical insights for expats, investors and remote professionals. Cities, tax benefits, property buying process and more."
+  ogTitle="The Essential Guide to Hungary – Balla Consulting"
+  ogDescription="Practical insights for expats, investors and remote professionals. Cities, tax benefits, property buying process and more."
+  ogImage="https://ballaconsulting.com/assets/og-guide.jpg"
+  ogUrl="https://ballaconsulting.com/guide.html"
+  ogType="article"
+  ogLocale="en_US"
+  twitterTitle="The Essential Guide to Hungary – Balla Consulting"
+  twitterDescription="Practical insights for expats, investors and remote professionals."
+  twitterImage="https://ballaconsulting.com/assets/og-guide.jpg"
+  includeBelleAurore={true}
+  structuredData={structuredData}
+>
+
+<!-- ===== STICKY CTA BAR ===== -->
+<StickyBar
+  homeHref="/"
+  showPrivateDeals={false}
+  ctaHref="/#schedule"
+/>
+
+<!-- ===== GUIDE HERO ===== -->
+<header class="guide-hero" id="top">
+    <nav class="top-nav">
+        <a href="/guide-nl" class="lang-switch">NL</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="/">Home</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#cities">Cities</a>
+            <a href="#tax">Tax & Residency</a>
+            <a href="#buying">Buying Property</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+    <div class="container">
+        <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+        <p class="hero-tagline">Balla Consulting Guide</p>
+        <h1>The Essential Guide<br>to <span>Hungary</span></h1>
+        <div class="hero-divider"></div>
+        <p class="hero-sub">Practical Insights for Expats, Investors & Remote Workers</p>
+        <a href="/" class="back-link">&larr; Back to Home</a>
+    </div>
+</header>
+
+<!-- ===== INTRO ===== -->
+<section class="guide-section" id="intro">
+    <div class="container">
+        <p class="guide-intro">Hungary is one of Europe's most attractive destinations for foreigners who are looking to have affordable living, investment potential, and access to the EU market.</p>
+    </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="guide-section alt" id="benefits">
+    <div class="container">
+        <h2 class="section-title">Key Benefits</h2>
+        <p class="section-subtitle">Why Hungary stands out for investors and expats</p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Central Location</h3>
+                <p>Hungary is located in the centre of Europe and has excellent connectivity to Austria, Slovakia, Slovenia, Croatia and the East part of Europe. The country provides full EU membership benefits for those who move within the EU.</p>
+                <p style="margin-top:12px;">Budapest Airport is a strategic hub for business and holidays. It is well-connected to the Netherlands with six daily flights provided by KLM and WizzAir.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Cost of Living</h3>
+                <p>Hungary offers a lower cost of living compared to Western Europe. Depending on the location, rental prices are often 40% to 60% more affordable.</p>
+                <p style="margin-top:12px;">Furthermore, public transportation and essential services remain considerably cheaper than in most Western European countries.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BEST CITIES ===== -->
+<section class="guide-section dark" id="cities">
+    <div class="container">
+        <h2 class="section-title">Best Cities to Live & Invest In</h2>
+        <p class="section-subtitle">From the capital to emerging regional hubs</p>
+        <div class="city-grid">
+            <!-- Budapest -->
+            <div class="city-card featured">
+                <div class="city-card-inner">
+                    <div class="city-img">
+                        <img src="/city-budapest.webp" alt="Budapest skyline with Parliament and Chain Bridge" loading="lazy">
+                    </div>
+                    <div class="city-card-body">
+                        <h3>Budapest</h3>
+                        <p class="city-location">Capital City</p>
+                        <p>Budapest is the economic center of Hungary, offering the widest range of facilities.</p>
+                        <div class="pros-cons">
+                            <div>
+                                <h4>Pros</h4>
+                                <ul>
+                                    <li>Strong rental market</li>
+                                    <li>International community</li>
+                                    <li>Best infrastructure</li>
+                                    <li>Higher growth potential</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Cons</h4>
+                                <ul>
+                                    <li>Higher property prices</li>
+                                    <li>Increasing regulation on short-term rentals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Debrecen -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-debrecen-bg.webp">
+                        <img src="/city-debrecen.webp" alt="Debrecen Great Reformed Church" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Debrecen</h3>
+                    <p class="city-location">East of Hungary</p>
+                    <div class="features">
+                        <ul>
+                            <li>Major industrial developments: Large-scale manufacturing projects</li>
+                            <li>Rising Housing Demand: Driven by company development and local university growth</li>
+                            <li>Strategic Location: Ideally positioned for trade and logistics with Ukraine and Romania</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Szeged -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-szeged-bg.webp">
+                        <img src="/city-szeged.webp" alt="Szeged Cathedral" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Szeged</h3>
+                    <p class="city-location">South of Hungary</p>
+                    <div class="features">
+                        <ul>
+                            <li>University city with stable rental demand</li>
+                            <li>Lower entry prices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Győr -->
+            <div class="city-card">
+                <div class="city-card-img">
+                    <picture>
+                        <source media="(min-width: 769px)" srcset="/city-gyor-bg.webp">
+                        <img src="/city-gyor.webp" alt="Győr city center" loading="lazy">
+                    </picture>
+                </div>
+                <div class="city-card-body">
+                    <h3>Győr</h3>
+                    <p class="city-location">West of Hungary</p>
+                    <div class="features">
+                        <ul>
+                            <li>Strong economy (automotive industry)</li>
+                            <li>Proximity to Austria and Slovakia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RESIDENCY, TAX & COST OF LIVING ===== -->
+<section class="guide-section alt" id="tax">
+    <div class="container">
+        <h2 class="section-title">Residency, Tax & Cost of Living</h2>
+        <p class="section-subtitle">Simple tax structure, affordable living</p>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Residency & Visas</h3>
+                <ul>
+                    <li><strong>EU citizens:</strong> Can live and work freely in Hungary</li>
+                    <li><strong>Non-EU citizens:</strong> Require a residence permit</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Income Tax Basics</h3>
+                <p>Hungary has a simple tax system:</p>
+                <ul>
+                    <li>Flat income tax: <span class="highlight">15%</span></li>
+                    <li>No progressive tax brackets</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Rental Income Taxation</h3>
+                <ul>
+                    <li>Rental income tax: <span class="highlight">15%</span> — Certain cost deductions may apply</li>
+                    <li>Investment Optimization: Option to use a Kft (equivalent of the Dutch B.V. or an American LLC) with a <span class="highlight">9%</span> corporate tax</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Cost of Living</h3>
+                <p><strong>Rent</strong></p>
+                <ul>
+                    <li>Budapest city center average: <strong>&euro;600&ndash;&euro;1,300/month</strong>, depending on the location & flat size</li>
+                    <li>Outside center / smaller cities: <strong>&euro;400&ndash;&euro;900/month</strong>, depending on the location & flat size</li>
+                </ul>
+                <p style="margin-top:16px;"><strong>Utilities</strong></p>
+                <ul>
+                    <li>&euro;100&ndash;&euro;200/month depending on size and usage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW TO BUY ===== -->
+<section class="guide-section" id="buying">
+    <div class="container">
+        <h2 class="section-title">How to Buy Real Estate in Hungary</h2>
+        <p class="section-subtitle">A safe, straightforward, and investor-friendly process</p>
+
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Property Selection</h3>
+                    <p>Identify and evaluate the right property based on your budget and personal goals.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Hire a Lawyer</h3>
+                    <p>A licensed Hungarian lawyer/notary is legally required to prepare the contracts and handle the process.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Verify Ownership</h3>
+                    <p>The lawyer will control the ownership and the debt status via the Land Registry.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Offer & Negotiation</h3>
+                    <p>Submit an offer and agree on the price and terms with the seller. The lawyer prepares and countersigns the official purchase agreement.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Deposit & Registration</h3>
+                    <p>A 10% deposit is typically required to secure the property. Once the contract is signed and the deposit is paid, the lawyer submits the documents to the Land Registry to register the partial ownership.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Payment of Remaining Balance</h3>
+                    <p>The final payment is completed via bank transfer according to the timeline in the contract.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>Final Registration</h3>
+                    <p>The Lawyer submits the agreement at the Land Registry for full ownership. Ownership is officially transferred once the full price is paid and the Land Registry completes the registration.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Requirement -->
+        <div class="legal-box">
+            <h3>Legal Requirement</h3>
+            <p>In Hungary, a licensed lawyer/notary must be involved in every real estate transaction. They are responsible for:</p>
+            <ul>
+                <li>Drafting and verifying the contract</li>
+                <li>Conducting a full legal review of the property</li>
+                <li>Submitting all necessary documents to the Land Registry</li>
+                <li>Ensuring the transaction complies with Hungarian law</li>
+            </ul>
+            <p style="margin-top:16px;">The Hungarian legal system provides European Union standardized and risk-free purchase transactions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOREIGN BUYER RULES ===== -->
+<section class="guide-section alt" id="foreign-buyers">
+    <div class="container">
+        <h2 class="section-title">Foreign Buyer Rules</h2>
+        <p class="section-subtitle">Accessible for both EU and non-EU citizens</p>
+        <div class="buyer-grid">
+            <div class="buyer-card">
+                <h3>EU Citizens</h3>
+                <p>Can purchase property under the same conditions as Hungarian citizens. No special permits are required.</p>
+            </div>
+            <div class="buyer-card">
+                <h3>Non-EU Citizens</h3>
+                <p>Non-EU citizens must obtain a purchase permit from the local government office. The process is standard and typically takes 30&ndash;60 days. Applications are approved if the paperwork is submitted correctly and professional advice followed appropriately.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COSTS OF BUYING ===== -->
+<section class="guide-section">
+    <div class="container">
+        <h2 class="section-title">Costs of Buying Property</h2>
+        <p class="section-subtitle">Relatively low compared to Western European markets</p>
+        <div class="costs-grid">
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Property Transfer Tax</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">4%</p>
+                    <p>Of the purchase price (paid after the sale is finalized)</p>
+                </div>
+            </div>
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Legal Fees</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">~1%</p>
+                    <p>Of the property value (+ VAT)</p>
+                </div>
+            </div>
+            <div class="cost-card">
+                <div class="cost-card-header">
+                    <h3>Renovation Costs</h3>
+                </div>
+                <div class="cost-card-body">
+                    <p class="cost-value">10&ndash;20%</p>
+                    <p>Extra budget depending on the condition of the property. We recommend organising a technical inspection for a renovation estimate prior to agreeing on the price.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DUE DILIGENCE ===== -->
+<section class="guide-section dark" id="due-diligence">
+    <div class="container">
+        <h2 class="section-title">Due Diligence</h2>
+        <p class="section-subtitle">Essential reviews before finalizing the price</p>
+        <div class="dd-grid">
+            <div class="dd-card">
+                <h3>Land Registry Check</h3>
+                <p>Confirms the seller is the true owner and identifies any mortgages, liens, or restrictions. This can be done individually or by a legal representative.</p>
+            </div>
+            <div class="dd-card">
+                <h3>Debt Check</h3>
+                <p>Ensures the property is free of unpaid utility bills or other financial claims.</p>
+            </div>
+            <div class="dd-card">
+                <h3>Condition Review</h3>
+                <p>We recommend a technical inspection of the condition of the property in order to calculate the total purchase cost. The lawyer coordinates the legal checks, but technical inspection is often handled by a third-party architect or renovation professionals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TIMELINE & SUMMARY ===== -->
+<section class="guide-section alt" id="summary">
+    <div class="container">
+        <h2 class="section-title">Timeline & Summary</h2>
+        <p class="section-subtitle">Typically 1 to 3 months from start to finish</p>
+        <div class="summary-box">
+            <p>The purchase process in Hungary typically takes between 1 and 3 months, depending on the complexity involved, such as permit requirements for non-EU buyers or bank financing.</p>
+            <p>The Hungarian real estate process is transparent, legally secure, and accessible to foreign investors. With the right professional advice, it offers easy entry into one of Europe's most attractive property markets.</p>
+            <a href="/#schedule" class="cta-btn">Schedule a FREE Initial Consultation</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<Footer />
+
+<!-- ===== JAVASCRIPT ===== -->
+<MainScripts />
+
+<!-- Mobile bottom CTA -->
+<MobileCTA />
+
+</BaseLayout>

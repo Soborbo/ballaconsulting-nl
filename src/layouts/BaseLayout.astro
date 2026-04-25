@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
+  ogType?: string;
+  ogLocale?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  includeBelleAurore?: boolean;
+  structuredData?: string[];
+}
+
+const {
+  title,
+  description,
+  lang = 'en',
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogUrl,
+  ogType = 'website',
+  ogLocale = 'en_US',
+  twitterTitle,
+  twitterDescription,
+  twitterImage,
+  includeBelleAurore = false,
+  structuredData = [],
+} = Astro.props;
+
+const fontUrl = includeBelleAurore
+  ? 'https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Lato:wght@300;400;700;900&display=swap'
+  : 'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap';
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content={description}>
+    {ogTitle && <meta property="og:title" content={ogTitle} />}
+    {ogDescription && <meta property="og:description" content={ogDescription} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogUrl && <meta property="og:url" content={ogUrl} />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Balla Consulting" />
+    <meta property="og:locale" content={ogLocale} />
+    {twitterTitle && <meta name="twitter:card" content="summary_large_image" />}
+    {twitterTitle && <meta name="twitter:title" content={twitterTitle} />}
+    {twitterDescription && <meta name="twitter:description" content={twitterDescription} />}
+    {twitterImage && <meta name="twitter:image" content={twitterImage} />}
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href={fontUrl} rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href={fontUrl} rel="stylesheet"></noscript>
+    <link rel="icon" type="image/webp" href="/icon.webp">
+    <slot name="head" />
+    <!-- Start cookieyes banner -->
+    <script is:inline id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js" async></script>
+    <!-- End cookieyes banner -->
+    {structuredData.map((sd) => (
+        <script type="application/ld+json" set:html={sd} />
+    ))}
+</head>
+<body>
+    <slot />
+</body>
+</html>

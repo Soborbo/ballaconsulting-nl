@@ -1,0 +1,190 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Lato', sans-serif;
+    color: #343549;
+    background: #F4F6F8;
+    font-size: 17px;
+    line-height: 1.7;
+}
+:root {
+    --navy: #0A192F;
+    --mist: #F4F6F8;
+    --gold: #C5A059;
+    --slate: #6B818C;
+    --white: #FFFFFF;
+    --text: #343549;
+}
+/* ===== TOP NAVBAR ===== */
+.top-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 18px 40px;
+}
+.lang-switch {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 1px solid var(--gold);
+    padding: 5px 12px;
+    border-radius: 4px;
+    z-index: 1001;
+    transition: background 0.3s, color 0.3s;
+}
+.lang-switch:hover {
+    background: var(--gold);
+    color: var(--navy);
+}
+.top-nav .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 25, 47, 0.97);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+}
+.top-nav .nav-links.open {
+    opacity: 1;
+    pointer-events: all;
+}
+.top-nav .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+.top-nav .nav-links a:hover {
+    color: var(--gold);
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 1001;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.disclaimer-header {
+    background: var(--navy);
+    padding: 48px 0 40px;
+    text-align: center;
+    position: relative;
+}
+.disclaimer-header a {
+    display: inline-block;
+    margin-bottom: 24px;
+}
+.disclaimer-header img {
+    height: 60px;
+    width: auto;
+}
+.disclaimer-header h1 {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.disclaimer-header p {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    margin-top: 8px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.disclaimer-body {
+    padding: 60px 0 80px;
+}
+.disclaimer-body h2 {
+    color: var(--navy);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+}
+.disclaimer-body h2:first-child {
+    margin-top: 0;
+}
+.disclaimer-body h3 {
+    color: var(--navy);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 24px 0 8px;
+}
+.disclaimer-body p {
+    margin-bottom: 16px;
+    color: var(--text);
+}
+.disclaimer-body ul {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    color: var(--text);
+}
+.disclaimer-body ul li {
+    margin-bottom: 6px;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+}
+.back-link:hover {
+    color: var(--navy);
+}
+footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px 0;
+    font-size: 13px;
+}
+footer a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+footer a:hover {
+    color: var(--gold);
+}
