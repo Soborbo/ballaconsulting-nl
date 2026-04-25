@@ -405,10 +405,12 @@ const structuredData = [
         <div class="contact-grid">
             <div class="contact-form">
                 <h3>Üzenet Küldése</h3>
-                <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                <form id="contactForm">
                     <input type="text" name="name" placeholder="Az Ön Neve" required>
                     <input type="email" name="email" placeholder="Az Ön Email Címe" required>
+                    <textarea name="message" placeholder="Üzenete" required></textarea>
                     <button type="submit">Küldés</button>
+                    <p id="contactStatus" style="margin-top:12px;font-size:14px;"></p>
                 </form>
                 <div class="contact-details">
                     <p><span class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span> maria.balla@ballaconsulting.com</p>
