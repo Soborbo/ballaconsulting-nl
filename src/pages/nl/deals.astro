@@ -4,6 +4,41 @@ export const prerender = true;
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
+
+const structuredData = [
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Toegang tot investeringsmogelijkheden – Balla Consulting",
+    "description": "Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden in Hongarije.",
+    "url": "https://ballaconsulting.com/nl/deals",
+    "inLanguage": "nl",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com",
+      "logo": "https://ballaconsulting.com/logo-white.svg"
+    }
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Private Deals",
+    "description": "Exclusieve toegang tot zorgvuldig geselecteerde vastgoedinvesteringen in Hongarije, inclusief off-market objecten en renovatieprojecten met meerwaarde.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Balla Consulting",
+      "url": "https://ballaconsulting.com"
+    },
+    "areaServed": ["NL", "HU"],
+    "serviceType": "Vastgoedinvestering Advies"
+  })
+];
 ---
 
 <BaseLayout
@@ -19,6 +54,7 @@ import Footer from '../../components/Footer.astro';
   twitterDescription="Exclusieve investeringsmogelijkheden in Hongarije. Geen spam, enkel dealflow."
   twitterImage="https://ballaconsulting.com/assets/og-nl.jpg"
   lang="nl"
+  structuredData={structuredData}
 >
 
 <section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
@@ -26,12 +62,31 @@ import Footer from '../../components/Footer.astro';
         <a href="/nl" style="display:inline-block;margin-bottom:40px;">
             <img src="/logo-white.svg" alt="Balla Consulting" style="height:32px;">
         </a>
-        <h2>Toegang tot investeringsmogelijkheden</h2>
-        <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
-        <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
-        <script is:inline>
-        (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
-        </script>
+        <div class="deals-layout" id="dealsContent">
+            <div class="deals-left">
+                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-photo">
+                <p class="deals-name">Maria Balla</p>
+                <p class="deals-role">Chief Advisor</p>
+            </div>
+            <div class="deals-right">
+                <h2>Toegang tot investeringsmogelijkheden</h2>
+                <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
+                <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+                <script is:inline>
+                (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
+                document.addEventListener('emailoctopus:form.success', function() {
+                    var content = document.getElementById('dealsContent');
+                    if (content) content.style.display = 'none';
+                    var msg = document.getElementById('dealsSuccess');
+                    if (msg) msg.style.display = 'block';
+                });
+                </script>
+            </div>
+        </div>
+        <div id="dealsSuccess" class="deals-success" style="display:none;">
+            <h2>Bedankt voor uw inschrijving!</h2>
+            <p>Wij nemen binnenkort contact met u op met exclusieve mogelijkheden.</p>
+        </div>
         <p style="margin-top:40px;"><a href="/nl" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;">&larr; Terug naar ballaconsulting.com</a></p>
     </div>
 </section>

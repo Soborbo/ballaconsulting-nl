@@ -566,7 +566,7 @@ const structuredData = [
 
                 <div class="contact-message">
                     <h3>Send a Message</h3>
-                    <form id="contactForm" action="mailto:maria.balla@ballaconsulting.com" method="post" enctype="text/plain">
+                    <form id="contactForm">
                         <div class="contact-form-row">
                             <input type="text" name="name" placeholder="Your Name" required>
                             <input type="email" name="email" placeholder="Your Email Address" required>
@@ -575,6 +575,7 @@ const structuredData = [
                         <div class="contact-form-btn">
                             <button type="submit">Send</button>
                         </div>
+                        <p id="contactStatus" style="margin-top:12px;font-size:14px;"></p>
                     </form>
                 </div>
             </div>

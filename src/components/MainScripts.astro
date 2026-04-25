@@ -77,4 +77,42 @@
             }
         });
     });
+
+    // Contact form via Resend API
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button[type="submit"]');
+            const status = document.getElementById('contactStatus');
+            const origText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = '...';
+            status.textContent = '';
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: this.name.value,
+                        email: this.email.value,
+                        message: this.message.value
+                    })
+                });
+                if (res.ok) {
+                    status.style.color = '#7dcea0';
+                    status.textContent = 'Message sent successfully!';
+                    this.reset();
+                } else {
+                    status.style.color = '#e74c3c';
+                    status.textContent = 'Failed to send. Please try again.';
+                }
+            } catch {
+                status.style.color = '#e74c3c';
+                status.textContent = 'Failed to send. Please try again.';
+            }
+            btn.disabled = false;
+            btn.textContent = origText;
+        });
+    }
 </script>
