@@ -8,12 +8,6 @@ body {
     font-size: 17px;
     line-height: 1.7;
 }
-/* Long Dutch / Hungarian compound words (e.g. "investeringsmogelijkheden")
-   shouldn't push the layout sideways — let headings break gracefully. */
-h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: anywhere;
-    hyphens: auto;
-}
 
 /* ===== COLORS ===== */
 :root {
@@ -953,7 +947,10 @@ section { padding: 100px 0; }
 }
 .private-list-section h2 {
     color: var(--white);
-    font-size: 32px;
+    /* Scales with viewport so the long Dutch headline
+       ("Toegang tot investeringsmogelijkheden") never overflows on mobile,
+       without breaking the word with a hyphen. */
+    font-size: clamp(20px, 5.6vw, 32px);
     margin-bottom: 16px;
 }
 .private-list-section p {
