@@ -57,44 +57,98 @@ const structuredData = [
   structuredData={structuredData}
 >
 
-<section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
-    <div class="container">
-        <a href="/nl" style="display:inline-block;margin-bottom:40px;">
-            <img src="/logo-white.svg" alt="Balla Consulting" style="height:32px;">
+<section class="private-list-section deals-page">
+    <div class="deals-bg-orb deals-bg-orb--top"></div>
+    <div class="deals-bg-orb deals-bg-orb--bottom"></div>
+
+    <header class="deals-topbar">
+        <a href="/nl" class="deals-logo-link" aria-label="Balla Consulting – home">
+            <img src="/logo-white.svg" alt="Balla Consulting" class="deals-logo">
         </a>
-        <div class="deals-layout" id="dealsContent">
-            <div class="deals-left">
-                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-photo">
-                <p class="deals-name">Maria Balla</p>
-                <p class="deals-role">Chief Advisor</p>
-            </div>
-            <div class="deals-right">
-                <h2>Toegang tot investeringsmogelijkheden</h2>
-                <p>Schrijf u in voor de Balla Consulting Private List en ontvang toegang tot zorgvuldig geselecteerde investeringsmogelijkheden.</p>
-                <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <a href="/nl" class="deals-back-link">
+            <span aria-hidden="true">&larr;</span> Terug naar ballaconsulting.com
+        </a>
+    </header>
+
+    <div class="deals-shell">
+        <div class="deals-card" id="dealsContent">
+            <aside class="deals-portrait">
+                <div class="deals-portrait-frame">
+                    <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-portrait-img" loading="eager">
+                </div>
+                <p class="deals-portrait-name">Maria Balla</p>
+                <p class="deals-portrait-role">Chief Advisor</p>
+                <span class="deals-portrait-divider" aria-hidden="true"></span>
+                <p class="deals-portrait-quote">
+                    &ldquo;Een korte lijst. Echte kansen. Direct van ons naar u.&rdquo;
+                </p>
+            </aside>
+
+            <div class="deals-content">
+                <p class="deals-eyebrow">
+                    <span class="deals-eyebrow-line" aria-hidden="true"></span>
+                    Uitsluitend op uitnodiging
+                    <span class="deals-eyebrow-line" aria-hidden="true"></span>
+                </p>
+                <h1 class="deals-title">Toegang tot <em>private</em> deals</h1>
+                <p class="deals-lede">
+                    Schrijf u in voor de Balla Consulting Private List en ontvang
+                    zorgvuldig geselecteerde, off-market investeringsmogelijkheden in
+                    Hongarije &mdash; rechtstreeks bij u, voordat ze de open markt bereiken.
+                </p>
+
+                <ul class="deals-benefits">
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">I</span>
+                        <span>Off-market vastgoed in Boedapest en belangrijke regiosteden</span>
+                    </li>
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">II</span>
+                        <span>Renovatieprojecten met duidelijk rendement-doel</span>
+                    </li>
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">III</span>
+                        <span>Vroege toegang &mdash; voordat een object op de markt komt</span>
+                    </li>
+                </ul>
+
+                <div class="deals-form">
+                    <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+                </div>
+
+                <p class="deals-trust">
+                    Geen spam. Enkel dealflow. Op elk moment uitschrijven.
+                </p>
+
                 <script is:inline>
                 (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
                 document.addEventListener('emailoctopus:form.success', function() {
                     var content = document.getElementById('dealsContent');
                     if (content) content.style.display = 'none';
                     var msg = document.getElementById('dealsSuccess');
-                    if (msg) msg.style.display = 'block';
+                    if (msg) msg.style.display = 'flex';
                 });
                 </script>
             </div>
         </div>
+
         <div id="dealsSuccess" class="deals-success" style="display:none;">
-            <h2>Bedankt voor uw inschrijving!</h2>
-            <p>Wij nemen binnenkort contact met u op met exclusieve mogelijkheden.</p>
+            <div class="deals-success-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 12 10 18 20 6"/>
+                </svg>
+            </div>
+            <h2>U staat op de lijst.</h2>
+            <p>Wij nemen contact met u op zodra de volgende kans klaarstaat.</p>
+            <a href="/nl" class="deals-success-link">Terug naar ballaconsulting.com &rarr;</a>
         </div>
-        <p style="margin-top:40px;"><a href="/nl" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;">&larr; Terug naar ballaconsulting.com</a></p>
     </div>
 </section>
 
 <Footer
   disclaimerHref="/disclaimer"
   privacyHref="/privacy-nl"
-  copyrightText="&copy; 2025 Balla Consulting. Alle rechten voorbehouden."
+  copyrightText="&copy; 2026 Balla Consulting. Alle rechten voorbehouden."
 />
 
 </BaseLayout>

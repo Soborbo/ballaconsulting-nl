@@ -57,37 +57,91 @@ const structuredData = [
   structuredData={structuredData}
 >
 
-<section class="private-list-section" style="min-height:100vh;display:flex;align-items:center;">
-    <div class="container">
-        <a href="/" style="display:inline-block;margin-bottom:40px;">
-            <img src="/logo-white.svg" alt="Balla Consulting" style="height:32px;">
+<section class="private-list-section deals-page">
+    <div class="deals-bg-orb deals-bg-orb--top"></div>
+    <div class="deals-bg-orb deals-bg-orb--bottom"></div>
+
+    <header class="deals-topbar">
+        <a href="/" class="deals-logo-link" aria-label="Balla Consulting – home">
+            <img src="/logo-white.svg" alt="Balla Consulting" class="deals-logo">
         </a>
-        <div class="deals-layout" id="dealsContent">
-            <div class="deals-left">
-                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-photo">
-                <p class="deals-name">Maria Balla</p>
-                <p class="deals-role">Chief Advisor</p>
-            </div>
-            <div class="deals-right">
-                <h2>Access to Private Deals</h2>
-                <p>Join the Balla Consulting Private List for access to exclusive investment deals.<br>No spam, just deal flow.</p>
-                <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+        <a href="/" class="deals-back-link">
+            <span aria-hidden="true">&larr;</span> Back to ballaconsulting.com
+        </a>
+    </header>
+
+    <div class="deals-shell">
+        <div class="deals-card" id="dealsContent">
+            <aside class="deals-portrait">
+                <div class="deals-portrait-frame">
+                    <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-portrait-img" loading="eager">
+                </div>
+                <p class="deals-portrait-name">Maria Balla</p>
+                <p class="deals-portrait-role">Chief Advisor</p>
+                <span class="deals-portrait-divider" aria-hidden="true"></span>
+                <p class="deals-portrait-quote">
+                    &ldquo;A short list. Real opportunities. Direct from us to you.&rdquo;
+                </p>
+            </aside>
+
+            <div class="deals-content">
+                <p class="deals-eyebrow">
+                    <span class="deals-eyebrow-line" aria-hidden="true"></span>
+                    By Invitation Only
+                    <span class="deals-eyebrow-line" aria-hidden="true"></span>
+                </p>
+                <h1 class="deals-title">Access to <em>Private</em> Deals</h1>
+                <p class="deals-lede">
+                    Join the Balla Consulting Private List for curated, off-market
+                    investment opportunities in Hungary &mdash; delivered directly,
+                    before they reach the public market.
+                </p>
+
+                <ul class="deals-benefits">
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">I</span>
+                        <span>Off-market real estate in Budapest and key regional cities</span>
+                    </li>
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">II</span>
+                        <span>Value-add renovation projects with clear yield targets</span>
+                    </li>
+                    <li>
+                        <span class="deals-benefit-marker" aria-hidden="true">III</span>
+                        <span>Early access &mdash; before any property hits the open market</span>
+                    </li>
+                </ul>
+
+                <div class="deals-form">
+                    <div id="eo-form-placeholder" data-form="59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4"></div>
+                </div>
+
+                <p class="deals-trust">
+                    No spam. Just deal flow. Unsubscribe anytime.
+                </p>
+
                 <script is:inline>
                 (function(){var p=document.getElementById('eo-form-placeholder');if(!p)return;var s=document.createElement('script');s.src='https://eomail5.com/form/59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4.js';s.async=true;s.dataset.form='59431dd6-2dc7-11f1-b866-b7a8a8ccd8c4';p.parentNode.insertBefore(s,p);})();
                 document.addEventListener('emailoctopus:form.success', function() {
                     var content = document.getElementById('dealsContent');
                     if (content) content.style.display = 'none';
                     var msg = document.getElementById('dealsSuccess');
-                    if (msg) msg.style.display = 'block';
+                    if (msg) msg.style.display = 'flex';
                 });
                 </script>
             </div>
         </div>
+
         <div id="dealsSuccess" class="deals-success" style="display:none;">
-            <h2>Thanks for subscribing!</h2>
-            <p>We'll be in touch with exclusive deals soon.</p>
+            <div class="deals-success-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 12 10 18 20 6"/>
+                </svg>
+            </div>
+            <h2>You&rsquo;re on the list.</h2>
+            <p>We&rsquo;ll be in touch when the next opportunity is ready.</p>
+            <a href="/" class="deals-success-link">Return to ballaconsulting.com &rarr;</a>
         </div>
-        <p style="margin-top:40px;"><a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:14px;">&larr; Back to ballaconsulting.com</a></p>
     </div>
 </section>
 
