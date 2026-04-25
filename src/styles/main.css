@@ -131,6 +131,7 @@ body.menu-open {
 }
 .sticky-cta .sticky-logo img {
     height: 36px;
+    width: auto;
 }
 .sticky-cta .sticky-info {
     display: flex;
@@ -289,6 +290,7 @@ body.menu-open {
 }
 .hero-logo {
     height: 96px;
+    width: auto;
     margin-bottom: 36px;
     display: block;
     margin-left: auto;
@@ -1041,7 +1043,7 @@ section { padding: 100px 0; }
 }
 .deals-logo-link { display: inline-flex; }
 .deals-logo {
-    height: 30px;
+    height: 48px;
     width: auto;
     display: block;
 }
@@ -1267,18 +1269,21 @@ section { padding: 100px 0; }
     .deals-card {
         grid-template-columns: 1fr;
     }
+    /* Put the form-bearing column first on mobile so the email signup is reachable
+       without scrolling past the portrait. */
+    .deals-content { order: 1; padding: 44px 36px 36px; }
     .deals-portrait {
-        padding: 48px 32px 32px;
+        order: 2;
+        padding: 32px 32px 40px;
         border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
     .deals-portrait-frame {
-        width: 160px;
-        height: 160px;
+        width: 140px;
+        height: 140px;
     }
-    .deals-content {
-        padding: 44px 36px 44px;
-    }
+    .deals-portrait-name { margin-top: 18px !important; font-size: 18px; }
+    .deals-portrait-role { font-size: 11px !important; letter-spacing: 2.5px; }
     .deals-title {
         font-size: 36px;
     }
@@ -1587,6 +1592,7 @@ footer {
 }
 .footer-logo img {
     height: 50px;
+    width: auto;
 }
 .footer-social {
     display: flex;

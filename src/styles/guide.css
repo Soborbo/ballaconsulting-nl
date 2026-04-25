@@ -126,6 +126,7 @@ body {
 }
 .sticky-cta .sticky-logo img {
     height: 36px;
+    width: auto;
 }
 .sticky-cta .sticky-info {
     display: flex;
@@ -190,6 +191,7 @@ body {
 }
 .guide-hero .hero-logo {
     height: 72px;
+    width: auto;
     margin-bottom: 30px;
     opacity: 0.92;
 }
@@ -740,6 +742,7 @@ footer {
 }
 .footer-logo img {
     height: 50px;
+    width: auto;
 }
 .footer-social {
     display: flex;
