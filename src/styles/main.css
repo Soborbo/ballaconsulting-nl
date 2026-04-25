@@ -925,7 +925,7 @@ section { padding: 100px 0; }
     margin: 0 auto;
 }
 .private-list-section form,
-.private-list-section div,
+.private-list-section #eo-form-placeholder,
 .private-list-section .emailoctopus-form-wrapper {
     margin-left: auto !important;
     margin-right: auto !important;
