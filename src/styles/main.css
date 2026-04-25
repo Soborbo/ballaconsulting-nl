@@ -8,6 +8,12 @@ body {
     font-size: 17px;
     line-height: 1.7;
 }
+/* Long Dutch / Hungarian compound words (e.g. "investeringsmogelijkheden")
+   shouldn't push the layout sideways — let headings break gracefully. */
+h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
 
 /* ===== COLORS ===== */
 :root {
