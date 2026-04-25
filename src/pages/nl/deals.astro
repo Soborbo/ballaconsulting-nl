@@ -1,0 +1,17 @@
+---
+// LinkedIn strips URL fragments (#deals), so this page acts as a redirect.
+// ballaconsulting.com/nl/deals -> ballaconsulting.com/nl#private-list
+---
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=/nl#private-list">
+    <link rel="canonical" href="https://ballaconsulting.com/nl">
+    <title>Doorverwijzing…</title>
+</head>
+<body>
+    <script is:inline>window.location.replace('/nl#private-list');</script>
+</body>
+</html>

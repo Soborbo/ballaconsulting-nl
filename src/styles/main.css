@@ -808,6 +808,7 @@ section { padding: 100px 0; }
 }
 .case-video-side img {
     width: 100%;
+    height: auto;
     border-radius: 12px;
     display: block;
 }
