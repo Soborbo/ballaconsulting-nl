@@ -1,6 +1,7 @@
 # Astro build output
 dist/
 .astro/
+.wrangler/
 node_modules/
 
 # Source/reference files - not part of the website

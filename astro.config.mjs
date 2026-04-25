@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import critters from 'astro-critters';
 
 export default defineConfig({
   site: 'https://ballaconsulting.com',
-  output: 'static',
+  output: 'server',
+  adapter: cloudflare(),
   build: {
     format: 'file',
   },
