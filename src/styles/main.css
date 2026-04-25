@@ -1114,6 +1114,7 @@ section { padding: 100px 0; }
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 18%;
     background: var(--navy);
 }
 .deals-portrait-name {
@@ -1133,22 +1134,6 @@ section { padding: 100px 0; }
     margin: 0 !important;
     max-width: none !important;
 }
-.deals-portrait-divider {
-    display: block;
-    width: 32px;
-    height: 1px;
-    background: rgba(197, 160, 89, 0.5);
-    margin: 22px auto;
-}
-.deals-portrait-quote {
-    color: rgba(255, 255, 255, 0.65) !important;
-    font-size: 14px !important;
-    font-style: italic;
-    line-height: 1.65;
-    max-width: 280px !important;
-    margin: 0 auto !important;
-}
-
 /* ----- RIGHT: content ----- */
 .deals-content {
     padding: 64px 64px 56px;
@@ -1189,6 +1174,37 @@ section { padding: 100px 0; }
     margin-left: 0 !important;
     margin-right: 0 !important;
     max-width: 480px !important;
+}
+/* Make the form a flex column so we can reorder the consent row before the submit button */
+.deals-page .deals-form form {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.deals-page .deals-form button[type="submit"] {
+    order: 99 !important;
+    align-self: flex-start;
+}
+/* Consent checkbox: bigger, gold accent, exempt from the generic 100%-wide input rule */
+.deals-page .deals-form input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    padding: 0 !important;
+    margin: 2px 10px 0 0 !important;
+    accent-color: var(--gold);
+    cursor: pointer;
+    flex-shrink: 0;
+    vertical-align: top;
+}
+.deals-page .deals-form .emailoctopus-form-row:has(input[type="checkbox"]) label {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0;
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+    cursor: pointer;
 }
 
 /* ----- success state ----- */
