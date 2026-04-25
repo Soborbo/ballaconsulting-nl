@@ -1,12 +1,20 @@
 ---
 export const prerender = true;
 
+import { Image } from 'astro:assets';
 import '../styles/main.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StickyBar from '../components/StickyBar.astro';
 import Footer from '../components/Footer.astro';
 import MobileCTA from '../components/MobileCTA.astro';
 import MainScripts from '../components/MainScripts.astro';
+import logoWhite from '../assets/logo-white.svg';
+import budapestHero from '../assets/budapest1.webp';
+import mariaBalla from '../assets/maria-balla.webp';
+import dsc8696 from '../assets/DSC_8696.webp';
+import dsc8540 from '../assets/DSC_8540.webp';
+import ytThumb from '../assets/yt-thumb.webp';
+import cityBudapest from '../assets/city-budapest.webp';
 
 const structuredData = [
   JSON.stringify({
@@ -75,12 +83,12 @@ const structuredData = [
     </nav>
 
     <div class="hero-video-side">
-        <img src="/budapest1.webp" alt="Budapest Parliament Building and Chain Bridge at dusk" width="643" height="845" fetchpriority="high">
+        <Image src={budapestHero} alt="Budapest Parliament Building and Chain Bridge at dusk" widths={[480, 768, 1024, 1280]} sizes="(max-width: 768px) 100vw, 50vw" fetchpriority="high" loading="eager" />
         <div class="hero-video-overlay"></div>
     </div>
     <div class="hero-message-side">
         <div class="hero-message">
-            <img src="/logo-white.svg" alt="Balla Consulting" class="hero-logo">
+            <Image src={logoWhite} alt="Balla Consulting" class="hero-logo" />
             <p class="hero-tagline">Invest in <strong>Hungary</strong> Seamlessly</p>
             <h1>Maximize Yield<br><span>Minimize Risk</span></h1>
             <div class="hero-divider"></div>
@@ -119,7 +127,7 @@ const structuredData = [
         <p class="section-subtitle">Dedicated professionals. Local presence. International reach.</p>
         <div class="about-layout">
             <div class="about-photo">
-                <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" width="800" height="1067" loading="lazy">
+                <Image src={mariaBalla} alt="Maria Balla – Balla Consulting" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 400px" loading="lazy" />
                 <p class="photo-label">Maria Balla</p>
                 <p class="photo-role">Chief Advisor</p>
             </div>
@@ -370,7 +378,7 @@ const structuredData = [
         <p class="section-subtitle">Core Value Proposition — How We Work</p>
         <div class="principles-layout">
             <div class="principles-photo">
-                <img src="/assets/DSC_8696.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+                <Image src={dsc8696} alt="Maria Balla – Balla Consulting" widths={[400, 600, 800]} sizes="(max-width: 768px) 100vw, 600px" loading="lazy" />
             </div>
             <div class="principles-grid">
                 <div class="principle-card">
@@ -444,7 +452,7 @@ const structuredData = [
         <div class="case-layout">
         <div class="case-video-side">
             <a href="https://youtube.com/shorts/XA0HgWcqqEI" target="_blank" rel="noopener" style="display:block;position:relative;">
-                <img src="/assets/yt-thumb.webp" alt="Before &amp; After – District V Renovation" width="540" height="960" style="width:100%;border-radius:12px;display:block;">
+                <Image src={ytThumb} alt="Before & After – District V Renovation" widths={[270, 540]} sizes="(max-width: 768px) 100vw, 540px" loading="lazy" style="width:100%;border-radius:12px;display:block;" />
                 <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(0,0,0,0.7);border-radius:50%;display:flex;align-items:center;justify-content:center;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
                 </span>
@@ -493,7 +501,7 @@ const structuredData = [
     <div class="container">
         <div class="guide-promo">
             <div class="guide-promo-cover">
-                <img src="/city-budapest.webp" alt="The Essential Guide to Hungary" style="width:100%; height:auto; display:block; border-radius:8px;">
+                <Image src={cityBudapest} alt="The Essential Guide to Hungary" widths={[480, 768]} sizes="(max-width: 768px) 100vw, 768px" loading="lazy" style="width:100%; height:auto; display:block; border-radius:8px;" />
                 <h3>The Essential Guide to <span>Hungary</span></h3>
                 <p>Balla Consulting</p>
             </div>
@@ -552,7 +560,7 @@ const structuredData = [
 
                 <div class="contact-card">
                     <div class="contact-photo">
-                        <img src="/assets/DSC_8540.webp" alt="Maria Balla – Balla Consulting" loading="lazy">
+                        <Image src={dsc8540} alt="Maria Balla – Balla Consulting" widths={[200, 400]} sizes="200px" loading="lazy" />
                     </div>
                     <div class="contact-info">
                         <h3>Balla Consulting</h3>

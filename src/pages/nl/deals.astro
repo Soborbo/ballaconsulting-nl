@@ -1,9 +1,12 @@
 ---
 export const prerender = true;
 
+import { Image } from 'astro:assets';
 import '../../styles/main.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
+import logoWhite from '../../assets/logo-white.svg';
+import mariaBalla from '../../assets/maria-balla.webp';
 
 const structuredData = [
   JSON.stringify({
@@ -63,7 +66,7 @@ const structuredData = [
 
     <header class="deals-topbar">
         <a href="/nl" class="deals-logo-link" aria-label="Balla Consulting – home">
-            <img src="/logo-white.svg" alt="Balla Consulting" class="deals-logo">
+            <Image src={logoWhite} alt="Balla Consulting" class="deals-logo" />
         </a>
         <a href="/nl" class="deals-back-link">
             <span aria-hidden="true">&larr;</span> Terug naar ballaconsulting.com
@@ -74,7 +77,7 @@ const structuredData = [
         <div class="deals-card" id="dealsContent">
             <aside class="deals-portrait">
                 <div class="deals-portrait-frame">
-                    <img src="/assets/maria-balla.webp" alt="Maria Balla – Balla Consulting" class="deals-portrait-img" loading="eager">
+                    <Image src={mariaBalla} alt="Maria Balla – Balla Consulting" class="deals-portrait-img" loading="eager" widths={[220, 320, 440]} sizes="(max-width: 900px) 160px, 220px" />
                 </div>
                 <p class="deals-portrait-name">Maria Balla</p>
                 <p class="deals-portrait-role">Chief Advisor</p>
