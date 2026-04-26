@@ -965,10 +965,12 @@ section { padding: 100px 0; }
 }
 .private-list-section form,
 .private-list-section #eo-form-placeholder,
+.private-list-section #eo-form-placeholder > div,
+.private-list-section .inline-container,
 .private-list-section .emailoctopus-form-wrapper {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 520px;
+    max-width: 520px !important;
 }
 .private-list-section a[href*="emailoctopus"] {
     filter: brightness(0) invert(1) !important;
@@ -1207,6 +1209,7 @@ section { padding: 100px 0; }
 }
 /* Override the centering imposed by .private-list-section so the form aligns left in the editorial layout */
 .deals-page .deals-form #eo-form-placeholder,
+.deals-page .deals-form .inline-container,
 .deals-page .deals-form .emailoctopus-form-wrapper,
 .deals-page .deals-form form,
 .deals-page .deals-form > div {
