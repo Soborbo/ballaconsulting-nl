@@ -6,18 +6,25 @@
     // Hamburger menu
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navLinks = document.getElementById('navLinks');
-    hamburgerBtn.addEventListener('click', () => {
-        hamburgerBtn.classList.toggle('active');
-        navLinks.classList.toggle('open');
-        document.body.classList.toggle('menu-open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+    if (hamburgerBtn && navLinks) {
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        hamburgerBtn.setAttribute('aria-controls', 'navLinks');
+        const closeMenu = () => {
             hamburgerBtn.classList.remove('active');
             navLinks.classList.remove('open');
             document.body.classList.remove('menu-open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+        };
+        hamburgerBtn.addEventListener('click', () => {
+            const open = hamburgerBtn.classList.toggle('active');
+            navLinks.classList.toggle('open', open);
+            document.body.classList.toggle('menu-open', open);
+            hamburgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
-    });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    }
 
     // Sticky CTA bar on scroll (throttled)
     const stickyCta = document.getElementById('stickyCta');
@@ -41,22 +48,34 @@
     }
 
     // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(q => {
-        q.addEventListener('click', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(q => {
+        if (!q.hasAttribute('role')) q.setAttribute('role', 'button');
+        if (!q.hasAttribute('tabindex')) q.setAttribute('tabindex', '0');
+        q.setAttribute('aria-expanded', 'false');
+        const toggle = () => {
             const item = q.parentElement;
+            if (!item) return;
             const answer = item.querySelector('.faq-answer');
             const isActive = item.classList.contains('active');
-
-            // Close all
             document.querySelectorAll('.faq-item').forEach(i => {
                 i.classList.remove('active');
-                i.querySelector('.faq-answer').style.maxHeight = null;
+                const a = i.querySelector('.faq-answer');
+                if (a) a.style.maxHeight = null;
+                const trigger = i.querySelector('.faq-question');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
             });
-
-            // Open clicked if it was closed
-            if (!isActive) {
+            if (!isActive && answer) {
                 item.classList.add('active');
                 answer.style.maxHeight = answer.scrollHeight + 'px';
+                q.setAttribute('aria-expanded', 'true');
+            }
+        };
+        q.addEventListener('click', toggle);
+        q.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
             }
         });
     });
@@ -65,10 +84,15 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            if (href === '#') return;
-            e.preventDefault();
-            const target = document.querySelector(href);
+            if (!href || href === '#' || href === '#main-content') return;
+            let target;
+            try {
+                target = document.querySelector(href);
+            } catch {
+                return;
+            }
             if (target) {
+                e.preventDefault();
                 const stickyHeight = stickyCta && stickyCta.classList.contains('visible') ? stickyCta.offsetHeight : 0;
                 window.scrollTo({
                     top: target.offsetTop - stickyHeight,
