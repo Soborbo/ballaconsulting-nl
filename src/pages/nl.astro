@@ -56,6 +56,13 @@ const structuredData = [
   twitterDescription="Kijk verder dan Nederland en investeer in Hongarije."
   twitterImage="https://ballaconsulting.com/assets/og-nl.jpg"
   lang="nl"
+  canonicalUrl="https://ballaconsulting.com/nl"
+  alternates={[
+    { hreflang: 'en', href: 'https://ballaconsulting.com/' },
+    { hreflang: 'nl', href: 'https://ballaconsulting.com/nl' },
+    { hreflang: 'hu', href: 'https://ballaconsulting.com/hu' },
+    { hreflang: 'x-default', href: 'https://ballaconsulting.com/' }
+  ]}
   includeBelleAurore={true}
   structuredData={structuredData}
 >
@@ -72,7 +79,7 @@ const structuredData = [
     <!-- Top navigation over the hero -->
     <nav class="top-nav">
         <a href="/" class="lang-switch">EN</a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <button type="button" class="hamburger" id="hamburgerBtn" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
         <div class="nav-links" id="navLinks">
@@ -566,14 +573,17 @@ const structuredData = [
                     <h3>Stuur een bericht</h3>
                     <form id="contactForm">
                         <div class="contact-form-row">
-                            <input type="text" name="name" placeholder="Uw naam" required>
-                            <input type="email" name="email" placeholder="Uw e-mailadres" required>
+                            <label for="contact-name" class="sr-only">Uw naam</label>
+                            <input id="contact-name" type="text" name="name" placeholder="Uw naam" autocomplete="name" required>
+                            <label for="contact-email" class="sr-only">Uw e-mailadres</label>
+                            <input id="contact-email" type="email" name="email" placeholder="Uw e-mailadres" autocomplete="email" required>
                         </div>
-                        <textarea name="message" placeholder="Uw bericht" required></textarea>
+                        <label for="contact-message" class="sr-only">Uw bericht</label>
+                        <textarea id="contact-message" name="message" placeholder="Uw bericht" required></textarea>
                         <div class="contact-form-btn">
                             <button type="submit">Versturen</button>
                         </div>
-                        <p id="contactStatus" style="margin-top:12px;font-size:14px;"></p>
+                        <p id="contactStatus" role="status" aria-live="polite" style="margin-top:12px;font-size:14px;"></p>
                     </form>
                 </div>
             </div>

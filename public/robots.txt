@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ballaconsulting.com/sitemap.xml
+Sitemap: https://ballaconsulting.com/sitemap-index.xml

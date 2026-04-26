@@ -1,6 +1,9 @@
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--navy); color: var(--gold); padding: 12px 20px; text-decoration: none; font-weight: 700; }
+.skip-link:focus { left: 16px; top: 16px; }
 body {
     font-family: 'Lato', sans-serif;
     color: #343549;
@@ -965,10 +968,12 @@ section { padding: 100px 0; }
 }
 .private-list-section form,
 .private-list-section #eo-form-placeholder,
+.private-list-section #eo-form-placeholder > div,
+.private-list-section .inline-container,
 .private-list-section .emailoctopus-form-wrapper {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 520px;
+    max-width: 520px !important;
 }
 .private-list-section a[href*="emailoctopus"] {
     filter: brightness(0) invert(1) !important;
@@ -1207,6 +1212,7 @@ section { padding: 100px 0; }
 }
 /* Override the centering imposed by .private-list-section so the form aligns left in the editorial layout */
 .deals-page .deals-form #eo-form-placeholder,
+.deals-page .deals-form .inline-container,
 .deals-page .deals-form .emailoctopus-form-wrapper,
 .deals-page .deals-form form,
 .deals-page .deals-form > div {
