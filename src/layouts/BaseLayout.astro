@@ -94,5 +94,18 @@ const fontUrl = includeBelleAurore
     <div id="main-content" tabindex="-1">
         <slot />
     </div>
+    <script>
+      import { initGlobalCatcher } from '@/lib/errors/client-catcher';
+      import { initWebVitals } from '@/lib/errors/web-vitals';
+
+      initGlobalCatcher({
+        endpoint: '/api/error-report',
+        siteId: import.meta.env.PUBLIC_SITE_ID || 'ballaconsulting-nl',
+        deployId: import.meta.env.PUBLIC_DEPLOY_ID || '',
+        isDev: import.meta.env.DEV,
+      });
+
+      initWebVitals();
+    </script>
 </body>
 </html>
