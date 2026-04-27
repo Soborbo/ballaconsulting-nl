@@ -85,6 +85,21 @@ const fontUrl = includeBelleAurore
     <!-- Start cookieyes banner -->
     <script is:inline id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/05b374989975e496a2ead63b419ff240/script.js" async></script>
     <!-- End cookieyes banner -->
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ZTWXY2DBWE"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ZTWXY2DBWE');
+    </script>
     {structuredData.map((sd) => (
         <script type="application/ld+json" set:html={sd} />
     ))}
@@ -106,6 +121,35 @@ const fontUrl = includeBelleAurore
       });
 
       initWebVitals();
+    </script>
+    <script is:inline>
+      // Conversion tracking — Calendly bookings + EmailOctopus (deals) signups.
+      // gtag is defined in <head>; if the user denied analytics consent it
+      // simply queues the event into dataLayer without storing cookies.
+      (function () {
+        if (typeof window.gtag !== 'function') {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+        }
+
+        window.addEventListener('message', function (e) {
+          if (!e || !e.data || typeof e.data !== 'object') return;
+          if (typeof e.origin !== 'string' || e.origin.indexOf('calendly.com') === -1) return;
+          if (e.data.event === 'calendly.event_scheduled') {
+            window.gtag('event', 'calendly_booking', {
+              event_category: 'engagement',
+              page_path: location.pathname,
+            });
+          }
+        });
+
+        document.addEventListener('emailoctopus:form.success', function () {
+          window.gtag('event', 'deals_signup', {
+            event_category: 'engagement',
+            page_path: location.pathname,
+          });
+        });
+      })();
     </script>
 </body>
 </html>

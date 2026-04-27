@@ -24,6 +24,12 @@ import logoWhite from '../assets/logo-white.svg';
       <a href="/hu" class="thankyou-back">&larr; Vissza a főoldalra</a>
     </div>
   </main>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('event', 'contact_form_submit', { event_category: 'engagement', form_lang: 'hu' });
+  </script>
 </BaseLayout>
 
 <style is:global>
