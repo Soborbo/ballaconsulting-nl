@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 import { Resend } from 'resend';
 import { trackServerError, buildErrorConfig } from '@/lib/errors/tracker-server';
 
@@ -23,12 +24,8 @@ const json = (status: number, body: Record<string, unknown>) =>
 
 const stripControl = (s: string) => s.replace(/[\x00-\x1f\x7f]/g, ' ').trim();
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } })?.runtime?.env;
-  const errorConfig = buildErrorConfig({
-    ...(import.meta.env as unknown as Record<string, string>),
-    ...(runtimeEnv as Record<string, string> | undefined ?? {}),
-  });
+export const POST: APIRoute = async ({ request }) => {
+  const errorConfig = buildErrorConfig(env as unknown as Record<string, string>);
 
   const origin = request.headers.get('origin');
   if (origin && !ALLOWED_ORIGINS.has(origin)) {
@@ -36,7 +33,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json(403, { error: 'Forbidden origin' });
   }
 
-  const apiKey = runtimeEnv?.RESEND_API_KEY ?? import.meta.env.RESEND_API_KEY;
+  const apiKey = (env as unknown as { RESEND_API_KEY?: string }).RESEND_API_KEY;
   if (!apiKey) {
     await trackServerError(
       'SRV-ENV-001',
