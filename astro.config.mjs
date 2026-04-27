@@ -15,7 +15,11 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/deals'),
+      filter: (page) =>
+        !page.includes('/deals') &&
+        !page.includes('/thank-you') &&
+        !page.includes('/bedankt') &&
+        !page.includes('/koszonjuk'),
     }),
     critters(),
   ],
