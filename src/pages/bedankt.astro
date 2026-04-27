@@ -1,0 +1,72 @@
+---
+export const prerender = true;
+
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import logoWhite from '../assets/logo-white.svg';
+---
+
+<BaseLayout
+  title="Bedankt – Balla Consulting"
+  description="Bedankt voor uw bericht."
+  lang="nl"
+  canonicalUrl="https://ballaconsulting.com/bedankt"
+>
+  <meta slot="head" name="robots" content="noindex, follow" />
+
+  <main class="thankyou-page">
+    <div class="thankyou-card">
+      <a href="/nl" aria-label="Balla Consulting"><Image src={logoWhite} alt="Balla Consulting" /></a>
+      <h1>Bedankt</h1>
+      <p>
+        Bedankt voor uw bericht. Wij nemen spoedig contact met u op.
+      </p>
+      <a href="/nl" class="thankyou-back">&larr; Terug naar de homepage</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .thankyou-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    background: var(--navy, #0f1d33);
+    color: #fff;
+    text-align: center;
+  }
+  .thankyou-card {
+    max-width: 560px;
+  }
+  .thankyou-card img {
+    height: 64px;
+    width: auto;
+    margin-bottom: 32px;
+  }
+  .thankyou-card h1 {
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 16px;
+    color: var(--gold, #c9a352);
+  }
+  .thankyou-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 32px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .thankyou-back {
+    display: inline-block;
+    color: var(--gold, #c9a352);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+  .thankyou-back:hover {
+    opacity: 0.85;
+  }
+</style>

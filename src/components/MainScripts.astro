@@ -106,9 +106,9 @@
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         const I18N = {
-            en: { success: 'Message sent successfully!', error: 'Failed to send. Please try again.' },
-            nl: { success: 'Bericht succesvol verzonden!', error: 'Verzenden mislukt. Probeer het opnieuw.' },
-            hu: { success: 'Üzenet sikeresen elküldve!', error: 'A küldés nem sikerült. Kérjük, próbálja újra.' }
+            en: { error: 'Failed to send. Please try again.', thankYou: '/thank-you' },
+            nl: { error: 'Verzenden mislukt. Probeer het opnieuw.', thankYou: '/bedankt' },
+            hu: { error: 'A küldés nem sikerült. Kérjük, próbálja újra.', thankYou: '/koszonjuk' }
         };
         const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
         const t = I18N[lang] || I18N.en;
@@ -131,13 +131,11 @@
                     })
                 });
                 if (res.ok) {
-                    status.style.color = '#7dcea0';
-                    status.textContent = t.success;
-                    this.reset();
-                } else {
-                    status.style.color = '#e74c3c';
-                    status.textContent = t.error;
+                    window.location.href = t.thankYou;
+                    return;
                 }
+                status.style.color = '#e74c3c';
+                status.textContent = t.error;
             } catch {
                 status.style.color = '#e74c3c';
                 status.textContent = t.error;
