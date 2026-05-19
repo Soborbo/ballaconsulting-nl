@@ -507,20 +507,22 @@ section { padding: 80px 0; }
 .info-card ul {
     list-style: none;
     margin-top: 8px;
+    padding-left: 0;
 }
 .info-card ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
     padding: 6px 0;
-    padding-left: 18px;
-    position: relative;
     font-size: 15px;
+    line-height: 1.7;
 }
 .info-card ul li::before {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 14px;
+    flex: 0 0 6px;
     width: 6px;
     height: 6px;
+    margin-top: calc(0.85em - 3px);
     background: var(--gold);
     border-radius: 50%;
 }
