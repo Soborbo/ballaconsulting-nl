@@ -501,6 +501,8 @@ section { padding: 80px 0; }
     color: var(--gold);
     font-weight: 700;
     font-size: 22px;
+    line-height: 1;
+    vertical-align: middle;
 }
 .info-card ul {
     list-style: none;
