@@ -1,15 +1,11 @@
 ---
-interface Alternate {
-  hreflang: string;
-  href: string;
-}
+import { hreflangFor } from '../lib/hreflang';
 
 interface Props {
   title: string;
   description: string;
   lang?: string;
   canonicalUrl?: string;
-  alternates?: Alternate[];
   ogTitle?: string;
   ogDescription?: string;
   ogImage?: string;
@@ -28,7 +24,6 @@ const {
   description,
   lang = 'en',
   canonicalUrl,
-  alternates = [],
   ogTitle,
   ogDescription,
   ogImage,
@@ -43,6 +38,8 @@ const {
 } = Astro.props;
 
 const canonical = canonicalUrl ?? ogUrl;
+// Hreflang comes from the shared group map (src/lib/hreflang.ts), keyed by canonical.
+const alternates = hreflangFor(canonical);
 
 const skipLabel =
   lang === 'nl' ? 'Naar inhoud springen' :
